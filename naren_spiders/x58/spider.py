@@ -395,6 +395,7 @@ def download_resume(session, url, proxies=None):
             error_page_times += 1
             if error_page_times > 5:
                 raise Exception("ERROR_PAGE!")
+            continue
         else:
             assert u'<h1 class="resTitle">' in data.text
             return data.text
