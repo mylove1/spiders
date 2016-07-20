@@ -366,6 +366,7 @@ def download_resume(session, url, proxies=None):
     logger.info('headers %s of url %s' % (headers, url))
     try_times = 0
     operation_times =0
+    error_page_times = 0
     while True:
         while True:
             try_times += 1
@@ -387,9 +388,16 @@ def download_resume(session, url, proxies=None):
             if operation_times > 5:
                 raise Exception("PROXY_BROKEN!")
             continue
-        if u'<h1>呃……很抱歉，该简历已不存在！</h1>' in data.text:
+        elif u'<h1>呃……很抱歉，该简历已不存在！</h1>' in data.text:
             break
-        return data.text
+        elif not u'<h1 class="resTitle">' in data.text:
+            time.sleep(random.uniform(30,100))
+            error_page_times += 1
+            if error_page_times > 5:
+                raise Exception("ERROR_PAGE!")
+        else:
+            assert u'<h1 class="resTitle">' in data.text
+            return data.text
 
 
 def x58_search(params, dedup, proxies=None):
