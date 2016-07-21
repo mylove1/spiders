@@ -421,7 +421,7 @@ def __download_resume(session, url, proxies=None):
                 error_url = "http://" + host + img
                 verify_code = parse_check_code(session, error_url, 'ganji', proxies)
                 response = session.post(error_url, data=verify_code, headers=verify_headers, timeout=__timeout)
-                if "对不起！您要查看的页面没有找到或已删除" in response.text:
+                if u"对不起！您要查看的页面没有找到或已删除" in response.text:
                     break
                 assert response.status_code == 200
                 continue
