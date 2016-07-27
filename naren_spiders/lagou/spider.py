@@ -11,8 +11,32 @@ import time
 import random
 import logging
 import traceback
+import contact
 
 logger = logging.getLogger()
+"""
+fetch task : {'condition': '{"destitle": {"030280325": "\xe4\xba\xba\xe4\xba\x8b\xe6\x80\xbb\xe7\x9b\x91"}, "education": "\xe4\xb8\xad\xe5\xb0\x8f\xe5\xad\xa6", "low_workage": "2", "desworklocation": {"35": "\xe5\x8c\x97\xe4\xba\xac\xe5\xb8\x82-\xe5\x8c\x97\xe4\xba\xac\xe5\xb8\x82"}, "lastupdatetime": "\xe6\x9c\x80\xe8\xbf\x917\xe5\xa4\xa9"}', 'context': '{"position_id": "1470", "unit_id": "217", "source": "ganji", "hunter_email": "zty1@nrnr.me", "position_name": "tester", "condition_id": "1362"}', 'err_code': 0}
+
+"""
+
+def __check_params(params):
+    check_list = ["02021", "02022", "02023", "02024", "02025", "02026", "02027", "03028",
+                  "03029", "03030", "04031", "04032", "04033", "04034", "05035", "05036",
+                  "08050", "08049", "01020", "11066"]
+    if "destitle" in params:
+        destitle_ids = params.get("destitle").keys()
+        for destitle_id in destitle_ids:
+            id = destitle_id[:5]
+            if id in check_list:
+                check_flag = True
+            else:
+                check_flag = None
+    else:
+        check_flag = None
+
+    return check_flag
+
+
 
 
 def __get_positionId(session, agent ,proxies=None):
@@ -161,12 +185,23 @@ def spider(session, agent, params, dedup, proxies=None):
                 yield pq(data).text()
 
 
+username = None
+password = None
+
+
+def lagou_set_user_password(uuid, passwd):
+    global username, password
+    username = uuid
+    password = passwd
+
 
 def lagou_search(params, dedup, proxies=None):
-    session = requests.Session()
+    assert username, password
+    session = contact.__login(username, password, proxies)
     agent = nautil.user_agent()
-    param = __splice_search_urls(session, params, agent)
-    return spider(session, agent, param, dedup, proxies=proxies)
+    if __check_params(params):
+        param = __splice_search_urls(session, params, agent)
+        return spider(session, agent, param, dedup, proxies=proxies)
 
 
 
@@ -182,7 +217,5 @@ if __name__ == '__main__':
             # "lastupdatetime": "最近30天",
             # "resumekeywords": ["java"]
         }
-    # __get_positionId(session)
-    # __splice_search_urls()
     param = __splice_search_urls(session, p, agent)
-    spider(session, param, dedup)
+    spider(session, param)
