@@ -22,7 +22,7 @@ def __get_positionId(session, agent ,proxies=None):
         "Accept-Encoding": "gzip, deflate, sdch, br",
         "Accept-Language": "zh-CN,zh;q=0.8",
         "Connection": "keep-alive",
-        "Cookie": """LGUID=20160414180719-ac7932c9-0228-11e6-b991-525400f775ce; user_trace_token=20160414180719-4c471c2cb6ed4110bcf5c46531cf7ffa; LGMOID=20160713114322-D4D970DE79AD498B5C2B68C734E972EF; JSESSIONID=5D902804430C0119041BF5D36E0C0B41; mds_login_authToken="RLhCWnOXAx7uh4/aLWBZBeJfhcW2eaZQSrv/cz5I7FOCIOeKgI/qynoP+/s3THZNjwgtza2lp5nKPGhZUUefGp4pZNO+oRBGkGAz5YFQphScfwB+ipGdGky2BOFyg0QVSPuad6rJYjJvcEfY+g7Ppifd9Evaz2d44tI08BdpBUh4rucJXOpldXhUiavxhcCELWDotJ+bmNVwmAvQCptcy5e7czUcjiQC32Lco44BMYXrQ+AIOfEccJKHpj0vJ+ngq/27aqj1hWq8tEPFFjdnxMSfKgAnjbIEAX3F9CIW8BSiMHYmPBt7FDDY0CCVFICHr2dp5gQVGvhfbqg7VzvNsw=="; mds_u_n=zyc; mds_u_ci=1099; mds_u_cn=%5Cu5317%5Cu4eac%5Cu7eb3%5Cu4eba%5Cu7f51%5Cu7edc%5Cu79d1%5Cu6280%5Cu6709%5Cu9650%5Cu516c%5Cu53f8; index_location_city=%E5%8C%97%E4%BA%AC; _gat=1; ctk=1469499335; _gat=1; _ga=GA1.2.53049449.1460628438; _putrc=6DC67524D1BFB0C2; login=true; unick=%E7%8E%8B%E9%87%8D; _ga=GA1.3.53049449.1460628438; LGSID=20160726090512-01579c2e-52cd-11e6-bfbf-525400f775ce; LGRID=20160726101711-0f7b00b2-52d7-11e6-b14c-5254005c3644; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469181479,1469424722,1469438944,1469495097; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469499414""",
+        "Cookie": """LGUID=20160414180719-ac7932c9-0228-11e6-b991-525400f775ce; user_trace_token=20160414180719-4c471c2cb6ed4110bcf5c46531cf7ffa; LGMOID=20160713114322-D4D970DE79AD498B5C2B68C734E972EF; index_location_city=%E5%8C%97%E4%BA%AC; _ga=GA1.2.53049449.1460628438; JSESSIONID=B6B161BAA253FC79AAA8B89183221C5C; _putrc=6DC67524D1BFB0C2; login=true; unick=%E7%8E%8B%E9%87%8D; mds_login_authToken="QUJK/LiyGCcIftVug8pZS+eFBS/Pcjm8DJRxOJMLw5DLyzw/5wk7Y9IqvTicbks0eikFwfpCM22/xvFOr0yxtd8g7w3a523ED+8HV2UDq4NWBD9RARjSUhgbPGdRIHPsc9XOeqQHPnyfcsK17kXiV0IgD5yNl/QViUNnmCnjpWB4rucJXOpldXhUiavxhcCELWDotJ+bmNVwmAvQCptcy5e7czUcjiQC32Lco44BMYXrQ+AIOfEccJKHpj0vJ+ngq/27aqj1hWq8tEPFFjdnxMSfKgAnjbIEAX3F9CIW8BSiMHYmPBt7FDDY0CCVFICHr2dp5gQVGvhfbqg7VzvNsw=="; mds_u_n=zyc; mds_u_ci=1099; mds_u_cn=%5Cu5317%5Cu4eac%5Cu7eb3%5Cu4eba%5Cu7f51%5Cu7edc%5Cu79d1%5Cu6280%5Cu6709%5Cu9650%5Cu516c%5Cu53f8; _gat=1; ctk=1469583852; _ga=GA1.3.53049449.1460628438; LGSID=20160727090340-f51f30f8-5395-11e6-800b-525400f775ce; LGRID=20160727094417-a13602b0-539b-11e6-b14c-5254005c3644; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469181479,1469424722,1469581421,1469583042; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469583857""",
         "Host": "easy.lagou.com",
         "Referer": "https://easy.lagou.com/search/index.htm",
         "User-Agent": agent,
@@ -48,7 +48,7 @@ def __get_positionId(session, agent ,proxies=None):
     positionId = r.get("content").get("data").get("positions")[0].get("positionId")
     return positionId
 
-def __splice_search_urls(session, narenkeywords):
+def __splice_search_urls(session, narenkeywords, agent):
     import urllib
     cities = [
         u"南京", u"哈尔滨", u"无锡",u"厦门", u"长春", u"青岛",u"天津", u"昆明", u"深圳",u"重庆", u"长沙", u"沈阳",u"北京", u"烟台", u"福州",\
@@ -108,22 +108,22 @@ def __splice_search_urls(session, narenkeywords):
     params = {
         "city": city,
         "keyword": keyword,
-        "positionId": __get_positionId(session),
+        "positionId": __get_positionId(session, agent),
         "education": education,
         "workYear": workYear,
     }
     return params
 
-def spider(session, agent, params, proxies=None):
+def spider(session, params, dedup, proxies=None):
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Encoding": "gzip, deflate, sdch, br",
         "Accept-Language": "zh-CN,zh;q=0.8",
         "Connection": "keep-alive",
-        "Cookie": """LGUID=20160414180719-ac7932c9-0228-11e6-b991-525400f775ce; user_trace_token=20160414180719-4c471c2cb6ed4110bcf5c46531cf7ffa; LGMOID=20160713114322-D4D970DE79AD498B5C2B68C734E972EF; PRE_UTM=; PRE_HOST=; PRE_SITE=; PRE_LAND=http%3A%2F%2Fwww.lagou.com%2F; index_location_city=%E5%8C%97%E4%BA%AC; _ga=GA1.2.53049449.1460628438; JSESSIONID=5D902804430C0119041BF5D36E0C0B41; _putrc=6DC67524D1BFB0C2; login=true; unick=%E7%8E%8B%E9%87%8D; mds_login_authToken="KjWGO2KJwJY7lBt8X6CmfBnt19L46MQXr7eb1JXHq+VjVZl0u7HbwX/8hUsVBFqKArOzxyFxZp9EKr/OKbIx5QqwNqivnECGZKEeGdFKwqxyHm0LqfpizZk25869qOxgQpgtmiM/luLtDWNxjiGVMf4znXeXdGZPzovg2rvZI0h4rucJXOpldXhUiavxhcCELWDotJ+bmNVwmAvQCptcy5e7czUcjiQC32Lco44BMYXrQ+AIOfEccJKHpj0vJ+ngq/27aqj1hWq8tEPFFjdnxMSfKgAnjbIEAX3F9CIW8BSiMHYmPBt7FDDY0CCVFICHr2dp5gQVGvhfbqg7VzvNsw=="; mds_u_n=zyc; mds_u_ci=1099; mds_u_cn=%5Cu5317%5Cu4eac%5Cu7eb3%5Cu4eba%5Cu7f51%5Cu7edc%5Cu79d1%5Cu6280%5Cu6709%5Cu9650%5Cu516c%5Cu53f8; ctk=1469506033; _gat=1; _ga=GA1.3.53049449.1460628438; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469181479,1469424722,1469438944,1469495097; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469506453; LGSID=20160726114757-bd9b0488-52e3-11e6-bfcc-525400f775ce; LGRID=20160726121435-762c5cf7-52e7-11e6-b14c-5254005c3644""",
+        "Cookie": """LGUID=20160414180719-ac7932c9-0228-11e6-b991-525400f775ce; user_trace_token=20160414180719-4c471c2cb6ed4110bcf5c46531cf7ffa; LGMOID=20160713114322-D4D970DE79AD498B5C2B68C734E972EF; index_location_city=%E5%8C%97%E4%BA%AC; _ga=GA1.2.53049449.1460628438; JSESSIONID=B6B161BAA253FC79AAA8B89183221C5C; _putrc=6DC67524D1BFB0C2; login=true; unick=%E7%8E%8B%E9%87%8D; mds_login_authToken="QUJK/LiyGCcIftVug8pZS+eFBS/Pcjm8DJRxOJMLw5DLyzw/5wk7Y9IqvTicbks0eikFwfpCM22/xvFOr0yxtd8g7w3a523ED+8HV2UDq4NWBD9RARjSUhgbPGdRIHPsc9XOeqQHPnyfcsK17kXiV0IgD5yNl/QViUNnmCnjpWB4rucJXOpldXhUiavxhcCELWDotJ+bmNVwmAvQCptcy5e7czUcjiQC32Lco44BMYXrQ+AIOfEccJKHpj0vJ+ngq/27aqj1hWq8tEPFFjdnxMSfKgAnjbIEAX3F9CIW8BSiMHYmPBt7FDDY0CCVFICHr2dp5gQVGvhfbqg7VzvNsw=="; mds_u_n=zyc; mds_u_ci=1099; mds_u_cn=%5Cu5317%5Cu4eac%5Cu7eb3%5Cu4eba%5Cu7f51%5Cu7edc%5Cu79d1%5Cu6280%5Cu6709%5Cu9650%5Cu516c%5Cu53f8; _gat=1; ctk=1469583852; _ga=GA1.3.53049449.1460628438; LGSID=20160727090340-f51f30f8-5395-11e6-800b-525400f775ce; LGRID=20160727094417-a13602b0-539b-11e6-b14c-5254005c3644; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469181479,1469424722,1469581421,1469583042; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469583857""",
         "Host": "easy.lagou.com",
         "Referer": "https://easy.lagou.com/search/index.htm",
-        "User-Agent": agent
+        "User-Agent": nautil.user_agent()
     }
     __timeout = 30
     for page in xrange(1,25):
@@ -148,16 +148,25 @@ def spider(session, agent, params, proxies=None):
         if page > int(total_page):
             break
         datas = pq(response.text).find(".result_list").find(".result_list_item")
+        _ids = pq(response.text).find(".result_list_item").find(".btn.btn_green")
+        ids = []
+        for _id in _ids:
+            id = pq(_id).attr("data-cuserid")
+            print id
+            ids.append(id)
+        rest_ids = dedup(ids)
         for data in datas:
-            yield pq(data).text()
+            _id = pq(data).find(".btn.btn_green").attr("data-cuserid")
+            if _id in rest_ids:
+                yield pq(data).text()
 
 
 
-def lagou_search(params, proxies=None):
+def lagou_search(params, dedup, proxies=None):
     session = requests.Session()
-    param = __splice_search_urls(session, params)
     agent = nautil.user_agent()
-    return spider(session, agent, param, proxies=proxies)
+    param = __splice_search_urls(session, params, agent)
+    return spider(session, agent, param, dedup, proxies=proxies)
 
 
 
@@ -175,5 +184,5 @@ if __name__ == '__main__':
         }
     # __get_positionId(session)
     # __splice_search_urls()
-    param = __splice_search_urls(session, p)
-    spider(session, agent, param)
+    param = __splice_search_urls(session, p, agent)
+    spider(session, param, dedup)

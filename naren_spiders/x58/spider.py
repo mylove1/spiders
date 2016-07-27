@@ -301,7 +301,7 @@ def get_resume_urls(session, urls, dedup, proxies=None):
 
     resume_300_flag = 0
     for url_page in urls:
-        for page in xrange(1,14):
+        for page in xrange(1, 14):
             if resume_300_flag == 1:
                 break
             time.sleep(random.uniform(30, 100))
@@ -347,7 +347,6 @@ def get_resume_urls(session, urls, dedup, proxies=None):
                 break
 
 
-
 def download_resume(session, url, proxies=None):
     # 下载所有简历
     time.sleep(random.uniform(30, 100))
@@ -365,7 +364,7 @@ def download_resume(session, url, proxies=None):
     }
     logger.info('headers %s of url %s' % (headers, url))
     try_times = 0
-    operation_times =0
+    operation_times = 0
     error_page_times = 0
     while True:
         while True:
@@ -383,15 +382,15 @@ def download_resume(session, url, proxies=None):
                 else:
                     time.sleep(30)
         if u"<title>【58同城 58.com】北京分类信息 - 本地 免费 高效</title>" in data.text and u'tongji_tag="pc_home_dh_sy">首页</a>' in data.text:
-            time.sleep(random.uniform(30,100))
+            time.sleep(random.uniform(30, 100))
             operation_times += 1
             if operation_times > 5:
                 raise Exception("PROXY_BROKEN!")
             continue
         elif u'<h1>呃……很抱歉，该简历已不存在！</h1>' in data.text:
             break
-        elif not u'<h1 class="resTitle">' in data.text:
-            time.sleep(random.uniform(30,100))
+        elif u'<h1 class="resTitle">' not in data.text:
+            time.sleep(random.uniform(30, 100))
             error_page_times += 1
             if error_page_times > 5:
                 raise Exception("ERROR_PAGE!")
