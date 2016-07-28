@@ -36,7 +36,7 @@ def __check_params(params):
 
 
 
-def __get_positionId(session, agent ,proxies=None):
+def __get_positionId(session, proxies=None):
     url = "https://easy.lagou.com/position/queryPositionsOfMine.json"
     headers = {
         "Accept": "*/*",
@@ -46,7 +46,7 @@ def __get_positionId(session, agent ,proxies=None):
         # "Cookie": """LGUID=20160414180719-ac7932c9-0228-11e6-b991-525400f775ce; user_trace_token=20160414180719-4c471c2cb6ed4110bcf5c46531cf7ffa; JSESSIONID=B6B161BAA253FC79AAA8B89183221C5C; mds_login_authToken="QUJK/LiyGCcIftVug8pZS+eFBS/Pcjm8DJRxOJMLw5DLyzw/5wk7Y9IqvTicbks0eikFwfpCM22/xvFOr0yxtd8g7w3a523ED+8HV2UDq4NWBD9RARjSUhgbPGdRIHPsc9XOeqQHPnyfcsK17kXiV0IgD5yNl/QViUNnmCnjpWB4rucJXOpldXhUiavxhcCELWDotJ+bmNVwmAvQCptcy5e7czUcjiQC32Lco44BMYXrQ+AIOfEccJKHpj0vJ+ngq/27aqj1hWq8tEPFFjdnxMSfKgAnjbIEAX3F9CIW8BSiMHYmPBt7FDDY0CCVFICHr2dp5gQVGvhfbqg7VzvNsw=="; mds_u_n=zyc; mds_u_ci=1099; mds_u_cn=%5Cu5317%5Cu4eac%5Cu7eb3%5Cu4eba%5Cu7f51%5Cu7edc%5Cu79d1%5Cu6280%5Cu6709%5Cu9650%5Cu516c%5Cu53f8; LGMOID=20160727115658-F61D3C42B3810CD877FC28B177EC1D95; _putrc=6DC67524D1BFB0C2; login=true; unick=%E7%8E%8B%E9%87%8D; index_location_city=%E5%8C%97%E4%BA%AC; _ga=GA1.2.53049449.1460628438; _ga=GA1.3.53049449.1460628438; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469181479,1469424722,1469581421,1469583042; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469593911; LGRID=20160727123150-09adcf4d-53b3-11e6-b14c-5254005c3644""",
         "Host": "easy.lagou.com",
         "Referer": "https://easy.lagou.com/search/index.htm",
-        "User-Agent": agent,
+        "User-Agent": nautil.user_agent()
     }
     __timeout = 30
     time.sleep(random.uniform(3,10))
@@ -69,8 +69,7 @@ def __get_positionId(session, agent ,proxies=None):
     positionId = r.get("content").get("data").get("positions")[0].get("positionId")
     return positionId
 
-def __splice_search_urls(session, narenkeywords, agent):
-    import urllib
+def __splice_search_urls(session, narenkeywords):
     cities = [
         u"南京", u"哈尔滨", u"无锡",u"厦门", u"长春", u"青岛",u"天津", u"昆明", u"深圳",u"重庆", u"长沙", u"沈阳",u"北京", u"烟台", u"福州",\
         u"中山", u"不限", u"西安",u"济南", u"海口", u"南宁",u"昆山", u"东莞", u"石家庄",u"南昌", u"佛山", u"成都",u"宁波", u"珠海", u"杭州",\
@@ -128,13 +127,13 @@ def __splice_search_urls(session, narenkeywords, agent):
     params = {
         "city": city,
         "keyword": keyword,
-        "positionId": __get_positionId(session, agent),
+        "positionId": __get_positionId(session),
         "education": education,
         "workYear": workYear,
     }
     return params
 
-def spider(session, agent, params, dedup=None, proxies=None):
+def spider(session, params, dedup=None, proxies=None):
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Encoding": "gzip, deflate, sdch, br",
@@ -143,7 +142,7 @@ def spider(session, agent, params, dedup=None, proxies=None):
         # "Cookie": """LGUID=20160414180719-ac7932c9-0228-11e6-b991-525400f775ce; user_trace_token=20160414180719-4c471c2cb6ed4110bcf5c46531cf7ffa; LGMOID=20160713114322-D4D970DE79AD498B5C2B68C734E972EF; index_location_city=%E5%8C%97%E4%BA%AC; _ga=GA1.2.53049449.1460628438; JSESSIONID=B6B161BAA253FC79AAA8B89183221C5C; _putrc=6DC67524D1BFB0C2; login=true; unick=%E7%8E%8B%E9%87%8D; mds_login_authToken="QUJK/LiyGCcIftVug8pZS+eFBS/Pcjm8DJRxOJMLw5DLyzw/5wk7Y9IqvTicbks0eikFwfpCM22/xvFOr0yxtd8g7w3a523ED+8HV2UDq4NWBD9RARjSUhgbPGdRIHPsc9XOeqQHPnyfcsK17kXiV0IgD5yNl/QViUNnmCnjpWB4rucJXOpldXhUiavxhcCELWDotJ+bmNVwmAvQCptcy5e7czUcjiQC32Lco44BMYXrQ+AIOfEccJKHpj0vJ+ngq/27aqj1hWq8tEPFFjdnxMSfKgAnjbIEAX3F9CIW8BSiMHYmPBt7FDDY0CCVFICHr2dp5gQVGvhfbqg7VzvNsw=="; mds_u_n=zyc; mds_u_ci=1099; mds_u_cn=%5Cu5317%5Cu4eac%5Cu7eb3%5Cu4eba%5Cu7f51%5Cu7edc%5Cu79d1%5Cu6280%5Cu6709%5Cu9650%5Cu516c%5Cu53f8; _gat=1; ctk=1469583852; _ga=GA1.3.53049449.1460628438; LGSID=20160727090340-f51f30f8-5395-11e6-800b-525400f775ce; LGRID=20160727094417-a13602b0-539b-11e6-b14c-5254005c3644; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469181479,1469424722,1469581421,1469583042; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1469583857""",
         "Host": "easy.lagou.com",
         "Referer": "https://easy.lagou.com/search/index.htm",
-        "User-Agent": agent
+        "User-Agent": nautil.user_agent()
     }
     __timeout = 30
     for page in xrange(1,25):
@@ -194,10 +193,9 @@ def lagou_set_user_password(uuid, passwd):
 def lagou_search(params, dedup, proxies=None):
     assert username, password
     session = contact.login(username, password, proxies)
-    agent = nautil.user_agent()
     if __check_params(params):
-        param = __splice_search_urls(session, params, agent)
-        return spider(session, agent, param, dedup, proxies=proxies)
+        param = __splice_search_urls(session, params)
+        return spider(session, param, dedup, proxies=proxies)
 
 
 

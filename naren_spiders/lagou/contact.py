@@ -10,8 +10,10 @@ import time
 import logging
 import hashlib
 import traceback
+import os
+import json
+import random
 
-from naren_spiders.worker import upload
 from naren_spiders.worker import parse_check_code
 
 logger = logging.getLogger()
@@ -73,7 +75,7 @@ def __login(username, password, proxies=None):
         "Connection": "keep-alive",
         "Host": "passport.lagou.com",
         "Origin": "https://passport.lagou.com",
-        "Referer": url,
+        "Referer": "https://passport.lagou.com/login/login.html",
         "User-Agent": user_agent,
         "X-Anit-Forge-Code": anti_forge_code,
         "X-Anit-Forge-Token": anti_forge_token,
@@ -89,7 +91,18 @@ def __login(username, password, proxies=None):
     response_text = session_request(session, 'post', url, headers, proxies, data)
     if '验证码错误' in response_text:
         for try_times in xrange(5):
-            data['request_from_verifyCode'] = parse_check_code(session, 'https://passport.lagou.com/vcode/create?from=register&refresh=%s' % int(time.time() * 1000), 'lagou', proxies)
+            time.sleep(3)
+            code_headers = {
+                "User-Agent": user_agent,
+                "Accept": "image/webp,image/*,*/*;q=0.8",
+                "Accept-Encoding": "gzip, deflate, sdch",
+                "Accept-Language": "zh-CN, zh;q = 0.8",
+                "Cache-Control": " max-age=0",
+                "Connection": "keep-alive",
+                "Host": "passport.lagou.com",
+                "Referer": "https://passport.lagou.com/login/login.html",
+            }
+            data['request_form_verifyCode'] = parse_check_code(session, 'https://passport.lagou.com/vcode/create?from=register&refresh=%s' % int(time.time() * 1000), 'lagou', proxies, headers=code_headers)
             response_text = session_request(session, 'post', url, headers, proxies, data)
             if '验证码错误' not in response_text:
                 assert '操作成功' in response_text
@@ -101,8 +114,61 @@ def __login(username, password, proxies=None):
     else:
         assert '操作成功' in response_text
         logger.info('login success without checkcode')
-    print response_text
     return session
+
+
+def login(username, password, proxies=None):
+    if not os.path.exists('cookies'):
+        os.mkdir('cookies')
+    if not os.path.exists('cookies/lagou_cookies'):
+        os.mkdir('cookies/lagou_cookies')
+    session = requests.Session()
+    cookie_file_name = 'cookies/lagou_cookies/%s' % username
+    if os.path.exists(cookie_file_name):
+        with open(cookie_file_name, 'r') as cookie_file:
+            session.cookies.update(json.load(cookie_file))
+    url = "https://easy.lagou.com/dashboard/index.htm?from=gray"
+    headers = {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Encoding": "gzip, deflate, sdch, br",
+        "Accept-Language": "zh-CN, zh;q = 0.8",
+        "Cache-Control": "max-age=0",
+        "Connection": "keep-alive",
+        "Host": "passport.lagou.com",
+        "User-Agent": nautil.user_agent(),
+        "Referer": "https://easy.lagou.com/dashboard/index.htm?from=gray",
+        "Upgrade-Insecure-Requests": "1",
+    }
+    _timeout = 30
+    time.sleep(random.uniform(3, 10))
+    try_times = 0
+    while True:
+        try_times += 1
+        try:
+            logger.warning('fetching url %s with %s' % (url, proxies))
+            response = session.get(url, headers=headers, timeout=_timeout, proxies=proxies)
+            assert response.status_code == 200
+            response.encoding = 'utf-8'
+        except Exception:
+            logger.warning('fetching url %s headers %s with %s fail: \n%s' % (url, headers, proxies, traceback.format_exc()))
+            if try_times > 5:
+                raise Exception("PROXY_FAIL!")
+            else:
+                time.sleep(30)
+        else:
+            break
+    if """rel="nofollow">退出</a>""" in response.text and """<li class="menu_header">切换公司</li>""" in response.text:
+        print "get session without login"
+        return session
+    else:
+        login_session = __login(username, password, proxies=proxies)
+        with open(cookie_file_name, 'w') as cookie_file:
+            _cookies = {}
+            for k, v in login_session.cookies.iteritems():
+                _cookies[k] = v
+            json.dump(_cookies, cookie_file)
+        print "get session with login"
+        return login_session
 
 
 if __name__ == '__main__':
