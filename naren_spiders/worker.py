@@ -9,6 +9,7 @@ import logging
 from nanabase import baseutil as nautil
 from nanautil.util import sales_call
 from nanautil.util import resume_call
+from nanautil.util import spider_call
 from nanautil.util import other_account_call
 import json
 import requests
@@ -19,14 +20,12 @@ from nanautil.singleinstance import singleinstance
 logger = logging.getLogger()
 
 
-def parse_check_code(session, url, source, proxies):
+def parse_check_code(session, url, source, proxies, headers={'User-Agent': nautil.user_agent()}):
     post_data = {
         'typeid': 3040,
         'source': source
     }
-    response = session.get(url, headers={
-        'User-Agent': nautil.user_agent()
-    }, proxies=proxies)
+    response = session.get(url, headers=headers, proxies=proxies)
     assert response.status_code == 200
 
     image_file = [("image", ('image', response.content, 'image/png'))]
@@ -34,8 +33,20 @@ def parse_check_code(session, url, source, proxies):
     assert response.status_code == 200
     result = response.json()
     assert result['err_code'] == 0
-    logger.info("code result %s from %s", (result['result']['code'], url))
+    logger.info("code result %s from %s" % (result['result']['code'], url))
     return result['result']['code']
+
+
+def get_cookie(source, user_name):
+    naren_cookie = spider_call("online", "/spider/cookie_serialize", {
+        'source': source,
+        'op': 'get',
+        'user_name': user_name
+    })['cookie']
+    if naren_cookie:
+        return json.loads(naren_cookie)
+    else:
+        raise Exception('No Cookie')
 
 
 def call_naren(url, data, branch):
@@ -67,9 +78,11 @@ def upload(resume, source, context="", get_contact=False, fjl_id=""):
     try:
         if get_contact:
             appfrom = "getcontact"
+            postpone = ""
         else:
             appfrom = "%s.spider" % source
-        upload_result = call_naren_resume("resume_receiver_online", "/unit/resume_upload", {"resumesource": source, "content": resume, "context": context, "appfrom": appfrom, "fjl_id": fjl_id})
+            postpone = "1"
+        upload_result = call_naren_resume("resume_receiver_online", "/unit/resume_upload", {"resumesource": source, "content": resume, "context": context, "appfrom": appfrom, "fjl_id": fjl_id, "postpone": postpone})
         logger.info('uploading result %s' % upload_result)
     except Exception:
         logger.error('resume upload fail:\n%s' % traceback.format_exc())
@@ -93,15 +106,19 @@ def work(uuid, passwd, source, branch='testing', duration=None):
     from ganji.spider import ganji_search
     from fjl.spider import fjl_search
     from fjl.spider import fjl_set_user_password
+    from lagou.spider import lagou_search
+    from lagou.spider import lagou_set_user_password
 
     searcher = {
         "x58": x58_search,
         "ganji": ganji_search,
         "fjl": fjl_search,
+        "lagou": lagou_search,
     }
 
     setter = {
-        "fjl": fjl_set_user_password
+        "fjl": fjl_set_user_password,
+        "lagou": lagou_set_user_password
     }
 
     proxies_object = nautil.get_unit_proxy_ex(uuid, source)
