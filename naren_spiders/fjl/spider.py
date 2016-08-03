@@ -156,7 +156,7 @@ def __splice_search_urls(narenkeywords):
     return param
 
 
-def __get_resume_urls(session, url, param, dedup, proxies=None):
+def __get_resume_urls(session, url, __param, dedup, proxies=None):
     __resume_counter = 0
     headers = {
         "User-Agent": nautil.user_agent(),
@@ -173,62 +173,74 @@ def __get_resume_urls(session, url, param, dedup, proxies=None):
     try_times = 0
     offsets = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300]
     resume_300_flag = 0
-    for offset in offsets:
-        if resume_300_flag == 1:
-            break
-        time.sleep(random.uniform(10, 60))
-        param["offset"] = offset
-        for k, v in param.items():
-            if v == "":
-                param.pop(k)
-        response_datas = ""
-        for connect_times in xrange(0, 5):
-            while True:
-                try_times += 1
-                try:
-                    logger.warning('fetching %s with %s data:\n%s' % (url, proxies, param))
-                    response = session.post(url, data=param, headers=headers, timeout=_timeout, proxies=proxies)
-                    assert response.status_code == 200
-                except Exception:
-                    logger.warning('fetch %s with %s fail:\n%s' % (url, proxies, traceback.format_exc()))
-                    if try_times > 5:
-                        raise Exception("PROXY_FAIL!")
+    params = []
+    hareas = __param.get("hareas", None)
+    params.append(__param)
+    if hareas:
+        copy_param = __param.copy()
+        copy_param.pop("hareas")
+        params.append(copy_param)
+    for param in params:
+        for offset in offsets:
+            if resume_300_flag == 1:
+                break
+            time.sleep(random.uniform(10, 60))
+            param["offset"] = offset
+            for k, v in param.items():
+                if v == "":
+                    param.pop(k)
+            response_datas = ""
+            for connect_times in xrange(0, 5):
+                while True:
+                    try_times += 1
+                    try:
+                        logger.warning('fetching %s with %s data:\n%s' % (url, proxies, param))
+                        response = session.post(url, data=param, headers=headers, timeout=_timeout, proxies=proxies)
+                        assert response.status_code == 200
+                    except Exception:
+                        logger.warning('fetch %s with %s fail:\n%s' % (url, proxies, traceback.format_exc()))
+                        if try_times > 5:
+                            raise Exception("PROXY_FAIL!")
+                        else:
+                            time.sleep(30)
                     else:
-                        time.sleep(30)
-                else:
+                        break
+                if u"非法操作" in response.text:
+                    time.sleep(60)
+                    continue
+                if u'data-toggle="modal">登录</a>' in response.text and u'<h4 class="modal-title">用户登录</h4>' in response.text:
+                    session = contact.login(username, password, proxies=proxies)
+                    time.sleep(30)
+                    continue
+                if "totalSize" not in response.text:
+                    logger.warning("response without totalSize: \n%s\n%s"%(response.text, traceback.format_exc()))
+                    time.sleep(600)
+                    continue
+                try:
+                    response_datas = json.loads(response.text, encoding='utf-8')
                     break
-            if u"非法操作" in response.text:
-                time.sleep(60)
-                continue
-            if u'data-toggle="modal">登录</a>' in response.text and u'<h4 class="modal-title">用户登录</h4>' in response.text:
-                session = contact.login(username, password, proxies=proxies)
-                time.sleep(30)
-                continue
-            try:
-                response_datas = json.loads(response.text, encoding='utf-8')
+                except Exception:
+                    logger.error('json parse fail:\n%s\n%s' % (response.text, traceback.format_exc()))
+                    time.sleep(30)
+                    continue
+            if response_datas == "":
                 break
-            except Exception:
-                logger.error('json parse fail:\n%s\n%s' % (response.text, traceback.format_exc()))
-                time.sleep(30)
-                continue
-        if response_datas == "":
-            break
-        ids_num = response_datas["list"]
-        ids = []
-        for num in xrange(len(ids_num)):
-            id = ids_num[num]['id']
-            ids.append(id)
-        rest_ids = dedup(ids)
-        totalSize = int(response_datas['totalSize'])
-        if totalSize == 0 or totalSize == "" or totalSize is None:
-            break
-        for id in rest_ids:
-            __resume_counter += 1
-            if __resume_counter < 300 and totalSize > 0:
-                yield __download_resume(session, id, headers, param, proxies=proxies)
-            else:
-                resume_300_flag = 1
+            ids_num = response_datas["list"]
+            ids = []
+            for num in xrange(len(ids_num)):
+                id = ids_num[num]['id']
+                ids.append(id)
+            rest_ids = dedup(ids)
+            totalSize = int(response_datas['totalSize'])
+            if totalSize == 0 or totalSize == "" or totalSize is None:
                 break
+            for id in rest_ids:
+                __resume_counter += 1
+                if __resume_counter < 300 and totalSize > 0:
+                    yield __download_resume(session, id, headers, param, proxies=proxies)
+                else:
+                    resume_300_flag = 1
+                    break
 
 
 def __download_resume(session, id, headers, param, proxies=None):
