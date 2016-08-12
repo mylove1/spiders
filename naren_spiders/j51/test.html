@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	无忧简历库搜索
+</title></head>
+
+ <link rel="stylesheet" type="text/css" href="http://js.51jobcdn.com/ehire2007/css/20160808/defaultnew/search.css"/>
+
+<body id="pagebody">
+<script type="text/javascript">
+    var langen = ("" == "EN-US" ? '_en' : '');
+    var lang = ("" == "EN-US" ? 'en' : 'ch');
+    var strKey = "228dd9da90269d17f0f799c3d832afbf";
+    var IMGPATH = "http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/"; //图片路径
+    var ImagePath = "http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/";
+    var nolimited = "不限";
+    var nomoreselect = "最多可选{0}项";
+    var R_Define = "自定义";
+    var R_Limit = ("" == "EN-US" ? 'Unlimited' : '不限');
+    var R_hukou = "户口";                      //户口
+    var R_expSalary = "期望月薪";              //期望月薪
+    var R_currentSalary = "目前月薪";      //目前月薪  
+    var R_enLevel = "英语等级";   //英语等级   
+    var R_sex = "性别";                          //性别   
+    var R_major = "专业";                      //专业
+    var R_rsmUpdate = "简历更新";    //简历更新  
+    var R_jobStatus = "求职状态";    //求职状态
+    var R_ChuZhong = "初中及以下";    //初中及以下
+    var R_UP = "及以上";             //及以上 
+    var R_AgeErro = "年龄区间输入有误！";             //年龄区间输入有误
+    var R_SixMonth = "近6个月";             //近6个月
+    var R_OneYear = "近1年";             //近1年
+    var R_Esp = "期望";             //期望
+    var R_Now = "目前";             //目前
+    var pleaseInput = "请输入";
+    var Msg_10Item = "最多只允许查询10个项目";
+    var varLang = "";                       // 语言版本
+    var Refresh = "刷新页面";
+    var R_IncludeExpected = "(含期望)";
+
+    var Msg_ConfirmCandidate = "<div style='text-align:center;margin:0px;'>确定要下载吗？<br> （需要扣除下载数）</div>";
+    var Msg_ConfirmTemp = "<div style='text-align:center;margin:0px;'>确定要放入暂存文件夹吗？<br> （不会扣除下载数）</div>";
+    var Msg_SelectResume = "请选择简历";
+    var Msg_HttpError12029 = "连接中断，请按\"F5\"重新刷新页面";
+    var varComTips = "提示";
+    // 简历详细显示
+    var GR_WorkExpLatest = "最近工作";   // 最近工作
+    var GR_WorkExp = "历史工作";           // 历史工作
+    var GR_Keywords = "关&nbsp;&nbsp;键&nbsp;&nbsp;字";       // 关键字
+    var GR_TopSchool = "毕业院校";     // 毕业院校
+    var GR_Appraise = "自我评价";          // 自我评价
+    var ImgWoman = "http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/resume_match_womanpic.gif";             // 默认照片(女)
+    var ImgMan = "http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/resume_match_manpic.gif";                 // 默认照片(男)
+    var ImgLoad = "http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/inbox/photo_load.gif";                   // 照片加载
+    var GR_ContactNum = "联系电话";       // 联系电话
+    var GR_Colon = "：";                 // 分号
+    var nomoreselect = "最多可选{0}项";
+    var isshowbydiv = 0;
+    var layer_workfun_title = "选择职能（最多选{0}项）";     //弹框职能标签
+    var layer_workInd_title = "选择行业（最多选{0}项）"; //弹框行业标签
+    var layer_workMajor_title = "选择专业（最多选{0}项）"; //弹框专业标签
+    var C_confirm_Title = "确定";              //确定
+    var C_Cancel_Title = "取消";                //取消
+    var SET_Label_Mask = "请输入/选择"; //选择/输入
+
+    var specialsymbolsearchengineerr = "请不要输入特殊字符";
+    var emptysearchengineerr = "搜索器名称不能为空";
+    var samesearchengineerr = "已有同名搜索器，请修改";
+    var searchengineemailemptyerr = "请输入邮件地址";
+    var searchengineemailerr = "请输入正确的邮件地址";
+
+    var pageLoadTime = "109";
+    var lianXiangUrl = "http://kwdsrv.51job.com/indexweb/"
+    var LianXiangCompanyUrl = "http://kwdsrv.51job.com/KwdSrvByKey/";
+    var certUrl = "http://my.51job.com/payservice/verify/verify_report.php?";                                   // 诚信认证URL
+    var controlID = "ctrlSerach_";    //用户控件ID
+    var OldAndUp = "-及以上";
+    var NewAndUp = "及以上";
+    var C_age = "年龄";             //年龄
+    var C_expjobArea = "期望工作地";             //期望工作地
+    var searchAlert = "以下简历暂不开放公开搜索。";
+    var adjustFlag = true;
+    var desired = lang == "en" ? "(Expect)" : "(期望)";
+</script>
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/jquery/jquery-1.4.2.min.js" language="javascript" type="text/javascript"></script>
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/jquery/jquery-ui-1.8.4.custom.min.js" language="javascript" type="text/javascript"></script>
+<script type="text/javascript" src="http://js.51jobcdn.com/ehire2007/js/20160805/jquery/jquery.bgiframe.min.js"></script>
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/PublicFunction.js" language="javascript" type="text/javascript" ></script>
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/control/Bs.CommonLayer.js" language="javascript" type="text/javascript"></script>
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/control/LianXiangLayer.js" language="javascript" type="text/javascript"></script>
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/control/Search.js" language="javascript" type="text/javascript"></script>
+<script type="text/javascript" src="http://js.51jobcdn.com/ehire2007/js/20160805/control/NewDictLayer.js"></script>
+<script type="text/javascript" src="http://js.51jobcdn.com/ehire2007/js/20160805/DictTable.js"></script>
+
+<form method="post" action="SearchResumeNew.aspx" id="form1" onkeydown="if(event.keyCode==13){return false;}" onsubmit="EHR.AvoidPageRepeatRefresh(); return true;">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTM3MjE0NDAwOQ8WDh4ESXNFTmgeEHZzU2VsZWN0ZWRGaWVsZHMFSkFHRSxXT1JLWUVBUixTRVgsQVJFQSxXT1JLRlVOQyxMQVNUVVBEQVRFLEhVS09VLEVYUEVDVFNBTEFSWSxDVVJSRU5UU0FMQVJZHghQYWdlU2l6ZQIyHgxzdHJTZWxlY3RDb2wFW0FHRSxXT1JLWUVBUixTRVgsSFVLT1UsQVJFQSxDVVJSRU5UU0FMQVJZLEVYUEVDVFNBTEFSWSxXT1JLRlVOQyxMQVNUVVBEQVRFLENVUlJFTlRTSVRVQVRJT04eCVBhZ2VJbmRleGYeCFBhZ2VEYXRhBbsBMXwyMDB8MHwwfHxNQ013SXpBak1Yd3lPVEExTURCOE1ERXdObnd3TUh3d01Id3dNREF3ZkRJd01UVXdPREV4ZkRJd01UWXdPREV4ZkRBd01EQXdNREF3ZkRBd01EQXdNREF3ZkRCOE9Yd3dmREI4TURsOE1EbDhNSHd3ZkRCOE1IeDhmREI4TUh3NWZEbDhPWHc1ZkRsOE9Yd3dNREF3TURCOE1Id3dNREF3TURCOE1TTXlNREFqRUJBUR4MVG90YWxSZWNvcmRzZhYCAgEPZBYYAgIPDxYEHhFJc0NvcnJlbGF0aW9uU29ydAUBMB4ISXNVc2VySUQFATBkZAIFD2QWAmYPEA8WAh4HQ2hlY2tlZGhkZGRkAgYPDxYEHghDc3NDbGFzcwUXU2VhcmNoX3Jlc3VtZV9idXR0b25fb24eBF8hU0ICAmRkAgcPDxYEHwoFJkNvbW1vbl9pY29uIFNlYXJjaF9idG5fbGFiZWxfYXJyb3dfQ29yHwsCAmRkAggPDxYEHwoFGVNlYXJjaF9yZXN1bWVfYnV0dG9uX291dDIfCwICZGQCCQ8PFgQfCgUUU2VhcmNoX2J0bl9sYWJsZV9ub24fCwICZGQCCg8PFgIeBFRleHQFB+WFsTDmnaFkZAILDw8WBB8KBSpDb21tb25faWNvbiBTZWFyY2hfcmVzdW1lX2J1dHRvbl9kaXNpbWdfb24fCwICZGQCDA8PFgQfCgUsQ29tbW9uX2ljb24gU2VhcmNoX3Jlc3VtZV9idXR0b25fZGlzaW1nX2RvdXQfCwICZGQCDQ8PFggfAGgeClBQYWdlSW5kZXhmHwICMh8GZmQWAgICDxBkZBYBAgJkAg4PDxYIHwBoHw1mHwICMh8GZmQWDgIBDw8WCh8MZR4PQ29tbWFuZEFyZ3VtZW50BQExHgdUb29sVGlwBQExHwoFBmFjdGl2ZR8LAgJkZAICDw8WCh8MZR8OBQEyHw8FATIfCmUfCwICZGQCAw8PFgofDGUfDgUBMx8PBQEzHwplHwsCAmRkAgQPDxYKHwxlHw4FATQfDwUBNB8KZR8LAgJkZAIFDw8WCh8MZR8OBQE1Hw8FATUfCmUfCwICZGQCBg8PFgIfDGVkZAIHDw8WAh8MZWRkAg8PEGQQFQ0G5bm06b6EDOW3peS9nOW5tOmZkAbmgKfliKsJ5bGF5L2P5ZywBuiBjOiDvQblrabljoYS566A5Y6G5pu05paw5pe26Ze0BuaIt+WPowzmnJ/mnJvmnIjolqoM55uu5YmN5pyI6JaqBuihjOS4mgbkuJPkuJoJ5a2m5qCh5ZCNFQ0DQUdFCFdPUktZRUFSA1NFWARBUkVBCFdPUktGVU5DCVRPUERFR1JFRQpMQVNUVVBEQVRFBUhVS09VDEVYUEVDVFNBTEFSWQ1DVVJSRU5UU0FMQVJZDFdPUktJTkRVU1RSWQhUT1BNQUpPUglUT1BTQ0hPT0wUKwMNZ2dnZ2dnZ2dnZ2dnZ2RkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYQBQ1jaGtIYXNQaWNfYmFrBQljaGtIYXNQaWMFDGNieENvbHVtbnMkMAUMY2J4Q29sdW1ucyQxBQxjYnhDb2x1bW5zJDIFDGNieENvbHVtbnMkMwUMY2J4Q29sdW1ucyQ0BQxjYnhDb2x1bW5zJDUFDGNieENvbHVtbnMkNgUMY2J4Q29sdW1ucyQ3BQxjYnhDb2x1bW5zJDgFDGNieENvbHVtbnMkOQUNY2J4Q29sdW1ucyQxMAUNY2J4Q29sdW1ucyQxMQUNY2J4Q29sdW1ucyQxMgUNY2J4Q29sdW1ucyQxMg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<!--搜索条件悬浮-->
+<div class="Common_searchFixed-top" style="display:none;_position:absolute;">
+	<div class="Common_ct">
+        <i class="Common_icon Common_icon_screen"></i>
+    	已选条件：<span class="xuanxiang"></span>
+        <a href="javascript:void(0);" class="Common_btn-blue" onclick="SearchResumeNew.closeddlWin();SearchResumeNew.setScrollTop();EHR.Common_AsyncAddLog('3','5','');">修改</a>
+    </div>
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+  <td>
+    
+<link href="http://js.51jobcdn.com/ehire2007/css/20160808/defaultnew/ucontrol.css" rel="stylesheet" type="text/css" id="ucontrol"/> 
+<script src="http://js.51jobcdn.com/ehire2007/js/20160805/GlobalLogAjax.js" language="javascript" type="text/javascript"></script>
+<script type="text/javascript">
+    var strKey = "228dd9da90269d17f0f799c3d832afbf";
+</script>
+<div class="shortcut">
+	<div class="Common_ct clearfix">
+    	<ul class="Common_shoutcut_nav clearfix">
+            
+        	<li style="list-style-type: none;"><a id="MainMenuNew1_HrUName" href="Javascript:void(0)">xpsh959&nbsp您好！</a></li>
+            
+        	
+            <li style="list-style-type: none;"><a href="/Message/Message.aspx" onclick="MainMenu_AsyncAddLog('1','19')">消息<span id="MainMenuNew1_messageSp"></span></a></li>
+        	
+            <li style="list-style-type: none;"><a id="MainMenuNew1_UidSet" onclick="MainMenu_AsyncAddLog(&#39;1&#39;,&#39;20&#39;)" href="/Systems/UserSetup.aspx">账号设置</a></li>
+        	
+            <li style="list-style-type: none;">
+                <a id="MainMenuNew1_hlEhireApp" href="Javascript:void(0)" onmouseover="navigate_showAd()" onmouseout="navigate_hiddenAd()">网才APP</a>
+                <div id="navigete_appImg" style="position:relative; z-index:201;display:none;" onmouseover="navigate_showAd()" onmouseout="navigate_hiddenAd()">
+                    <div class="Common_ap_code">
+                        <iframe style="z-index:-1;left:0px; right:0px;filter:alpha(opacity=60);-moz-opacity:0.6;_filter:alpha(opacity=0.6);opacity:0.6; width:123px; height:138px; position:absolute;"></iframe>
+                        <img width="123" height="138" src="http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/commonnew/navigate_appimg.png">
+                    </div>
+                </div>
+            </li>
+        	
+            <li style="list-style-type: none;"><a id="MainMenuNew1_hl_LogOut" class="Common_login-out" href="/LoginOut.aspx">退出</a></li>
+        </ul>
+    </div>
+</div>
+<div class="topHeader">
+	<div class="Common_ct clearfix">
+    	<div class="Common_logo_main">
+        	<a class="Common_job_logo" href="http://51job.com/" target="_blank"></a>
+        	<a class="Common_wcai_logo" href="/Navigate.aspx"></a>
+        </div>
+        <div class="Common_nav_main">
+        	<ul class="">
+                
+            	<li class="Common_dropdown Common_dropdown-huck0"><a id="MainMenuNew1_m0" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;1&#39;)" href="/Navigate.aspx" style="text-decoration:none">首页</a></li>
+            	<li class="Common_dropdown Common_dropdown-huck1">
+                    
+                	<a id="MainMenuNew1_m1" class="Common_nav-m" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;2&#39;)" href="/Jobs/JobSearchPost.aspx" style="text-decoration:none">职位发布</a>
+                    <ul class="Common_dropdown-con Common_dropdown-con-huck1">
+                        <iframe id="Iframe1" class="Common_mask1" frameborder=0></iframe>
+                        
+                        <li><a id="MainMenuNew1_hlJobPost" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;3&#39;)" href="/Jobs/JobSearchPost.aspx">职位管理</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlJobManage" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;4&#39;)" href="/Jobs/JobEdit.aspx?Mark=New">新增职位</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlAdManage" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;36&#39;)" href="/AD/ADManagement.aspx">增值广告服务</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlJobTpl" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;5&#39;)" href="/Jobs/PositionList.aspx">职位模板</a></li>
+                        
+                        <li id="MainMenuNew1_liJobBuy"><a id="MainMenuNew1_hlJobBuy" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;6&#39;)" href="/JobBuy/JobBuyOnLine.aspx">在线购买</a></li>
+                    </ul>
+                </li>
+            	<li class="Common_dropdown Common_dropdown-huck2">
+                    
+                	<a id="MainMenuNew1_m2" class="Common_nav-m" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;7&#39;)" href="/Inbox/InboxRecentEngine.aspx?Style=1" style="text-decoration:none">应聘管理</a>
+                    <ul class="Common_dropdown-con Common_dropdown-con-huck2">
+                        <iframe id="Iframe2" class="Common_mask2" frameborder=0></iframe>
+                        
+                        <li><a id="MainMenuNew1_hlInBox" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;8&#39;)" href="/Inbox/InboxNavigator.aspx">收件箱</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlFolder" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;9&#39;)" href="/Inbox/CompanyHRNavigator.aspx">公司人才夹</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlEvaluateManagement" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;10&#39;)" href="/RMS/EvaluateManagement.aspx">测评管理</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlRecycle" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;11&#39;)" href="/Inbox/RubbishResume.aspx">回收站</a></li>
+                        
+                        <li id="MainMenuNew1_liExternal"><a id="MainMenuNew1_hlExternal" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;12&#39;)" href="/External/ExternalImport.aspx">简历导入</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlVideoTemplate" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;13&#39;)" href="/Video/InterviewList.aspx">视频面试</a></li>
+                    </ul>
+                </li>
+            	<li class="Common_dropdown Common_dropdown-huck3">
+                    
+                	<a id="MainMenuNew1_m3" class="Common_nav-m Common_active" class="Common_nav-m" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;14&#39;)" href="/Candidate/SearchResumeIndex.aspx" style="text-decoration:none">简历搜索</a>
+                    <ul class="Common_dropdown-con Common_dropdown-con-huck3">
+                        <iframe id="Iframe3" class="Common_mask3" frameborder=0></iframe>
+                        
+                        <li><a id="MainMenuNew1_hlResumeSearch" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;15&#39;)" href="/Candidate/SearchResumeIndex.aspx">搜索简历</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlTempFolder" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;16&#39;)" href="/Candidate/CompanyHrTmpNew.aspx">暂存文件夹</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlDownResume" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;17&#39;)" href="/Inbox/CompanyHRDefault2.aspx?Page=2&amp;belong=3 ">已下载简历</a></li>
+                    </ul>
+                </li>
+            	<li class="Common_dropdown Common_dropdown-huck4">
+                	<a id="MainMenuNew1_m4" class="Common_nav-m" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;18&#39;)" href="http://research.51job.com/" target="_blank" style="text-decoration:none">HR助手</a>
+                    <ul class="Common_dropdown-con Common_dropdown-con-huck4">
+                        <iframe id="MainMenuNew1_Iframe4" class="Common_mask4" frameborder="0" style="height:252px;"></iframe>
+                        
+                        <li><a id="MainMenuNew1_hlDyReport" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;19&#39;)" href="http://research.51job.com" target="_blank">调研报告</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlXCReport" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;20&#39;)" href="/XCReport/Default.aspx">薪酬查询</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlYLReport" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;21&#39;)" href="/CommonPage/Transfers.aspx?p=report/job">用量报表</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlResumeReport" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;22&#39;)" href="/CommonPage/Transfers.aspx?p=report/resume">投递报表</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlProcessReport" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;23&#39;)" href="/CommonPage/Transfers.aspx?p=report/recruit">流程报表</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlEvaluateDeductReport" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;27&#39;)" href="/CommonPage/Transfers.aspx?p=report/evaluate">测评报表</a></li>
+                        
+                        
+                    </ul>
+                </li>
+            	<li class="Common_dropdown Common_dropdown-huck5">
+                    
+                	<a id="MainMenuNew1_m5" class="Common_nav-m" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;30&#39;)" href="/Systems/OrgList.aspx" style="text-decoration:none">系统设置</a>
+                    <ul class="Common_dropdown-con Common_dropdown-con-huck5">
+                        <iframe id="Iframe5" class="Common_mask5" frameborder=0></iframe>
+                        
+                        <li><a id="MainMenuNew1_hlJobList" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;31&#39;)" href="/Systems/OrgList.aspx">公司信息管理</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlUserManage" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;32&#39;)" href="/Systems/UserList.aspx">用户管理</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlMailTemplete" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;33&#39;)" href="/Systems/listReplyEmail.aspx">信件模板</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlMailFilter" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;34&#39;)" href="/Systems/listMailFilter.aspx">简历过滤器</a></li>
+                        
+                        <li><a id="MainMenuNew1_hlWorkAddress" onclick="MainMenu_AsyncAddLog(&#39;0&#39;,&#39;35&#39;)" href="/Systems/WorkAddress.aspx">常用上班地址</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/jscript">
+    var userAgent = navigator.userAgent.toLowerCase();
+    var browser = {
+        version: (userAgent.match(/.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/) || [])[1],
+        safari: /webkit/.test(userAgent),
+        opera: /opera/.test(userAgent),
+        msie: /msie/.test(userAgent) && !/opera/.test(userAgent),
+        mozilla: /mozilla/.test(userAgent) && !/(compatible|webkit)/.test(userAgent)
+    };
+    var ismsieseven=(browser.msie==true&&document.documentMode ? parseInt(document.documentMode)<8 : parseInt(browser.version)<8);
+
+    function MainMenu_AsyncAddLog(pageNo,eventNo,memo,logtype){
+        //验证用key，未定义直接返回
+        if(typeof(strKey)=="undefined")return;
+        if(typeof(memo)=="undefined") memo="";
+        var rad=Math.random();
+        var img=new Image;
+        img.src="../Ajax/Common/GlobalActionLogAjax.ashx?logType=event&pageNo="+pageNo+"&eventNo="+eventNo+"&memo="+memo+"&Key="+strKey+"&Rad="+rad;
+    }﻿
+    function navigate_showAd() {
+        var ehireapp = document.getElementById('navigete_appImg')
+        ehireapp.style.display="";
+    }
+    function navigate_hiddenAd() {
+        var ehireapp = document.getElementById('navigete_appImg')
+        ehireapp.style.display="none";
+    }
+    $("[data-toggle='collapse']").click(function () {
+        $(this).parent().parent().siblings().find(".accordion-body").removeClass("in").addClass("collapse");
+    });
+    //=========================Start 菜单============================
+   var timer, obj,time2;
+    $(".Common_nav_main li.Common_dropdown").bind("mouseenter", function () {
+        $(this).find('a').eq(0).addClass("Common_selectall"); 
+        obj = $(this).find("ul");
+        if (obj.css("display") === "block") {
+            return false;
+        } else {
+            if (ismsieseven) {
+                clearTimeout(time2);
+                $(".topHeader,.shortcut").css("z-index","100");
+            }
+            timer = setTimeout(function () {
+                obj.slideDown(150);     
+            }, 50);      
+        }
+    });
+    $(".Common_nav_main li.Common_dropdown").bind("mouseleave", function () {
+        $(this).find('a').eq(0).removeClass("Common_selectall");
+            clearTimeout(timer);
+            obj.slideUp(30);
+            if (ismsieseven) {
+                time2= setTimeout(function () {
+                    $(".topHeader,.shortcut").css("z-index","");
+                },100);
+            }
+    });
+
+    $(".Common_nav_main li.Common_dropdown a").bind("click", function () {
+        var link=$(this);
+        if(link.attr('target')!="_blank"){
+            $(".Common_nav_main li.Common_dropdown").each(function () {
+                $(this).find("a").removeClass("Common_active");
+            });
+            if (link.attr('class')=='Common_nav-m'||link.attr('class')=='Common_nav-m Common_selectall') {
+                link.addClass("Common_active");
+            }else {
+                link.parent().parent().parent().find('a').eq(0).addClass("Common_active");
+            }
+        }
+        obj.slideUp(30);
+        clearTimeout(timer);
+    });
+    //=======================end 菜单==============================
+</script>
+  </td>
+</tr>
+</table>
+<div id="main">
+	<div class="Common_ct">
+    	<div class="Common_page-map">我的位置：<a href="javascript:EHRResumeList.ToSearchIndexPage()" onclick="EHR.Common_AsyncAddLog('3','1','');" class="active">搜索简历</a> > 搜索结果
+            <div id="divSearchHadDown" class="Common_page-fn-link">
+                <a href="../Inbox/CompanyHRDefault2.aspx?Page=2" target="_blank" onclick="EHR.Common_AsyncAddLog('3','2','');">查看已下载简历</a>
+            </div>
+        </div>
+        
+<!--搜索条件-->
+    	<div class="Common_Search_fn-main Common_Search_border-top" style='z-index:2'>
+        	<div class="Common_candidate-search-form-top">
+            	<dl class="Common_lineDl Common_clearfix" style='_z-index:100'>
+                  <!--line  关键字-->
+                	<dt style="font-size:12px;">关键字/ID</dt>
+                    <dd>
+                    	<div class="Common_inptext_fl Common_downBox-m">
+                            <input name="ctrlSerach$search_keyword_txt" type="text" id="ctrlSerach_search_keyword_txt" autocomplete="off" maxlength="100" class="input" value="java" onfocus="SearchResumeNew.SetInputCss(this,0);SearchResumeNew.closeddlWin();" onblur="SearchResumeNew.checkKeywordAndCompany(this,&#39;keyword&#39;)" />
+                            <br />
+                            <div id="ctrlSerach_search_keyword_Mind">
+                                     <div class="Common_inptext_bot_stb" style='display: none' id='keyword_erro'>
+                                        <i class=" Common_icon Common_icon-exclamation-sign Common_icon_error_t4"></i>
+                                             输入信息有误
+                                     </div>
+                            </div>
+                        </div>
+                    </dd>
+                    <!--line  最近公司-->
+                	<dt class="Common_DT_en" style=" font-size:12px;">最近公司</dt>
+                    <dd>
+                    	<div class="Common_inptext_fl Common_downBox-s">
+                        	<input name="ctrlSerach$search_company_txt" type="text" id="ctrlSerach_search_company_txt" autocomplete="off" maxlength="100" class="input" style="cursor:text" onfocus="SearchResumeNew.SetInputCss(this,0);SearchResumeNew.closeddlWin();" onblur="SearchResumeNew.checkKeywordAndCompany(this,&#39;company&#39;)" />
+                            <br />
+                            <div id="ctrlSerach_search_company_Mind">
+                                     <div class="Common_inptext_bot_stb" style='display: none' id='company_erro'>
+                                        <i class=" Common_icon Common_icon-exclamation-sign Common_icon_error_t4"></i>
+                                             输入信息有误
+                                     </div>
+                            </div>
+                        </div>
+                        
+
+                    </dd>
+                    <!--line  居住地-->
+                	<dt class="Common_DT_en" style=" font-size:12px;">居&nbsp;&nbsp;住&nbsp;&nbsp;地</dt>
+                    <dd>
+                    	<div class="Common_inptext_fl Common_downBox-s Common_chooseIcon" onclick="SearchResumeNew.closeddlWin();resume_areaLayer.initAreaData('ctrlSerach_search_area_input','ctrlSerach_search_area_hid',0,0,'SearchResumeNew.getAreaAndHukoutxt(\'area\',0,0)','',0)">
+                        	<input name="ctrlSerach$search_area_input" type="text" id="ctrlSerach_search_area_input" class="input" readonly="readonly" autocomplete="off" onfocus="SearchResumeNew.closeddlWin();" value="石嘴山" />
+                            <a href="javascript:void(0);" class="Common_chooseIcon Common_downIcon" ><i class="Common_icon Common_icon-th-large_grey"></i></a>
+                        </div>
+                    </dd>
+                     <input type="hidden" name="ctrlSerach$search_area_hid" id="ctrlSerach_search_area_hid" value="石嘴山|290500" />
+                    <dd class="Common_candidate-search-top-btn">
+                        <a onclick="return SearchResumeNew.togetherSelectVal();" id="ctrlSerach_search_submit" class="Common_btn-search Common_Search_btn-search" href="javascript:__doPostBack(&#39;ctrlSerach$search_submit&#39;,&#39;&#39;)"><i class="Common_icon Common_icon_search_t6 Common_icon_search"></i> 搜索简历</a>
+                        <a href="javascript:void(0);" class="Common_SaveSearch" onclick="$('#search_searchengine,#search_searchengine_email_txt').parent().removeClass('Common_active');SearchResumeNew.getCodeItems();EHR.ShowDivBox('#add_searchagent');EHRSearchIndex.checkErroName('search_searchengine_err,search_searchengine_email_err');">&nbsp;&nbsp;保存搜索条件</a>
+                        <label style="display:none"><input type="submit" name="ctrlSerach$btnSearch_submit" value="" onclick="return SearchResumeNew.togetherSelectVal();" id="ctrlSerach_btnSearch_submit" class="button4" /></label>
+                    </dd>
+                </dl>
+            </div>
+            <div class="Common_Key_Company_Erro" id="keyAndCom_ErroDiv" style="display:none; height:25px; margin-top:-10px;">
+            </div>
+            <!--条件筛选-->
+            <div id='searchTermId'>
+            <!--line  职能-->
+            	<div class="Common_line-text-list Common_clearfix">
+                	<div class="Common_line-text-list-title">职&emsp;&emsp;能：</div>
+                    <ul id="Function" class="Common_line-text-list-main Common_clearfix Function">
+                        <li><a id="Function_UnDefine" class="ac-blue" href="javascript:void(0);" onclick='SearchResumeNew.aClickEvent(this)'>不限</a></li>
+                        <li><span onclick="showFunDivNew(this,'ctrlSerach_search_funtype_hid','','SearchResumeNew.getFunAndIndustry(\'Function\',\'search_fun_div\',\'ctrlSerach_search_funtype_hid\',\'search_keyword_txt\');')" id="search_fun_div" class="spanactive">自定义&nbsp;<i class="Common_icon Common_icon_caret_down_little "></i></span></li>
+                        <li style=" margin-left:-6px;"></li>
+                        <span id="Function_recommand" ></span>
+                    </ul>
+                    
+                </div>
+                <input type="hidden" name="ctrlSerach$search_funtype_hid" id="ctrlSerach_search_funtype_hid" value="高级软件工程师|0106" />
+            <!--line end-->
+            <!--line  期望月薪-->
+                 <div class="Common_line-text-list Common_clearfix" style='_z-index:99'>
+                	<div class="Common_line-text-list-title">期望月薪：</div>
+                        <ul id="EspSalary" class="Common_line-text-list-main Common_clearfix EspSalary"><li><a id="EspSalary_UnDefine" class="" href="javascript:void(0);">不限</a></li><li><span onclick="SearchResumeNew.closeddlWin();SearchResumeNew.getDefineCondition('EspSalaryDiv');" id="search_salary_div" class="spanactive">自定义&nbsp;<i class="Common_icon Common_icon_caret_down_little caret"></i></span></li><li><a id="EspSalary_|03" class="" href="javascript:void(0);">3k及以下</a></li><li><a id="EspSalary_04|04" class="" href="javascript:void(0);">3k-4.5k</a></li><li><a id="EspSalary_05|05" class="" href="javascript:void(0);">4.5k-6k</a></li><li><a id="EspSalary_06|06" class="" href="javascript:void(0);">6k-8k</a></li><li><a id="EspSalary_07|07" class="" href="javascript:void(0);">8k-10k</a></li><li><a id="EspSalary_08|08" class="" href="javascript:void(0);">10k-15k</a></li><li><a id="EspSalary_09|09" class="ac-blue" href="javascript:void(0);">15k-20k</a></li></ul>
+                    <!--down-->
+                    <div class="Common_line-list-down Common_clearfix define" id="EspSalaryDiv" style="display:none;">
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_expectsalaryf_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_expectsalaryf_div').css({'display':'none','z-index':'1'})" >
+                        	<input name="ctrlSerach$search_expectsalaryf_input" type="text" id="ctrlSerach_search_expectsalaryf_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little"></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv Common_WorkDown" style="max-height:280px;" id="search_expectsalaryf_div">
+                                        <a href="javascript:void(0)" id='search_expectsalaryf_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','01','expectsalaryf',0,14,this)">不限</a><a href="javascript:void(0)" id='search_expectsalaryf_a_1' title='1.5k' onclick="SearchResumeNew.selectdata('1.5k','02','expectsalaryf',1,14,this)">1.5k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_2' title='2k' onclick="SearchResumeNew.selectdata('2k','03','expectsalaryf',2,14,this)">2k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_3' title='3k' onclick="SearchResumeNew.selectdata('3k','04','expectsalaryf',3,14,this)">3k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_4' title='4.5k' onclick="SearchResumeNew.selectdata('4.5k','05','expectsalaryf',4,14,this)">4.5k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_5' title='6k' onclick="SearchResumeNew.selectdata('6k','06','expectsalaryf',5,14,this)">6k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_6' title='8k' onclick="SearchResumeNew.selectdata('8k','07','expectsalaryf',6,14,this)">8k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_7' title='10k' onclick="SearchResumeNew.selectdata('10k','08','expectsalaryf',7,14,this)">10k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_8' title='15k' onclick="SearchResumeNew.selectdata('15k','09','expectsalaryf',8,14,this)">15k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_9' title='20k' onclick="SearchResumeNew.selectdata('20k','13','expectsalaryf',9,14,this)">20k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_10' title='25k' onclick="SearchResumeNew.selectdata('25k','10','expectsalaryf',10,14,this)">25k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_11' title='30k' onclick="SearchResumeNew.selectdata('30k','14','expectsalaryf',11,14,this)">30k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_12' title='40k' onclick="SearchResumeNew.selectdata('40k','11','expectsalaryf',12,14,this)">40k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_13' title='50k' onclick="SearchResumeNew.selectdata('50k','12','expectsalaryf',13,14,this)">50k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_14' title='70k' onclick="SearchResumeNew.selectdata('70k','15','expectsalaryf',14,14,this)">70k</a><a href="javascript:void(0)" id='search_expectsalaryf_a_15' title='100k' onclick="SearchResumeNew.selectdata('100k','16','expectsalaryf',15,14,this)">100k</a> 
+                                </div>      
+                        </div>
+                    	<div class="Common_form-downList">-</div>
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_expectsalaryt_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_expectsalaryt_div').css({'display':'none','z-index':'1'})">
+                        	<input name="ctrlSerach$search_expectsalaryt_input" type="text" id="ctrlSerach_search_expectsalaryt_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little"></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv Common_WorkDown" style="max-height:280px;" id="search_expectsalaryt_div">
+                                        <a href="javascript:void(0)" id='search_expectsalaryt_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','expectsalaryt',0,15,this)">不限</a><a href="javascript:void(0)" id='search_expectsalaryt_a_1' title='1.5k' onclick="SearchResumeNew.selectdata('1.5k','01','expectsalaryt',1,15,this)">1.5k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_2' title='2k' onclick="SearchResumeNew.selectdata('2k','02','expectsalaryt',2,15,this)">2k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_3' title='3k' onclick="SearchResumeNew.selectdata('3k','03','expectsalaryt',3,15,this)">3k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_4' title='4.5k' onclick="SearchResumeNew.selectdata('4.5k','04','expectsalaryt',4,15,this)">4.5k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_5' title='6k' onclick="SearchResumeNew.selectdata('6k','05','expectsalaryt',5,15,this)">6k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_6' title='8k' onclick="SearchResumeNew.selectdata('8k','06','expectsalaryt',6,15,this)">8k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_7' title='10k' onclick="SearchResumeNew.selectdata('10k','07','expectsalaryt',7,15,this)">10k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_8' title='15k' onclick="SearchResumeNew.selectdata('15k','08','expectsalaryt',8,15,this)">15k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_9' title='20k' onclick="SearchResumeNew.selectdata('20k','09','expectsalaryt',9,15,this)">20k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_10' title='25k' onclick="SearchResumeNew.selectdata('25k','13','expectsalaryt',10,15,this)">25k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_11' title='30k' onclick="SearchResumeNew.selectdata('30k','10','expectsalaryt',11,15,this)">30k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_12' title='40k' onclick="SearchResumeNew.selectdata('40k','14','expectsalaryt',12,15,this)">40k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_13' title='50k' onclick="SearchResumeNew.selectdata('50k','11','expectsalaryt',13,15,this)">50k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_14' title='70k' onclick="SearchResumeNew.selectdata('70k','12','expectsalaryt',14,15,this)">70k</a><a href="javascript:void(0)" id='search_expectsalaryt_a_15' title='100k' onclick="SearchResumeNew.selectdata('100k','15','expectsalaryt',15,15,this)">100k</a>
+                                </div>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="A1" class="btn" onclick="SearchResumeNew.defineConfirm('EspSalary','expectsalaryf','expectsalaryt','salary',this);">确定</a>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="A2" class="btn" onclick="SearchResumeNew.defineCancel('EspSalary','expectsalaryf','expectsalaryt')">取消</a>
+                        </div>
+                    </div>
+                    <div class="Common_DownAndUp" id="displayDown" style="display:;"><a href="javascript:void(0);" onclick="SearchResumeNew.displayDetail('displayDown')">展开<i class="Common_DownIcon"></i></a></div>
+                    <!--down end-->
+                </div>
+            <!--line end-->
+            <div id="detailDiv" style="display:none;">
+            <!--line  行业-->
+            	<div class="Common_line-text-list Common_clearfix">
+                	<div class="Common_line-text-list-title">行&emsp;&emsp;业：</div>
+                    <ul id="Industry" class="Common_line-text-list-main Common_clearfix Industry">
+                        <li><a id="Industry_UnDefine" class="ac-blue" href="javascript:void(0);" onclick='SearchResumeNew.aClickEvent(this)'>不限</a></li>
+                        <li><span onclick="showIndustryDiv(this,'ctrlSerach_search_industry_hid','','SearchResumeNew.getFunAndIndustry(\'Industry\',\'search_industry_div\',\'ctrlSerach_search_industry_hid\',\'search_keyword_txt\');')" id="search_industry_div" class="spanactive">自定义&nbsp;<i class="Common_icon Common_icon_caret_down_little "></i></span></li>
+                        <li style=" margin-left:-6px;"></li>
+                        <span  id="Industry_recommand" ></span>
+                    </ul>
+                </div>
+                <input type="hidden" name="ctrlSerach$search_industry_hid" id="ctrlSerach_search_industry_hid" />
+            <!--line end-->
+            <!--line  工作年限-->
+            	<div class="Common_line-text-list Common_clearfix" style='_z-index:98'>
+                	<div class="Common_line-text-list-title">工作年限：</div>
+                        <ul id="WorkYear" class="Common_line-text-list-main Common_clearfix WorkYear"><li><a id="WorkYear_UnDefine" class="ac-blue" href="javascript:void(0);">不限</a></li><li><span onclick="SearchResumeNew.closeddlWin();SearchResumeNew.getDefineCondition('WorkYearDiv');" id="search_wyd_div" class="spanactive">自定义&nbsp;<i class="Common_icon Common_icon_caret_down_little caret"></i></span></li><li><a id="WorkYear_3|3" class="" href="javascript:void(0);">1 年</a></li><li><a id="WorkYear_4|4" class="" href="javascript:void(0);">2 年</a></li><li><a id="WorkYear_5|5" class="" href="javascript:void(0);">3-4 年</a></li><li><a id="WorkYear_6|6" class="" href="javascript:void(0);">5-7 年</a></li><li><a id="WorkYear_7|7" class="" href="javascript:void(0);">8-9 年</a></li><li><a id="WorkYear_8|" class="" href="javascript:void(0);">10年以上</a></li></ul>
+                    <!--down-->
+                    <div class="Common_line-list-down Common_clearfix define" id="WorkYearDiv" style="display:none;">
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_wyf_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_wyf_div').css({'display':'none','z-index':'1'})" >
+                        	<input name="ctrlSerach$search_wyf_input" type="text" id="ctrlSerach_search_wyf_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little"></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv Common_WorkDown" style="max-height:140px;" id="search_wyf_div">
+                                        <a href="javascript:void(0)" id='search_wyf_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','0','wyf',0,5,this)">不限</a><a href="javascript:void(0)" id='search_wyf_a_1' title='在读' onclick="SearchResumeNew.selectdata('在读','1','wyf',1,5,this)">在读</a><a href="javascript:void(0)" id='search_wyf_a_2' title='应届' onclick="SearchResumeNew.selectdata('应届','2','wyf',2,5,this)">应届</a><a href="javascript:void(0)" id='search_wyf_a_3' title='一年' onclick="SearchResumeNew.selectdata('一年','3','wyf',3,5,this)">一年</a><a href="javascript:void(0)" id='search_wyf_a_4' title='二年' onclick="SearchResumeNew.selectdata('二年','4','wyf',4,5,this)">二年</a><a href="javascript:void(0)" id='search_wyf_a_5' title='三年' onclick="SearchResumeNew.selectdata('三年','5','wyf',5,5,this)">三年</a><a href="javascript:void(0)" id='search_wyf_a_6' title='五年' onclick="SearchResumeNew.selectdata('五年','6','wyf',6,5,this)">五年</a><a href="javascript:void(0)" id='search_wyf_a_7' title='八年' onclick="SearchResumeNew.selectdata('八年','7','wyf',7,5,this)">八年</a><a href="javascript:void(0)" id='search_wyf_a_8' title='十年' onclick="SearchResumeNew.selectdata('十年','8','wyf',8,5,this)">十年</a> 
+                                </div>      
+                        </div>
+                    	<div class="Common_form-downList">-</div>
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_wyt_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_wyt_div').css({'display':'none','z-index':'1'})">
+                        	<input name="ctrlSerach$search_wyt_input" type="text" id="ctrlSerach_search_wyt_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little"></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv Common_WorkDown" style="max-height:140px;" id="search_wyt_div">
+                                        <a href="javascript:void(0)" id='search_wyt_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','wyt',0,6,this)">不限</a><a href="javascript:void(0)" id='search_wyt_a_1' title='在读' onclick="SearchResumeNew.selectdata('在读','1','wyt',1,6,this)">在读</a><a href="javascript:void(0)" id='search_wyt_a_2' title='应届' onclick="SearchResumeNew.selectdata('应届','2','wyt',2,6,this)">应届</a><a href="javascript:void(0)" id='search_wyt_a_3' title='一年' onclick="SearchResumeNew.selectdata('一年','3','wyt',3,6,this)">一年</a><a href="javascript:void(0)" id='search_wyt_a_4' title='二年' onclick="SearchResumeNew.selectdata('二年','4','wyt',4,6,this)">二年</a><a href="javascript:void(0)" id='search_wyt_a_5' title='四年' onclick="SearchResumeNew.selectdata('四年','5','wyt',5,6,this)">四年</a><a href="javascript:void(0)" id='search_wyt_a_6' title='七年' onclick="SearchResumeNew.selectdata('七年','6','wyt',6,6,this)">七年</a><a href="javascript:void(0)" id='search_wyt_a_7' title='九年' onclick="SearchResumeNew.selectdata('九年','7','wyt',7,6,this)">九年</a>
+                                </div>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="WorkYearBtn" class="btn" onclick="SearchResumeNew.defineConfirm('WorkYear','wyf','wyt','wyd',this)">确定</a>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="WorkYearCancelBtn" class="btn" onclick="SearchResumeNew.defineCancel('WorkYear','wyf','wyt')">取消</a>
+                        </div>
+                    </div>
+                    <!--down end-->
+                </div>
+            <!--line end-->
+            <!--line 学历-->
+            	<div class="Common_line-text-list Common_clearfix" style="_z-index:96">
+                	<div class="Common_line-text-list-title">学&emsp;&emsp;历：</div>
+                        <ul id="TopDegree" class="Common_line-text-list-main Common_clearfix TopDegree"><li><a id="TopDegree_UnDefine" class="ac-blue" href="javascript:void(0);">不限</a></li><li><span onclick="SearchResumeNew.closeddlWin();SearchResumeNew.getDefineCondition('TopDegreeDiv');" id="search_dd_div" class="spanactive">自定义&nbsp;<i class="Common_icon Common_icon_caret_down_little caret"></i></span></li><li><a id="TopDegree_6|" class="" href="javascript:void(0);">本科及以上</a></li><li><a id="TopDegree_7|" class="" href="javascript:void(0);">硕士及以上</a></li><li><a id="TopDegree_6|6" class="" href="javascript:void(0);">本科</a></li><li><a id="TopDegree_7|7" class="" href="javascript:void(0);">硕士</a></li><li><a id="TopDegree_8|8" class="" href="javascript:void(0);">博士</a></li><li><input type='checkbox' id='ckbox_985' value='985'>985</input></li><li><input type='checkbox' id='ckbox_211' value='211'>211</input></li><li><input type='checkbox' id='ckboxfulltime' value='全日制'>全日制</input></li></ul>
+                    <!--down-->
+                    <div class="Common_line-list-down Common_clearfix define" id="TopDegreeDiv" style="display:none;">
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_df_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_df_div').css({'display':'none','z-index':'1'})">
+                        	<input name="ctrlSerach$search_df_input" type="text" id="ctrlSerach_search_df_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px; width:95px; cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv" style="display:none;width:103px;max-height:140px;" id="search_df_div">
+                                        <a href="javascript:void(0)" id='search_df_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','0','df',0,7,this)">不限</a><a href="javascript:void(0)" id='search_df_a_1' title='初中及以下' onclick="SearchResumeNew.selectdata('初中及以下','1','df',1,7,this)">初中及以下</a><a href="javascript:void(0)" id='search_df_a_2' title='高中/中技/中专' onclick="SearchResumeNew.selectdata('高中/中技/中专','2','df',2,7,this)">高中/中技/中专</a><a href="javascript:void(0)" id='search_df_a_3' title='大专' onclick="SearchResumeNew.selectdata('大专','5','df',3,7,this)">大专</a><a href="javascript:void(0)" id='search_df_a_4' title='本科' onclick="SearchResumeNew.selectdata('本科','6','df',4,7,this)">本科</a><a href="javascript:void(0)" id='search_df_a_5' title='硕士' onclick="SearchResumeNew.selectdata('硕士','7','df',5,7,this)">硕士</a><a href="javascript:void(0)" id='search_df_a_6' title='MBA' onclick="SearchResumeNew.selectdata('MBA','10','df',6,7,this)">MBA</a><a href="javascript:void(0)" id='search_df_a_7' title='博士' onclick="SearchResumeNew.selectdata('博士','8','df',7,7,this)">博士</a>
+                                </div>
+                        </div>
+                    	<div class="Common_form-downList">-</div>
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_dt_div').css({'display':'block'});SearchResumeNew.limitDisplay();"
+                            onmouseleave="$(this).css('z-index','1');$('#search_dt_div').css({'display':'none','z-index':'1'})">
+                        	<input name="ctrlSerach$search_dt_input" type="text" id="ctrlSerach_search_dt_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;width:95px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv" style="display:none;width:103px;max-height:140px;" id="search_dt_div">
+                                        <a href="javascript:void(0)" id='search_dt_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','dt',0,8,this)">不限</a><a href="javascript:void(0)" id='search_dt_a_1' title='初中及以下' onclick="SearchResumeNew.selectdata('初中及以下','1','dt',1,8,this)">初中及以下</a><a href="javascript:void(0)" id='search_dt_a_2' title='高中/中技/中专' onclick="SearchResumeNew.selectdata('高中/中技/中专','4','dt',2,8,this)">高中/中技/中专</a><a href="javascript:void(0)" id='search_dt_a_3' title='大专' onclick="SearchResumeNew.selectdata('大专','5','dt',3,8,this)">大专</a><a href="javascript:void(0)" id='search_dt_a_4' title='本科' onclick="SearchResumeNew.selectdata('本科','6','dt',4,8,this)">本科</a><a href="javascript:void(0)" id='search_dt_a_5' title='硕士' onclick="SearchResumeNew.selectdata('硕士','7','dt',5,8,this)">硕士</a><a href="javascript:void(0)" id='search_dt_a_6' title='博士' onclick="SearchResumeNew.selectdata('博士','8','dt',6,8,this)">博士</a>
+                                </div>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="TopDegreeBtn" class="btn" onclick="SearchResumeNew.defineConfirm('TopDegree','df','dt','dd',this)">确定</a>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="TopDegreeCancelBtn" class="btn" onclick="SearchResumeNew.defineCancel('TopDegree','df','dt')">取消</a>
+                        </div>
+
+                    </div>
+                    <!--down end-->
+                </div>
+            <!--line end-->
+            <!--line  目前月薪-->
+                 <div class="Common_line-text-list Common_clearfix" style='_z-index:94'>
+                	<div class="Common_line-text-list-title">目前月薪：</div>
+                        <ul id="CurSalary" class="Common_line-text-list-main Common_clearfix CurSalary"><li><a id="CurSalary_UnDefine" class="ac-blue" href="javascript:void(0);">不限</a></li><li><span onclick="SearchResumeNew.closeddlWin();SearchResumeNew.getDefineCondition('CurSalaryDiv');" id="search_cursalary_div" class="spanactive">自定义&nbsp;<i class="Common_icon Common_icon_caret_down_little caret"></i></span></li><li><a id="CurSalary_|03" class="" href="javascript:void(0);">3k及以下</a></li><li><a id="CurSalary_04|04" class="" href="javascript:void(0);">3k-4.5k</a></li><li><a id="CurSalary_05|05" class="" href="javascript:void(0);">4.5k-6k</a></li><li><a id="CurSalary_06|06" class="" href="javascript:void(0);">6k-8k</a></li><li><a id="CurSalary_07|07" class="" href="javascript:void(0);">8k-10k</a></li><li><a id="CurSalary_08|08" class="" href="javascript:void(0);">10k-15k</a></li><li><a id="CurSalary_13|13" class="" href="javascript:void(0);">15k-20k</a></li></ul>
+                    <!--down-->
+                    <div class="Common_line-list-down Common_clearfix define" id="CurSalaryDiv" style="display:none;">
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_cursalaryf_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_cursalaryf_div').css({'display':'none','z-index':'1'})" >
+                        	<input name="ctrlSerach$search_cursalaryf_input" type="text" id="ctrlSerach_search_cursalaryf_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little"></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv Common_WorkDown" style="max-height:280px;" id="search_cursalaryf_div">
+                                        <a href="javascript:void(0)" id='search_cursalaryf_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','01','cursalaryf',0,16,this)">不限</a><a href="javascript:void(0)" id='search_cursalaryf_a_1' title='1.5k' onclick="SearchResumeNew.selectdata('1.5k','02','cursalaryf',1,16,this)">1.5k</a><a href="javascript:void(0)" id='search_cursalaryf_a_2' title='2k' onclick="SearchResumeNew.selectdata('2k','03','cursalaryf',2,16,this)">2k</a><a href="javascript:void(0)" id='search_cursalaryf_a_3' title='3k' onclick="SearchResumeNew.selectdata('3k','04','cursalaryf',3,16,this)">3k</a><a href="javascript:void(0)" id='search_cursalaryf_a_4' title='4.5k' onclick="SearchResumeNew.selectdata('4.5k','05','cursalaryf',4,16,this)">4.5k</a><a href="javascript:void(0)" id='search_cursalaryf_a_5' title='6k' onclick="SearchResumeNew.selectdata('6k','06','cursalaryf',5,16,this)">6k</a><a href="javascript:void(0)" id='search_cursalaryf_a_6' title='8k' onclick="SearchResumeNew.selectdata('8k','07','cursalaryf',6,16,this)">8k</a><a href="javascript:void(0)" id='search_cursalaryf_a_7' title='10k' onclick="SearchResumeNew.selectdata('10k','08','cursalaryf',7,16,this)">10k</a><a href="javascript:void(0)" id='search_cursalaryf_a_8' title='15k' onclick="SearchResumeNew.selectdata('15k','13','cursalaryf',8,16,this)">15k</a><a href="javascript:void(0)" id='search_cursalaryf_a_9' title='20k' onclick="SearchResumeNew.selectdata('20k','09','cursalaryf',9,16,this)">20k</a><a href="javascript:void(0)" id='search_cursalaryf_a_10' title='25k' onclick="SearchResumeNew.selectdata('25k','14','cursalaryf',10,16,this)">25k</a><a href="javascript:void(0)" id='search_cursalaryf_a_11' title='30k' onclick="SearchResumeNew.selectdata('30k','10','cursalaryf',11,16,this)">30k</a><a href="javascript:void(0)" id='search_cursalaryf_a_12' title='40k' onclick="SearchResumeNew.selectdata('40k','15','cursalaryf',12,16,this)">40k</a><a href="javascript:void(0)" id='search_cursalaryf_a_13' title='50k' onclick="SearchResumeNew.selectdata('50k','11','cursalaryf',13,16,this)">50k</a><a href="javascript:void(0)" id='search_cursalaryf_a_14' title='70k' onclick="SearchResumeNew.selectdata('70k','16','cursalaryf',14,16,this)">70k</a><a href="javascript:void(0)" id='search_cursalaryf_a_15' title='100k' onclick="SearchResumeNew.selectdata('100k','12','cursalaryf',15,16,this)">100k</a> 
+                                </div>      
+                        </div>
+                    	<div class="Common_form-downList">-</div>
+                    	<div class="Common_form-downList Common_chooseIcon safari" onclick="$(this).css('z-index','1002');$('#search_cursalaryt_div').css({'display':'block'})"
+                            onmouseleave="$(this).css('z-index','1');$('#search_cursalaryt_div').css({'display':'none','z-index':'1'})">
+                        	<input name="ctrlSerach$search_cursalaryt_input" type="text" id="ctrlSerach_search_cursalaryt_input" readonly="readonly" onfocus="this.blur();" style="line-height:20px;cursor:pointer;" class="Common_Search_Default_txtcolor" value="不限" />
+                            <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little"></i></a>
+                                <div class="Common_downList Common_downList_IE7 safariDiv Common_WorkDown" style="max-height:280px;" id="search_cursalaryt_div">
+                                        <a href="javascript:void(0)" id='search_cursalaryt_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','cursalaryt',0,17,this)">不限</a><a href="javascript:void(0)" id='search_cursalaryt_a_1' title='1.5k' onclick="SearchResumeNew.selectdata('1.5k','01','cursalaryt',1,17,this)">1.5k</a><a href="javascript:void(0)" id='search_cursalaryt_a_2' title='2k' onclick="SearchResumeNew.selectdata('2k','02','cursalaryt',2,17,this)">2k</a><a href="javascript:void(0)" id='search_cursalaryt_a_3' title='3k' onclick="SearchResumeNew.selectdata('3k','03','cursalaryt',3,17,this)">3k</a><a href="javascript:void(0)" id='search_cursalaryt_a_4' title='4.5k' onclick="SearchResumeNew.selectdata('4.5k','04','cursalaryt',4,17,this)">4.5k</a><a href="javascript:void(0)" id='search_cursalaryt_a_5' title='6k' onclick="SearchResumeNew.selectdata('6k','05','cursalaryt',5,17,this)">6k</a><a href="javascript:void(0)" id='search_cursalaryt_a_6' title='8k' onclick="SearchResumeNew.selectdata('8k','06','cursalaryt',6,17,this)">8k</a><a href="javascript:void(0)" id='search_cursalaryt_a_7' title='10k' onclick="SearchResumeNew.selectdata('10k','07','cursalaryt',7,17,this)">10k</a><a href="javascript:void(0)" id='search_cursalaryt_a_8' title='15k' onclick="SearchResumeNew.selectdata('15k','08','cursalaryt',8,17,this)">15k</a><a href="javascript:void(0)" id='search_cursalaryt_a_9' title='20k' onclick="SearchResumeNew.selectdata('20k','13','cursalaryt',9,17,this)">20k</a><a href="javascript:void(0)" id='search_cursalaryt_a_10' title='25k' onclick="SearchResumeNew.selectdata('25k','09','cursalaryt',10,17,this)">25k</a><a href="javascript:void(0)" id='search_cursalaryt_a_11' title='30k' onclick="SearchResumeNew.selectdata('30k','14','cursalaryt',11,17,this)">30k</a><a href="javascript:void(0)" id='search_cursalaryt_a_12' title='40k' onclick="SearchResumeNew.selectdata('40k','10','cursalaryt',12,17,this)">40k</a><a href="javascript:void(0)" id='search_cursalaryt_a_13' title='50k' onclick="SearchResumeNew.selectdata('50k','15','cursalaryt',13,17,this)">50k</a><a href="javascript:void(0)" id='search_cursalaryt_a_14' title='70k' onclick="SearchResumeNew.selectdata('70k','11','cursalaryt',14,17,this)">70k</a><a href="javascript:void(0)" id='search_cursalaryt_a_15' title='100k' onclick="SearchResumeNew.selectdata('100k','16','cursalaryt',15,17,this)">100k</a>
+                                </div>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="A3" class="btn" onclick="SearchResumeNew.defineConfirm('CurSalary','cursalaryf','cursalaryt','cursalary',this);">确定</a>
+                        </div>
+                    	<div class="Common_form-downList">
+                        	<a href="javascript:void(0);" id="A4" class="btn" onclick="SearchResumeNew.defineCancel('CurSalary','cursalaryf','cursalaryt')">取消</a>
+                        </div>
+                    </div>
+                    <!--down end-->
+                </div>
+            <!--line end-->
+            <!--line 年龄-->
+
+            <!--line end-->
+            <!--line-->
+            	<div class="Common_line-text-list Common_clearfix">
+                	<div class="Common_line-text-list-title">其&emsp;&emsp;他：</div>
+                    <!--其他 ch-->
+                    <ul class="Common_line-input-list Common_clearfix" id="other_search_term_ch" style="display: block">
+                        <li>
+                        <!--年龄 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon" >
+                                <input name="ctrlSerach$search_age_input" type="text" id="ctrlSerach_search_age_input" readonly="readonly" onfocus="this.blur();" onclick="SearchResumeNew.setDivOpen(&#39;search_age_div&#39;);" value="年龄" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh" onclick="SearchResumeNew.setDivOpen('search_age_div');"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                                <!--下拉模块自定义-->
+                                <div class="Common_downInp" style="display:none;z-index:95" id="search_age_div">
+                                	<div class="Common_line-list-down Common_clearfix">
+                    	                <div class="Common_form-downList">
+                        	                <input name="ctrlSerach$search_agef_input" type="text" id="ctrlSerach_search_agef_input" autocomplete="off" style="cursor: text" onfocus="SearchResumeNew.SetInputCss(this,0);" onblur="SearchResumeNew.SetInputCss(this,1);" onkeyup="value=this.value.replace(/\D+/g,&#39;&#39;);" class="input" maxlength="2" />
+                                        </div>
+                                        <div class="Common_form-downList">-</div>
+                    	                <div class="Common_form-downList">
+                        	                <input name="ctrlSerach$search_aget_input" type="text" id="ctrlSerach_search_aget_input" autocomplete="off" style="cursor: text" onfocus="SearchResumeNew.SetInputCss(this,0);" onblur="SearchResumeNew.SetInputCss(this,1);" onkeyup="value=this.value.replace(/\D+/g,&#39;&#39;);" class="input" maxlength="2" />
+                                        </div>
+                                        <div class="Common_form-downList">
+                                            <a href="javascript:void(0);" id="ExpectedSalaryBtn" class="btn" onclick="SearchResumeNew.salaryConfirm('age','agef','aget',this);">确定</a>
+                                        </div>
+                                        <div class="Common_form-downList">
+                                            <a href="javascript:void(0);" id="ExpectedCancelBtn" class="btn" onclick="SearchResumeNew.salaryCancel('age','agef','aget');">取消</a>
+                                        </div>
+                                        <div class="Common_inptext_bot_stb" style='display: none;' id='search_age_err'>
+                                            <i class=" Common_icon Common_icon-exclamation-sign Common_icon_error_t4"></i>
+                                            输入信息有误
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--下拉模块自定义 end-->
+                            </div>
+                        </li>
+
+                        <li>
+                         <!--期望工作地 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon" onclick="SearchResumeNew.closeddlWin();resume_areaLayer.initAreaData('ctrlSerach_search_expjobarea_input','ctrlSerach_search_expjobarea_hid',0,1,'SearchResumeNew.getAreaAndHukoutxt(\'expjobarea\',1,0)','',0,{isExpjobArea:true});">
+                                <input name="ctrlSerach$search_expjobarea_input" type="text" id="ctrlSerach_search_expjobarea_input" readonly="readonly" onfocus="this.blur();" value="期望工作地" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh" ><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                            </div>
+                             <input type="hidden" name="ctrlSerach$search_expjobarea_hid" id="ctrlSerach_search_expjobarea_hid" />
+                        </li>
+
+                        <li>
+                        <!--英语等级 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon safari" onclick="SearchResumeNew.closeddlWin();$(this).css('z-index','1001');$('#search_englishlevel_div').css({'display':'block'})"
+                                    onmouseleave="$(this).css('z-index','1');$('#search_englishlevel_div').css({'display':'none','z-index':'1'})">
+                                <input name="ctrlSerach$search_englishlevel_input" type="text" id="ctrlSerach_search_englishlevel_input" readonly="readonly" onfocus="this.blur();" value="英语等级" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                                    <div class="Common_downList Common_downList_IE7_2 safariDiv Common_down" id="search_englishlevel_div">
+                                        <a href="javascript:void(0)" id='search_englishlevel_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','englishlevel',0,13,this)">不限</a><a href="javascript:void(0)" id='search_englishlevel_a_1' title='英语四级以上' onclick="SearchResumeNew.selectdata('英语四级以上','2','englishlevel',1,13,this)">英语四级以上</a><a href="javascript:void(0)" id='search_englishlevel_a_2' title='英语六级以上' onclick="SearchResumeNew.selectdata('英语六级以上','3','englishlevel',2,13,this)">英语六级以上</a><a href="javascript:void(0)" id='search_englishlevel_a_3' title='专业四级以上' onclick="SearchResumeNew.selectdata('专业四级以上','4','englishlevel',3,13,this)">专业四级以上</a><a href="javascript:void(0)" id='search_englishlevel_a_4' title='专业八级' onclick="SearchResumeNew.selectdata('专业八级','5','englishlevel',4,13,this)">专业八级</a>
+                                    </div>
+                            </div>
+                        </li>
+                        <li>
+                        <!--性别 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon safari" onclick="SearchResumeNew.closeddlWin();$(this).css('z-index','1001');$('#search_sex_div').css({'display':'block'})"
+                                    onmouseleave="$(this).css('z-index','1');$('#search_sex_div').css({'display':'none','z-index':'1'})">
+                                <input name="ctrlSerach$search_sex_input" type="text" id="ctrlSerach_search_sex_input" readonly="readonly" onfocus="this.blur();" value="性别" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                                <div class="Common_downList Common_downList_IE7_2 safariDiv Common_down" id="search_sex_div" > 
+                                        <a href="javascript:void(0)" id='search_sex_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','sex',0,12,this)">不限</a><a href="javascript:void(0)" id='search_sex_a_1' title='男' onclick="SearchResumeNew.selectdata('男','0','sex',1,12,this)">男</a><a href="javascript:void(0)" id='search_sex_a_2' title='女' onclick="SearchResumeNew.selectdata('女','1','sex',2,12,this)">女</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                         <!--专业 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon" onclick="SearchResumeNew.closeddlWin();showMajorDiv(this,'ctrlSerach_search_major_hid','','SearchResumeNew.getMajortxt(1,0);')">
+                                <input name="ctrlSerach$search_major_input" type="text" id="ctrlSerach_search_major_input" readonly="readonly" onfocus="this.blur();" value="专业" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                            </div>
+                            <input type="hidden" name="ctrlSerach$search_major_hid" id="ctrlSerach_search_major_hid" />
+                        </li>
+                        <li>
+                         <!--户口 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon" onclick="SearchResumeNew.closeddlWin();resume_areaLayer.initAreaData('ctrlSerach_search_hukou_input','ctrlSerach_search_hukou_hid',0,1,'SearchResumeNew.getAreaAndHukoutxt(\'hukou\',1,0)');">
+                                <input name="ctrlSerach$search_hukou_input" type="text" id="ctrlSerach_search_hukou_input" readonly="readonly" onfocus="this.blur();" value="户口" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh" ><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                            </div>
+                             <input type="hidden" name="ctrlSerach$search_hukou_hid" id="ctrlSerach_search_hukou_hid" />
+                        </li>
+                        <li>
+                        <!--简历更新 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon safari" onclick="SearchResumeNew.closeddlWin();$(this).css('z-index','1001');$('#search_rsmupdate_div,#Iframe_search_resume').css({'display':'block'})"
+                                    onmouseleave="$(this).css('z-index','1');$('#search_rsmupdate_div,#Iframe_search_resume').css({'display':'none','z-index':'1'})">
+                                <input name="ctrlSerach$search_rsmupdate_input" type="text" id="ctrlSerach_search_rsmupdate_input" readonly="readonly" onfocus="this.blur();" value="近1年" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class="Common_icon Common_icon_caret_down_little "></i></a>
+                                <iframe class="Common_downList " style="display:none;width:112px; background:#fff;opacity:0;z-index:0;filter:alpha(opacity=0);border:0px #ffffff solid"id="Iframe_search_resume" >
+                                </iframe>  
+                                <div class="Common_downList Common_downList_IE7_2 safariDiv Common_down" id="search_rsmupdate_div">
+                                        <a href="javascript:void(0)" id='search_rsmupdate_a_0' title='近1周' onclick="SearchResumeNew.selectdata('近1周','1','rsmupdate',0,20,this)">近1周</a><a href="javascript:void(0)" id='search_rsmupdate_a_1' title='近2周' onclick="SearchResumeNew.selectdata('近2周','2','rsmupdate',1,20,this)">近2周</a><a href="javascript:void(0)" id='search_rsmupdate_a_2' title='近1个月' onclick="SearchResumeNew.selectdata('近1个月','3','rsmupdate',2,20,this)">近1个月</a><a href="javascript:void(0)" id='search_rsmupdate_a_3' title='近2个月' onclick="SearchResumeNew.selectdata('近2个月','4','rsmupdate',3,20,this)">近2个月</a><a href="javascript:void(0)" id='search_rsmupdate_a_4' title='近6个月' onclick="SearchResumeNew.selectdata('近6个月','5','rsmupdate',4,20,this)">近6个月</a><a href="javascript:void(0)" id='search_rsmupdate_a_5' title='近1年' onclick="SearchResumeNew.selectdata('近1年','6','rsmupdate',5,20,this)">近1年</a><a href="javascript:void(0)" id='search_rsmupdate_a_6' title='1年及以上' onclick="SearchResumeNew.selectdata('1年及以上','7','rsmupdate',6,20,this)">1年及以上</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                        <!--求职状态 ch-->
+                        	<div class="Common_form-downList Common_chooseIcon safari" onclick="SearchResumeNew.closeddlWin();$(this).css('z-index','1001');$('#search_jobstatus_div,#Iframe_search').css({'display':'block'})"
+                                    onmouseleave="$(this).css('z-index','1');$('#search_jobstatus_div,#Iframe_search').css({'display':'none','z-index':'1'});" >
+                                <input name="ctrlSerach$search_jobstatus_input" type="text" id="ctrlSerach_search_jobstatus_input" readonly="readonly" onfocus="this.blur();" style="width:88px;" value="求职状态" />
+                                <a href="javascript:void(0);" class="Common_downIcon Common_downIcon_IE7 Common_search_downIcon_wh"><i class=" Common_icon Common_icon_caret_down_little "></i></a>
+                                <iframe class="Common_downList " style="display:none;width:116px; background:#fff;opacity:0;z-index:0;filter:alpha(opacity=0);border:0px #ffffff solid"id="Iframe_search" >
+                                </iframe>                                
+                                <div class="Common_downList Common_downList_IE7_2 safariDiv" style="display:none;width:116px;" id="search_jobstatus_div">
+                                        <a href="javascript:void(0)" id='search_jobstatus_a_0' title='不限' onclick="SearchResumeNew.selectdata('不限','','jobstatus',0,21,this)">不限</a><a href="javascript:void(0)" id='search_jobstatus_a_1' title='目前正在找工作' onclick="SearchResumeNew.selectdata('目前正在找工作','0','jobstatus',1,21,this)">目前正在找工作</a><a href="javascript:void(0)" id='search_jobstatus_a_2' title='其他' onclick="SearchResumeNew.selectdata('其他','1','jobstatus',2,21,this)">其他</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="Common_DownAndUp" id="displayUp"><a href="javascript:void(0);" onclick="SearchResumeNew.displayDetail('displayUp');">收起<i class="Common_UpIcon" ></i></a></div>
+                    <!--其他 ch end-->
+
+                </div>
+            <!--line end-->
+            </div>
+            </div>
+            <!--条件筛选 end-->
+        </div>
+        <!--搜索条件 end-->
+        <!--搜索条件悬浮 end-->
+    <!--保存搜索器浮层 Begin-->
+      <div class="Common_panel_lnp" id="add_searchagent" style="display: none">
+            <h2>
+                <p>
+                    新建搜索器</p>
+                <a href="javascript:void(0);" hidefocus='true'onclick="EHR.CloseDivBox('#add_searchagent');"><i
+                    class=" Common_icon Common_icon_remove_white"></i></a>
+            </h2>
+            <div class="Common_pannel_body Common_pael_body_wh">
+                <div class="Common_useMText">
+                    <dl class="Common_searchlineDl">
+                        <dt>
+                            搜索器名称</dt>
+                        <dd>
+                            <div class="searchinptext_fl">
+                                <input class="input Common_input_col" id='search_searchengine' maxlength='32' onkeyup="EHRSearchIndex.CheckLength(this,32);"
+                                    type="text" onfocus="$(this).parent().removeClass('Common_active')" value="" />
+                                <label class="Common_inptext_hint" id='search_searchengine_err'>
+                                    <i class=" Common_icon Common_icon_error_t_2  Common_icon-exclamation-sign"></i>
+                                    已有同名搜索器，请修改</label>
+                                <p>
+                                    <!--保存成功后置为为选中-->
+                                    <input type="checkbox" id='search_searchengine_subject' onclick="if ($('#search_searchengine_subject').attr('checked')) { $('#send_info').css('display', 'block');} else { $('#send_info').css('display', 'none'); }" />
+                                    订阅简历</p>
+                            </div>
+                        </dd>
+                    </dl>
+                    <div class="send_info" id='send_info' style="display: none">
+                        <dl class="Common_searchlineDl lineD2">
+                            <dt>
+                                发送周期</dt>
+                            <dd>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_cycle" value='1' checked="checked" />每天</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_cycle" value='3' />3天</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_cycle" value='7' />1周</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_cycle" value='14' />2周</label>
+                            </dd>
+                        </dl>
+                        <dl class="Common_searchlineDl lineD2">
+                            <dt>
+                                发送期限</dt>
+                            <dd>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_time" value='7' checked="checked" />7天</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_time" value='15' />15天</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_time" value='30' />30天</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_time" value='90' />90天</label>
+                            </dd>
+                        </dl>
+                        <dl class="Common_searchlineDl lineD2">
+                            <dt id="label_SendFen">
+                                发送简历数</dt>
+                            <dd>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_sum" value='10' checked="checked" />10份</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_sum" value='20' />20份</label>
+                                <label class="Common_send_inf">
+                                    <input type="radio" name="send_sum" value='30' />30份</label>
+                            </dd>
+                        </dl>
+                        <dl class="Common_searchlineDl lineD2">
+                            <dt>
+                                发送Email</dt>
+                            <dd>
+                                
+                                <div class="searchinptext_fl">
+                                    <input type="text" id='search_searchengine_email_txt' onfocus="$(this).parent().removeClass('Common_active')"
+                                        class="input Common_input_col" />
+                                    <label id="search_searchengine_email_err" class="Common_inptext_hint">
+                                        <i class=" Common_icon Common_icon_error_t_2  Common_icon-exclamation-sign"></i>
+                                        请输入邮件地址</label>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="Common_panelBtn_box" id="save_searchengine">
+                    <a id='search_save_search' onclick="if(!EHRSearchIndex.SaveSearchEngine(SearchResumeNew.saveSearch)){ return false;}"
+                        class="Common_panel_btn_s" style='cursor: pointer'>
+                        保存</a> <a href="javascript:void(0);"
+                            class="Common_panel_btn_s" onclick="EHR.CloseDivBox('#add_searchagent');">
+                            取消</a>
+                </div>
+            </div>
+        </div>
+    <!--保存搜索器浮层 end-->
+        <input type="hidden" id="hidvalue" value='{"IsUserID":"0"}' />
+        <input name="ctrlSerach$hidSearchValue" type="hidden" id="ctrlSerach_hidSearchValue" value="#石嘴山|290500#1#高级软件工程师|0106###########15k-20k|09#15k-20k|09#####近1年|6##1#0##" />                        
+        <input type="hidden" id="hidSaveSearch" value='#石嘴山|290500#1#高级软件工程师|0106###########15k-20k|09#15k-20k|09#####近1年|6##1#0##' />                            
+        <input type="hidden" id="hidCompany" value ='' />                                 
+        <input type="hidden" id="hidKeyword" value ='' />                                 
+        <input type="hidden" id="hidIsKwdSearch" value='0' />                                      
+        <input name="ctrlSerach$hidKeyWordMind" type="hidden" id="ctrlSerach_hidKeyWordMind" />                           
+        <input name="ctrlSerach$hidRecommend" type="hidden" id="ctrlSerach_hidRecommend" value="####1#" /> 
+        <input name="ctrlSerach$hidWorkYearArea" type="hidden" id="ctrlSerach_hidWorkYearArea" />
+        <input name="ctrlSerach$hidDegreeArea" type="hidden" id="ctrlSerach_hidDegreeArea" />
+        <input name="ctrlSerach$hidSalaryArea" type="hidden" id="ctrlSerach_hidSalaryArea" value="15k-20k" />
+        <input name="ctrlSerach$hidCurSalaryArea" type="hidden" id="ctrlSerach_hidCurSalaryArea" />
+        <input name="ctrlSerach$hidIsRecDisplay" type="hidden" id="ctrlSerach_hidIsRecDisplay" />                      
+        <input type="hidden" id="userSelectCol" value='AGE,WORKYEAR,SEX,HUKOU,AREA,CURRENTSALARY,EXPECTSALARY,WORKFUNC,LASTUPDATE,CURRENTSITUATION' />
+        
+
+        <!--list-->
+        <div class="Common_Search_fn-main Common_list-main" style='z-index:1' id="listDiv">
+        	<div class="Common_list-top"> 
+           	  <i class="Common_icon Common_icon_screen"></i>
+              <a href="javascript:SearchResumeNew.closeddlWin();" id="amodify" style="display:none" onclick="SearchResumeNew.setScrollTop();EHR.Common_AsyncAddLog('3','5','');" class="Common_btn">修改</a>
+               <div class="show_xuanxiang" style="display:none;">
+                 <dl>
+                   <dd class="keyword"></dd><dd class="company"></dd><dd class="area"></dd><dd class="Function"></dd>
+                   <dd class="es"></dd><dd class="Industry"></dd><dd class="WorkYear"></dd><dd class="TopDegree"></dd><dd class="cs"></dd>
+                   <dd class="Age"></dd><dd class="expjobarea"></dd><dd class="englishlevel"></dd><dd class="sex"></dd>
+                   <dd class="major"></dd><dd class="hukou"></dd><dd class="rsmupdate"></dd><dd class="jobstatus"></dd>
+                 </dl>
+               </div>
+                已选条件：<span class="xuanxiang"></span>
+               <input name="showselected" type="hidden" id="showselected" />  <!--记录选中的搜索条件-->
+          </div>
+            <div class="Search_list-table-title Common_clearfix">
+            	<ul class="Search_page-ft-l Common_clearfix">
+                	<li class="Search_page_r10li"><label><input id="radSelactALLt" type="checkbox" name="radSelactALL" onclick="EHRResumeList.GetSelectResumes(this)" />全选</label></li>
+                    <li class="Search_page_r10li"><a href="javascript:void(0);" onclick="javascript:EHRResumeList.ShowResumeView();EHR.Common_AsyncAddLog('3','6','');return false;" class="Common_btn-red">查看简历</a></li>
+                	<li class="Search_page_r10li">
+                    <label id="label_pic_bak" style="display:none;"><input id="chkHasPic_bak" type="checkbox" name="chkHasPic_bak" /> 有照片</label>
+                    <label id="label_pic"><input id="chkHasPic" type="checkbox" name="chkHasPic" onclick="SearchResumeNew.togetherSelectVal();setTimeout(&#39;__doPostBack(\&#39;chkHasPic\&#39;,\&#39;\&#39;)&#39;, 0)" /> 有照片</label>
+                    </li>
+                    <li><input type="submit" name="btnSortCorrelation" value="智能" onclick="return SearchResumeNew.togetherSelectVal();" id="btnSortCorrelation" class="Search_resume_button_on" /><span id="labArrowCor" class="Common_icon Search_btn_label_arrow_Cor"></span></li>
+                    <li><input type="submit" name="btnSortUpdateTime" value="时间" onclick="return SearchResumeNew.togetherSelectVal();" id="btnSortUpdateTime" class="Search_resume_button_out2" /><span id="labArrowTime" class="Search_btn_lable_non"></span></li>                    
+                </ul>
+                <ul class="Search_page-ft-r Common_clearfix">
+                	<li class="Search_page_r10li"><span id="labAllResumes">共0条</span></li>
+                    <li><input type="submit" name="btnSampleDis" value="" onclick="return SearchResumeNew.togetherSelectVal();" id="btnSampleDis" title="简单列表" class="Common_icon Search_resume_button_disimg_on" /></li>
+                    <li><input type="submit" name="btnDetailDis" value="" onclick="return SearchResumeNew.togetherSelectVal();" id="btnDetailDis" title="详细列表" class="Common_icon Search_resume_button_disimg_dout" /></li>
+                    <li class='Search_num-set'>每页<select name="pagerTopNew$ctl06" onchange="if(!(SearchResumeNew.togetherSelectVal()==true)) return false;setTimeout(&#39;__doPostBack(\&#39;pagerTopNew$ctl06\&#39;,\&#39;\&#39;)&#39;, 0)">
+	<option value="10">10</option>
+	<option value="20">20</option>
+	<option selected="selected" value="50">50</option>
+
+</select>&nbsp;<span>0/0</span></li><li class='Search_btnTab-icon'><a onclick="if(!(SearchResumeNew.togetherSelectVal()==true)) return false;" title="上一页"><i class='Common_icon Common_icon_caret_left_large'></i></a><a onclick="if(!(SearchResumeNew.togetherSelectVal()==true)) return false;" title="下一页"><i class='Common_icon Common_icon_caret_right_large'></i></a></li>
+                </ul>
+            </div>
+             <div class="Common_list-table">
+                <table width="100%" border="1">                    
+                    
+                    
+                     <tbody>
+                    
+                    <tr><td style="width:100%"><div class='Common_list-null'>
+                                <div class='Common_list-null-ct'>
+                                    <i class='Common_icon Common_icon-exclamation-orange-sign'></i>
+                                    <h2>抱歉，没有搜到您想找的简历！</h2>
+                                    <p>为了实现高效搜索，建议调整上方的搜索条件</p></div>
+                            </div></tr></td> 
+                    </tbody>
+                </table>
+            </div>
+            <div class="Common_list-table-bot">
+            	<ul class="Common_clearfix">
+                	<li class="Search_page_r10li"><label><input id="radSelactALLd" type="checkbox" name="radSelactALL" onclick="EHRResumeList.GetSelectResumes(this)" />全选</label></li>
+                    <li><a href="javascript:void(0);" onclick="javascript:EHRResumeList.ShowResumeView();EHR.Common_AsyncAddLog('3','12','');return false;" class="Common_btn-red">查看简历</a></li>
+                    <li><a href="javascript:void(0);" onclick="javascript:EHRResumeList.OpenResumeCommonLayer('HRTMPS');EHR.Common_AsyncAddLog('3','13','');return false;" class="Common_btn-red">暂存简历</a></li>
+                    <li><a href="javascript:void(0);" onclick="javascript:EHRResumeList.OpenResumeCommonLayer('TOCOHRS');EHR.Common_AsyncAddLog('3','14','');return false;" class="Common_btn-red">下载简历</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--list end-->
+        <div class="Search_page-numble">
+            
+        </div>
+    </div>
+</div>
+<div class="Common_footer">
+	<div class="ct">
+        <p>无忧工作网版权所有&copy;1999-2016</p>
+     </div>
+</div>
+<!--修改搜索条件-->
+<div id="DivCol" class="Common_panel_lnp" style=" width:464px;display:none;z-index:500;position: absolute">
+	<h2><p>修改显示字段（最多选10项）</p> <a onclick="EHR.CloseDivBox('#DivCol')"><i class=" Common_icon Common_icon_remove_white"></i></a></h2>
+	<div class="Common_panel_body">
+		<div class="Common_clearfix">
+		    
+            <table id="cbxColumns" class="Common_modi_chk" style="width:100%;">
+	<tr>
+		<td><input id="cbxColumns_0" type="checkbox" name="cbxColumns$0" checked="checked" value="AGE" /><label for="cbxColumns_0">年龄</label></td><td><input id="cbxColumns_1" type="checkbox" name="cbxColumns$1" checked="checked" value="WORKYEAR" /><label for="cbxColumns_1">工作年限</label></td><td><input id="cbxColumns_2" type="checkbox" name="cbxColumns$2" checked="checked" value="SEX" /><label for="cbxColumns_2">性别</label></td><td><input id="cbxColumns_3" type="checkbox" name="cbxColumns$3" checked="checked" value="AREA" /><label for="cbxColumns_3">居住地</label></td>
+	</tr><tr>
+		<td><input id="cbxColumns_4" type="checkbox" name="cbxColumns$4" checked="checked" value="WORKFUNC" /><label for="cbxColumns_4">职能</label></td><td><input id="cbxColumns_5" type="checkbox" name="cbxColumns$5" value="TOPDEGREE" /><label for="cbxColumns_5">学历</label></td><td><input id="cbxColumns_6" type="checkbox" name="cbxColumns$6" checked="checked" value="LASTUPDATE" /><label for="cbxColumns_6">简历更新时间</label></td><td><input id="cbxColumns_7" type="checkbox" name="cbxColumns$7" checked="checked" value="HUKOU" /><label for="cbxColumns_7">户口</label></td>
+	</tr><tr>
+		<td><input id="cbxColumns_8" type="checkbox" name="cbxColumns$8" checked="checked" value="EXPECTSALARY" /><label for="cbxColumns_8">期望月薪</label></td><td><input id="cbxColumns_9" type="checkbox" name="cbxColumns$9" checked="checked" value="CURRENTSALARY" /><label for="cbxColumns_9">目前月薪</label></td><td><input id="cbxColumns_10" type="checkbox" name="cbxColumns$10" value="WORKINDUSTRY" /><label for="cbxColumns_10">行业</label></td><td><input id="cbxColumns_11" type="checkbox" name="cbxColumns$11" value="TOPMAJOR" /><label for="cbxColumns_11">专业</label></td>
+	</tr><tr>
+		<td><input id="cbxColumns_12" type="checkbox" name="cbxColumns$12" value="TOPSCHOOL" /><label for="cbxColumns_12">学校名</label></td><td></td><td></td><td></td>
+	</tr>
+</table>
+		</div>
+		<div class="Common_modi_panelBtn_box">
+			<a onclick="if(EHRResumeList.CloseColDiv(&#39;DivCol&#39;)&amp;&amp;SearchResumeNew.togetherSelectVal()) return true; else return false;" id="btnColOK" title="确定" class="Common_modi_panel_btn_s" href="javascript:__doPostBack(&#39;btnColOK&#39;,&#39;&#39;)">确定</a>
+            <a onclick="EHR.CloseDivBox('#DivCol')" class="Common_modi_panel_btn_s">取 消</a>
+            <a class="Common_modi_default"  href="javascript:EHRResumeList.RestoreDefaultColDiv();">恢复默认选项</a>
+		</div>    
+	</div>
+</div>
+
+
+<div id="divAjaxLoading01" style="position:absolute;display:none;">
+<table style="width:800px; height:130px;margin:0px;margin-top:4px;margin-bottom:4px;">
+<tr><td style="width:100%; color:#666666;" align="center"><img src="http://img01.51jobcdn.com/imehire/ehire2007/defaultnew/image/common/loading2.gif" style="padding-right:10px; height:25px; width:25px;vertical-align:middle;" alt=""/>载入中．．．</td></tr>
+</table>
+</div>
+
+<input name="hidDisplayType" type="hidden" id="hidDisplayType" value="0" />                      
+<input name="hidEhireDemo" type="hidden" id="hidEhireDemo" />                         
+<input name="hidUserID" type="hidden" id="hidUserID" />                           
+<input name="hidCheckUserIds" type="hidden" id="hidCheckUserIds" />                      
+<input name="hidCheckKey" type="hidden" id="hidCheckKey" value="05b1c992a05461cf827832cf8f2d13c8" />                          
+<input name="hidEvents" type="hidden" id="hidEvents" />                           
+                          
+<input name="hidNoSearchIDs" type="hidden" id="hidNoSearchIDs" />                           
+<input name="hidBtnType" type="hidden" id="hidBtnType" />                           
+
+<map id='4-1map' name='4-1map'>
+    <area alt='' href="javascript:SearchResumeNew.CloseGuideWithTransparent(SearchResumeNew.ChangeShowGuide,'showGuide');" shape="poly" coords="247,217,269,208,330,211,340,226,312,245,260,238" hidefocus='true'/>
+    <area alt='' href="javascript:SearchResumeNew.CloseGuideWithTransparent(SearchResumeNew.ChangeShowGuide,'showGuide');" shape="poly" coords="340,60,353,56,369,53,383,61,384,81,375,94" hidefocus='true'/>
+</map>
+<input type="hidden" name="showGuide" id="showGuide" />
+<script language="javascript" type="text/javascript">
+    //控制选中区域悬浮框
+    $(window).scroll(function () {
+        var top = document.getElementById("listDiv").offsetTop;
+        if ($(this).scrollTop() > top) {
+        if(browser.msie&&parseInt(browser.version)<7){
+            $(".Common_searchFixed-top").css("display", "block").css('top',$(this).scrollTop());
+            $("#amodify").css('display','block');
+            $("select[name^='pagerTopNew']").hide();
+            }
+            else {
+            $(".Common_searchFixed-top").css("display", "block");
+            $("#amodify").css('display','block');
+            }
+        }
+        else {
+            if(browser.msie&&parseInt(browser.version)<7){
+                $("select[name^='pagerTopNew']").show();
+            }
+            $(".Common_searchFixed-top").css("display", "none").css('top',0);
+            $("#amodify").css('display','none');
+        }
+    })
+
+    $(document).ready(function () {
+
+        EHRSearchIndex.disposeSafari();
+        EHRSearchIndex.disposeChrome();
+        var isShow = "0";
+        //显示引导层
+        
+            $(window).resize(EHRSearchIndex.SetMaskCss);
+        
+        if(lang!="en")
+        {
+           LianXiang.registerListener();
+        }
+        //var isShow = "0";
+        var resizeCount = 0;
+        if (isShow == 1) {//展开的初始化的时候就设置滚动事件，当滚动的时候加载
+            EHRResumeList.ScrollLoad();
+            addEvent(window, 'scroll', function () {
+           
+                EHRResumeList.ScrollLoad();
+                EHRResumeList.SetMaskHeight();
+            });
+            addEvent(window, 'resize', function () {
+                if (resizeCount % 2 == 0) {
+                   
+                   EHRResumeList.ScrollLoad();
+                   EHRResumeList.SetMaskHeight();
+                }
+                resizeCount++;
+            });
+        }
+        //EHR.GetPageLoadTime('3');
+        if(lang=="en")
+        {
+            $("#label_pic").css("display","none");
+            $("#label_SendFen").css("line-height","18px");
+            $("#DivCol").css("width","508px");
+        }
+        if($("#hidNoSearchIDs").val()!="")
+        {
+            var strAlert = searchAlert;
+            strAlert +="ID：" + $("#hidNoSearchIDs").val();
+            EHR.ShowBox(strAlert);
+            $("#tip_msgbox").css('width','313px');
+            $("#hidNoSearchIDs").val("");
+        }
+    });
+
+    $(function () {
+        EHR.InitMaskDiv();
+        SearchResumeNew.onInit(); //初始化选择区域点击事件
+        var hidvalue = $.parseJSON($("#hidvalue").val());
+        if (hidvalue != "" && hidvalue != null) {
+            SearchResumeNew.initBind(hidvalue);
+        }
+        //if ($.browser.mozilla) $('input').removeAttr("disabled");
+    });
+
+
+</script>    
+
+</form>
+</body>
+</html>
