@@ -48,7 +48,7 @@ def __get_positionId(session, user_agent, proxies=None):
         "X-Requested-With":"XMLHttpRequest"
     }
     __timeout = 30
-    time.sleep(random.uniform(3,10))
+    time.sleep(random.uniform(5, 20))
     try_times = 0
     while True:
         try_times += 1
@@ -62,14 +62,14 @@ def __get_positionId(session, user_agent, proxies=None):
             if try_times > 5:
                 raise Exception("PROXY_FAIL!")
             else:
-                time.sleep(30)
+                time.sleep(random.uniform(30, 100))
         else:
             break
-    r = json.loads(response.text, encoding="utf-8")
-    if "positionId" not in r:
-        positionId = "373765"
-    if "positionId" in r:
-        positionId = r.get("content").get("data").get("positions")[0].get("positionId")
+    if "positionId" in response.text:
+        r = json.loads(response.text, encoding="utf-8")
+        positionId = r["content"]["data"]["positions"][0].get("positionId")
+    else:
+        raise Exception("GET_POSITIONID_FAIL!\n%s" % response.text)
     return positionId
 
 def __splice_search_urls(session, user_agent, narenkeywords, proxies=None):
@@ -106,14 +106,17 @@ def __splice_search_urls(session, user_agent, narenkeywords, proxies=None):
 
     if "low_workage" in narenkeywords:
         workage = narenkeywords["low_workage"]
-        if workage == u"不限":
+        if workage == "不限":
             workYear = ""
-        elif workage == u"1" or workage == u"2":
-            workYear = u"3年以下"
-        elif workage == u"3" or workage == u"4" or workage == u"5" or workage == u"6":
-            workYear = u"3年及以上"
         else:
-            workYear = u"7年及以上"
+            if type(workage) == int:
+                workage = str(workage)
+            if workage == "1" or workage == "2":
+                workYear = u"3年以下"
+            elif workage == "3" or workage == "4" or workage == "5" or workage == "6":
+                workYear = u"3年及以上"
+            else:
+                workYear = u"7年及以上"
     else:
         workYear = ""
 
@@ -150,7 +153,7 @@ def spider(session, params, user_agent, dedup=None, proxies=None):
     }
     __timeout = 30
     resume_300_flag = 0
-    for page in xrange(1,25):
+    for page in xrange(1, 25):
         if resume_300_flag == 1:
             break
         url = "https://easy.lagou.com/search/result.htm?" + "keyword=" + params["keyword"] + "&positionId=" + str(params["positionId"]) + "&city=" + params["city"] + "&education=" + params["education"] + "&workYear=" + params["workYear"] + "&pageNo=" + str(page)
@@ -158,14 +161,15 @@ def spider(session, params, user_agent, dedup=None, proxies=None):
         while True:
             try_times += 1
             try:
-                logger.info("fetch %s with %s"%(url, proxies))
+                logger.info("fetch %s with %s" % (url, proxies))
+                time.sleep(random.uniform(5, 20))
                 response = session.get(url, headers=headers, timeout=__timeout, proxies=proxies)
             except Exception:
                 logger.warning('fetch %s with %s fail:\n%s'%(url, proxies, traceback.format_exc()))
                 if try_times > 5:
                     raise Exception("PROXY_FAIL!")
                 else:
-                    time.sleep(30)
+                    time.sleep(random.uniform(30, 100))
             else:
                 break
         assert response.status_code == 200
@@ -174,21 +178,46 @@ def spider(session, params, user_agent, dedup=None, proxies=None):
         if not total_page:
             break
         assert total_page
-        if page > int(total_page):
+        if total_page == "500+":
+            total_page = "500"
+        if (page-1)*15 > int(total_page):
             break
         datas = pq(response.text).find(".result_list").find(".result_list_item")
-        _ids = pq(response.text).find(".result_list_item").find(".btn.btn_green")
+        _ids = pq(response.text).find(".result_list_item").find(".btn.btn_green.send-job-list")
+        _updatetimes = pq(response.text).find(".chat_target.clearfix")
         ids = []
+        updatetimes = []
         for _id in _ids:
             id = pq(_id).attr("data-cuserid")
-            ids.append(id)
-        rest_ids = dedup(ids)
+            if id:
+                ids.append(id)
+        for _updatetime in _updatetimes:
+            update_time = pq(_updatetime).text()
+            import datetime
+            if update_time == "此人已发简历":
+                updatetime = ""
+            elif update_time == "最近登录：3天内":
+                updatetime = datetime.date.today() - datetime.timedelta(days=1)
+            elif update_time == "最近登录：7天内":
+                updatetime = datetime.date.today() - datetime.timedelta(days=5)
+            elif update_time == "最近登录：2周内":
+                updatetime = datetime.date.today() - datetime.timedelta(days=10)
+            elif update_time == "最近登录：1月内":
+                updatetime = datetime.date.today() - datetime.timedelta(days=22)
+            elif update_time == "最近登录：半年内":
+                updatetime = datetime.date.today() - datetime.timedelta(days=90)
+            else:
+                updatetime = datetime.date.today() - datetime.timedelta(days=130)
+            if updatetime:
+                updatetimes.append(updatetime.strftime("%Y-%m-%d"))
+
+        rest_ids = dedup(ids, updatetimes)
         __resume_counter = 0
         for data in datas:
             _id = pq(data).find(".btn.btn_green").attr("data-cuserid")
             if _id in rest_ids:
                 __resume_counter += 1
-                if __resume_counter < 300 and total_page >0:
+                if __resume_counter < 300 and total_page > 0:
                     yield pq(data).html()
                 else:
                     resume_300_flag = 1

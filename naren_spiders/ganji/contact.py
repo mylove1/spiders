@@ -11,7 +11,8 @@ import time
 import logging
 import os
 import json
-
+import tempfile
+import shutil
 from naren_spiders.worker import upload
 from naren_spiders.worker import parse_check_code
 
@@ -82,6 +83,7 @@ def __fetch_contact(session, resume_id, user_name, user_password, proxies=None):
                 "__hash__": hash_value,
                 "_": time_stamp
             })
+            open(session.temp_folder + os.path.sep + 'login_result.html', 'w').write(login_result)
             if 'error_msg' in login_result:
                 logger.warning('login fail with response:\n%s' % login_result)
             else:
@@ -100,6 +102,7 @@ def __fetch_contact(session, resume_id, user_name, user_password, proxies=None):
         "callback": "show_contact",
         "is_batch_view_resume": 0
     })
+    open(session.temp_folder + os.path.sep + 'message.html', 'w').write(message)
     if '您已下载过该简历' not in message:
         if '简历下载数不足' in message:
             raise Exception('The Ganji Account Can Not Afford this Resumes')
@@ -120,10 +123,11 @@ def __fetch_contact(session, resume_id, user_name, user_password, proxies=None):
 
     logger.info('buy contact done, try upload resume')
     resume = __session('get', 'http://www.ganji.com/jianli/%sx.htm' % resume_id)
+    shutil.rmtree(session.temp_folder)
     return upload(resume, 'ganji', get_contact=True)
 
 
-def fetch_contact(resume_id, user_name, user_password, logger_name=None):
+def fetch_contact_impl(resume_id, user_name, user_password, logger_name=None):
     if logger_name:
         global logger
         logger = logging.getLogger(logger_name)
@@ -136,9 +140,10 @@ def fetch_contact(resume_id, user_name, user_password, logger_name=None):
     if os.path.exists(cookie_file_name):
         with open(cookie_file_name, 'r') as cookie_file:
             s.cookies.update(json.load(cookie_file))
-
+    s.temp_folder = os.path.join(tempfile.gettempdir(), "ganji", str(random.randint(1, 10000)))
+    if not os.path.isdir(s.temp_folder):
+        os.makedirs(s.temp_folder)
     contact = __fetch_contact(s, resume_id, user_name, user_password)
-
     with open(cookie_file_name, 'w') as cookie_file:
         __cookies = {}
         for k, v in s.cookies.iteritems():
@@ -146,6 +151,11 @@ def fetch_contact(resume_id, user_name, user_password, logger_name=None):
         json.dump(__cookies, cookie_file)
     return contact
 
+def fetch_contact(*args, **kwargs):
+    try:
+        fetch_contact_impl(*args, **kwargs)
+    except Exception, e:
+        return {"err_code": 90400, "err_msg": str(e)}
 
 if __name__ == '__main__':
     logger.setLevel(logging.INFO)

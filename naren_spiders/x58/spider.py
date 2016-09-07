@@ -2,7 +2,6 @@
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
-import requests
 from nanabase import baseutil as nautil
 from pyquery import PyQuery as pq
 import traceback
@@ -12,6 +11,7 @@ import datetime
 import random
 import re
 from keywords import address, education_keywords_dict, job_dict
+import contact
 
 logger = logging.getLogger()
 
@@ -121,10 +121,10 @@ def splice_posttime_url(dict_keywords):
 
 def splice_low_workage_url(dict_keywords):
     # 最低工作年限转换
-    workage = int(dict_keywords['low_workage'])
-    if workage == u"不限" or workage is None or workage == '':
-        low_workage = ''
-    elif workage >= 1 and workage <= 2:
+    workage = dict_keywords['low_workage']
+    if type(workage) != int:
+        workage = int(workage)
+    if workage >= 1 and workage <= 2:
         low_workage = ['pve_5594_1', 'pve_5594_2', 'pve_5594_3', 'pve_5594_4']
     elif workage >= 3 and workage <= 5:
         low_workage = ['pve_5594_2', 'pve_5594_3', 'pve_5594_4']
@@ -162,12 +162,11 @@ def splice_destitle_url(dict_keywords):
     jobs_key = destitle_key.values()
     for k in jobs_key:
         k = k.decode('utf-8')
-        if k == u"其他":
-            job = ''
-            logger.warning('the destitle keyword %s is fail:\n%s' % (job, traceback.format_exc()))
-        else:
+        try:
             job = job_dict(k)
-        jobs.append(job)
+            jobs.append(job)
+        except Exception:
+            logger.warning("the destitle %s ignored" % jobs_key)
     return jobs
 
 
@@ -182,7 +181,7 @@ def get_resume_list_urls(keywords_to_58):
     if "destitle" in keywords_to_58:
         url_destitle = splice_destitle_url(keywords_to_58)
     else:
-        url_destitle = ''
+        url_destitle = []
 
     if "sex" in keywords_to_58:
         url_sex = splice_sex_url(keywords_to_58)
@@ -190,14 +189,17 @@ def get_resume_list_urls(keywords_to_58):
         url_sex = ''
 
     if "low_workage" in keywords_to_58:
-        url_low_workage = splice_low_workage_url(keywords_to_58)
+        if keywords_to_58["low_workage"] == "不限" or keywords_to_58["low_workage"] == '':
+            url_low_workage = []
+        else:
+            url_low_workage = splice_low_workage_url(keywords_to_58)
     else:
-        url_low_workage = ''
+        url_low_workage = []
 
     if "education" in keywords_to_58:
         url_education = splice_education_url(keywords_to_58)
     else:
-        url_education = ''
+        url_education = []
 
     if "lastupdatetime" in keywords_to_58:
         url_lastupdatetime = '/?' + splice_posttime_url(keywords_to_58)
@@ -218,7 +220,7 @@ def get_resume_list_urls(keywords_to_58):
                     for destitle in url_destitle:
                         url = url_area + destitle + '/' + 'pn%s' + '/' + url_sex + workage + '_' + education + url_lastupdatetime + url_resumekeywords
                         urls.append(url)
-                elif url_resumekeywords and url_destitle == '':
+                elif url_resumekeywords and url_destitle == []:
                     url = url_area + 'searchjob/' + 'pn%s' + '/' + url_sex + workage + '_' + education + url_lastupdatetime + url_resumekeywords
                     urls.append(url)
                 elif url_resumekeywords == '' and url_destitle:
@@ -235,7 +237,7 @@ def get_resume_list_urls(keywords_to_58):
                 for destitle in url_destitle:
                     url = url_area + destitle + '/' + 'pn%s' + '/' + url_sex + education + url_lastupdatetime + url_resumekeywords
                     urls.append(url)
-            elif url_resumekeywords and url_destitle == '':
+            elif url_resumekeywords and url_destitle == []:
                 url = url_area + 'searchjob/' + 'pn%s' + '/' + url_sex + education + url_lastupdatetime + url_resumekeywords
                 urls.append(url)
             elif url_resumekeywords == '' and url_destitle:
@@ -252,7 +254,7 @@ def get_resume_list_urls(keywords_to_58):
                 for destitle in url_destitle:
                     url = url_area + destitle + '/' + 'pn%s' + '/' + url_sex + workage + url_lastupdatetime + url_resumekeywords
                     urls.append(url)
-            elif url_resumekeywords and url_destitle == '':
+            elif url_resumekeywords and url_destitle == []:
                 url = url_area + 'searchjob/' + 'pn%s' + '/' + url_sex + workage + url_lastupdatetime + url_resumekeywords
                 urls.append(url)
             elif url_resumekeywords == '' and url_destitle:
@@ -270,7 +272,7 @@ def get_resume_list_urls(keywords_to_58):
                 for destitle in url_destitle:
                     url = url_area + destitle + '/' + 'pn%s' + '/' + url_sex + url_lastupdatetime + url_resumekeywords
                     urls.append(url)
-            elif url_resumekeywords and url_destitle == '':
+            elif url_resumekeywords and url_destitle == []:
                 url = url_area + 'searchjob/' + 'pn%s' + '/' + url_sex + url_resumekeywords + url_lastupdatetime
                 urls.append(url)
             elif url_resumekeywords == '' and url_destitle:
@@ -283,7 +285,7 @@ def get_resume_list_urls(keywords_to_58):
     return urls
 
 
-def get_resume_urls(session, urls, dedup, proxies=None):
+def get_resume_urls(session, urls, user_agent, dedup, proxies=None):
     # 由get_resume_urls搜索出的所有简历的href，下载所有简历
     _timeout = 60
     _resume_counter = 0
@@ -291,7 +293,7 @@ def get_resume_urls(session, urls, dedup, proxies=None):
     host = url.split('/')[2]
     logger.info('host %s of url %s' % (host, url))
     headers = {
-        "User-Agent": nautil.user_agent(),
+        "User-Agent": user_agent,
         "Accept": "text/html,application/xhtml+xml,application/xml;",
         "Accept-Encoding": "gzip, deflate",
         "Accept-Language": "zh-CN,zh;q=0.8",
@@ -324,6 +326,26 @@ def get_resume_urls(session, urls, dedup, proxies=None):
             d_urls = pq(r.content)
             hrefs = d_urls('.maincon').find('.tablist').find('dl').find('.w295')
             data_urls = {}
+            updatetimes = []
+            _updatetimes = pq(r.content).find(".w90")
+            import datetime
+            for _updatetime in _updatetimes:
+                update_time = pq(_updatetime).text()
+                if update_time == u"更新时间":
+                    updatetime = ''
+                elif update_time == u"刚刚":
+                    updatetime = str(datetime.date.today())
+                elif update_time == u"置顶":
+                    updatetime = str(datetime.date.today())
+                elif u"分钟" in update_time:
+                    updatetime = str(datetime.date.today())
+                elif u"小时" in update_time:
+                    updatetime = str(datetime.date.today())
+                else:
+                    updatetime = datetime.date.today().strftime("%Y") + "-" + update_time
+                if updatetime:
+                    updatetimes.append(updatetime)
+            ids = []
             for i in hrefs:
                 uu = pq(i).find('a').attr('href')
                 if 'short.58.com' in uu:
@@ -331,8 +353,12 @@ def get_resume_urls(session, urls, dedup, proxies=None):
                     id = re.findall(r'\d+', url_params)[1]
                 else:
                     id = re.findall(r'\d+', uu)[1]
+                if id:
+                    ids.append(id)
                 data_urls[id] = uu
-            rest_ids = dedup(data_urls.keys())
+            if ids == [] and updatetimes == []:
+                break
+            rest_ids = dedup(ids, updatetimes)
             for data_id in rest_ids:
                 _resume_counter = _resume_counter + 1
                 if _resume_counter < 300:
@@ -340,14 +366,14 @@ def get_resume_urls(session, urls, dedup, proxies=None):
                 else:
                     resume_300_flag = 1
                     break
-                yield download_resume(session, rest_url, proxies=proxies)
+                yield download_resume(session, rest_url, user_agent, proxies=proxies)
             if u"<span>下一页</span>" in r.text:
                 continue
             else:
                 break
 
 
-def download_resume(session, url, proxies=None):
+def download_resume(session, url, user_agent, proxies=None):
     # 下载所有简历
     time.sleep(random.uniform(30, 100))
     _timeout = 60
@@ -355,7 +381,7 @@ def download_resume(session, url, proxies=None):
     host = url.split('/')[2]
     logger.info('host %s of url %s' % (host, url))
     headers = {
-        "User-Agent": nautil.user_agent(),
+        "User-Agent": user_agent,
         "Accept": "text/html,application/xhtml+xml,application/xml;",
         "Accept-Encoding": "gzip, deflate, sdch",
         "Accept-Language": "zh-CN,zh;q=0.8",
@@ -385,7 +411,7 @@ def download_resume(session, url, proxies=None):
             time.sleep(random.uniform(30, 100))
             operation_times += 1
             if operation_times > 5:
-                raise Exception("PROXY_BROKEN!")
+                raise Exception("PROXY_FAIL!")
             continue
         elif u'<h1>呃……很抱歉，该简历已不存在！</h1>' in data.text:
             break
@@ -393,19 +419,31 @@ def download_resume(session, url, proxies=None):
             time.sleep(random.uniform(30, 100))
             error_page_times += 1
             if error_page_times > 5:
-                raise Exception("ERROR_PAGE!")
+                raise Exception("PROXY_FAIL!")
             continue
         else:
             assert u'<h1 class="resTitle">' in data.text
             return data.text
 
 
+username = None
+password = None
+
+
+def x58_set_user_password(uuid, passwd):
+    global username, password
+    username = uuid
+    password = passwd
+
+
 def x58_search(params, dedup, proxies=None):
+    assert username
     urls = get_resume_list_urls(params)
-    s = requests.Session()
-    return get_resume_urls(s, urls, dedup, proxies=proxies)
-    # download_resume(s, urls, proxies=proxies)
-    # return download_resume(s, urls, proxies=proxies)
+    user_agent = nautil.user_agent()
+    s = contact.login(username, user_agent, proxies=proxies)
+    return get_resume_urls(s, urls, user_agent, dedup, proxies=proxies)
+
+
 
 # if __name__ == '__main__':
 #     proxies = time.sleep(random.uniform(3,10))

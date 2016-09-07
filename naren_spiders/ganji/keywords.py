@@ -4,13 +4,13 @@ def address(city,area):
     address_keywords_dict = {
         'bj': {u"北京":"", u"石景山": "180", u"丰台": "179", u"大兴": "182", u"北京周边": "103680", u"顺义": "184", u"朝阳": "174", u"海淀": "173", u"平谷": "189", u"宣武": "178", u"房山": "181",
                u"崇文": "177", u"西城": "176", u"通州": "183", u"昌平": "185", u"怀柔": "187", u"燕郊": "3283", u"东城": "175", u"延庆": "188", u"门头沟": "190", u"密云": "186"},
-        'tj': {u"天津":"",u"蓟县": "703", u"红桥": "691", u"东丽": "695", u"河西": "688", u"南开": "689", u"滨海新区": "103825", u"开发区": "704", u"河东": "687", u"河北": "690", u"西青": "696",
+        'tj': {u"天津":"",u"蓟县": "703", u"红桥": "691", u"东丽": "695", u"河西": "688", u"南开": "689", u"滨海新": "103825", u"开发": "704", u"河东": "687", u"河北": "690", u"西青": "696",
                u"宝坻": "700", u"北辰": "698", u"宁河": "701", u"和平": "686", u"塘沽": "692", u"大港": "694", u"汉沽": "693", u"津南": "697", u"静海": "702", u"武清": "699"},
         'sh': {u"上海":"", u"静安": "195", u"金山": "204", u"嘉定": "202", u"宝山": "201", u"黄浦": "191", u"普陀": "196", u"虹口": "198", u"松江": "205", u"浦东": "203", u"南汇": "207",
                u"奉贤": "208", u"闵行": "200", u"青浦": "206", u"徐汇": "193", u"崇明": "209", u"卢湾": "192", u"上海周边": "210", u"杨浦": "199", u"闸北": "197", u"长宁": "194"},
         'cq': {u"重庆":"", u"渝北": "2861", u"双桥": "2860", u"大足": "2875", u"潼南": "2873", u"九龙坡": "2856", u"巴南": "2862", u"城口": "2879", u"万盛": "2859", u"巫溪": "2888", u"铜梁": "2874",
                u"万州": "2863", u"南川": "2871", u"奉节": "2886", u"垫江": "2881", u"北碚": "2858", u"黔江": "2865", u"开县": "2884", u"酉阳": "2891", u"綦江": "2872", u"彭水": "2892",
-               u"梁平": "2878", u"秀山": "2890", u"武隆": "2882", u"涪陵": "2864", u"渝中": "2852", u"沙坪坝": "2855", u"长寿": "2866", u"云阳": "2885", u"两江新区": "3622", u"璧山": "2877",
+               u"梁平": "2878", u"秀山": "2890", u"武隆": "2882", u"涪陵": "2864", u"渝中": "2852", u"沙坪坝": "2855", u"长寿": "2866", u"云阳": "2885", u"两江新": "3622", u"璧山": "2877",
                u"合川": "2869", u"江北": "2854", u"忠县": "2883", u"大渡口": "2853", u"其他市县": "2867", u"荣昌": "2876", u"石柱": "2889", u"丰都": "2880", u"巫山": "2887", u"永川": "2870",
                u"江津": "2868", u"南岸": "2857"},
         'other': {u"南充": "51", u"漳州": "80", u"清远": "270", u"黄南": "189", u"莆田": "77", u"佛山": "20", u"大理": "237", u"石河子": "255", u"塔城": "253", u"鹰潭": "219", u"三亚": "144",
@@ -241,7 +241,10 @@ def jobs(job):
         u"房地产资产管理": ["qzzichanguanli", "qzcaiwushenji"], u"工业工程师": ["qzjixiegongchengshi", "qzjixieyiqiyibiao"], u"售前/售后技术支持主管": ["qzshzcjingli", "qzkefu"], u"儿科医生": ["qzerkeyisheng", "qzyiyuanyiliao"],
         u"平面设计师": ["qzpingmiansheji", "qzmeishusheji"], u"证券分析师": ["qzfenxishi", "qzjinrongtouzizhengquan"], u"泰语翻译": ["qzfanyiqita", "qzfanyi"], u"飞机维修机械师": ["qzfeixingqisheji", "qzjixieyiqiyibiao"],
         u"房地产项目招投标": ["qzfdcxmzhuanyuan", "qzfangjingjiren"], u"个人业务客户经理": ["qzyinhangguiyuan", "qzjinrongtouzizhengquan"], u"签证专员": ["qzshewaizixunshi", "qzzixunguwen"], u"广告创意总监": ["qzguanggaochuangyi", "qzshichanggongguan"],
-        u"驯兽师/助理驯兽师": ["qzxmsxumushi", "qznonglin"], u"清算人员": ["qzyinhangguiyuan", "qzjinrongtouzizhengquan"]}
+        u"驯兽师/助理驯兽师": ["qzxmsxumushi", "qznonglin"], u"清算人员": ["qzyinhangguiyuan", "qzjinrongtouzizhengquan"],  u"高级Java": ["qzruanjiangongchengshi", "qzjisuanjiwangluo"], u"PHP开发工程师": ["qzruanjiangongchengshi", "qzjisuanjiwangluo"],
+        u"COCOS2D-X开发工程师": ["qzruanjiangongchengshi", "qzjisuanjiwangluo"], u"行政前台": ["qzqiantai", "qzxingzhenghouqin"], u"产品经理": ["qzchanpinjingli", "qzjisuanjiwangluo"], u"制作部经理": ["qzhouqizhizuo", "qzmeitiyingshi"],
+        u"商务总监": ["qzshichangzongjian", "qzshichanggongguan"], u"注册专员": ["qzchanpinyanfa", "qzyiyaoshengwu"],
+        }
 
 
     return job_dict[job]

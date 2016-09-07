@@ -1,0 +1,2091 @@
+<body><iframe style="display: none;"></iframe><style type="text/css">.WPA3-SELECT-PANEL { z-index:2147483647; width:463px; height:292px; margin:0; padding:0; border:1px solid #d4d4d4; background-color:#fff; border-radius:5px; box-shadow:0 0 15px #d4d4d4;}.WPA3-SELECT-PANEL * { position:static; z-index:auto; top:auto; left:auto; right:auto; bottom:auto; width:auto; height:auto; max-height:auto; max-width:auto; min-height:0; min-width:0; margin:0; padding:0; border:0; clear:none; clip:auto; background:transparent; color:#333; cursor:auto; direction:ltr; filter:; float:none; font:normal normal normal 12px "Helvetica Neue", Arial, sans-serif; line-height:16px; letter-spacing:normal; list-style:none; marks:none; overflow:visible; page:auto; quotes:none; -o-set-link-source:none; size:auto; text-align:left; text-decoration:none; text-indent:0; text-overflow:clip; text-shadow:none; text-transform:none; vertical-align:baseline; visibility:visible; white-space:normal; word-spacing:normal; word-wrap:normal; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; box-shadow:none; -webkit-border-radius:0; -moz-border-radius:0; -ms-border-radius:0; -o-border-radius:0; border-radius:0; -webkit-opacity:1; -moz-opacity:1; -ms-opacity:1; -o-opacity:1; opacity:1; -webkit-outline:0; -moz-outline:0; -ms-outline:0; -o-outline:0; outline:0; -webkit-text-size-adjust:none; font-family:Microsoft YaHei,Simsun;}.WPA3-SELECT-PANEL a { cursor:auto;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-TOP { height:25px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE { float:right; display:block; width:47px; height:25px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE:hover { background-position:0 -25px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-MAIN { padding:23px 20px 45px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-GUIDE { margin-bottom:42px; font-family:"Microsoft Yahei"; font-size:16px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-SELECTS { width:246px; height:111px; margin:0 auto;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT { float:right; display:block; width:88px; height:111px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat 0 -80px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT:hover { background-position:-88px -80px;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-AIO-CHAT { float:left;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ { display:block; width:76px; height:76px; margin:6px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat -50px 0;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ-ANONY { background-position:-130px 0;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-LABEL { display:block; padding-top:10px; color:#00a2e6; text-align:center;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-BOTTOM { padding:0 20px; text-align:right;}.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-INSTALL { color:#8e8e8e;}</style><style type="text/css">.WPA3-CONFIRM { z-index:2147483647; width:285px; height:141px; margin:0; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAACNCAMAAAC9pV6+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU5QUIyQzVCNUIwQTExRTJCM0FFRDNCMTc1RTI3Nzg4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjU5QUIyQzVDNUIwQTExRTJCM0FFRDNCMTc1RTI3Nzg4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTlBQjJDNTk1QjBBMTFFMkIzQUVEM0IxNzVFMjc3ODgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTlBQjJDNUE1QjBBMTFFMkIzQUVEM0IxNzVFMjc3ODgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6QoyAtAAADAFBMVEW5xdCkvtNjJhzf6Ozo7/LuEQEhHifZ1tbv8vaibw7/9VRVXGrR3en4+vuveXwZGCT///82N0prTRrgU0MkISxuEg2uTUqvEwO2tbb2mwLn0dHOiQnExMacpKwoJzT29/n+qAF0mbf9xRaTm6abm5vTNBXJ0tvFFgH/KgD+ugqtra2yJRSkq7YPDxvZGwDk7O//2zfoIgH7/f1GSV6PEAhERUtWWF2EiZHHNix1dXWLk53/ySLppQt/gID9IAH7Mgj0JQCJNTTj4+QaIi0zNDr/0Cvq9f/s+/5eYGrn9fZ0eYXZ5O3/tBD8/f5udHy6naTV2t9obHl8gY9ubW/19fXq8fXN2uT/5z/h7PC2oaVmZWoqJR6mMCL3+f33KQM1Fhr6NRT9///w/v/ftrjJDQby9vpKkcWHc3vh7vvZ5uvpPycrMEHu7/De7fne5+709voyKSTi7PVbjrcuLTnnNAzHFhD7/P3aDwDfNxTj6vHz9fj09vj3///19/ny9PevuMI9PEPw8/bw8vbx9PdhYWHx8/fy9ff19vj19vny9fjw8/fc6fOosbza5/LX5fDV4+/U4u7S4e3R4O3O3uvd6vTe6vTd6fPb6PPb6PLW5PDZ5/HW5O/Z5vHV5O/T4e7T4u7Y5vHY5fHO3evR4OzP3+vP3uvQ3+xGt/9Lg7Dz9vjv8/X7+/3d5+vi6+7g6ezh6u3w9Pbc5+rt8vTl7fDn7vHr8fP2+Pr3+fv6+/zq8PPc5urb5en4+/7Y5epGsvjN3erW4OXf6+/s8/bn8PPk7vLv9fiAyfdHrO6Aorz09vnx9fnz9Pb09/vv8fVHsfd+zP/jwyLdExFekLipYWLN3OjR3Oa0k5n/9fXX6PDh7vDU4ey6fAzV4+5HOSHIoBP+/v3b6OppaGrT4Ovk6/Lw8PE8P1Pz+v/w8/nZ5vDW4erOztL/LgT3+Pn2+PvY5/Ta5/HvuxfZ5Ojm8f6lrrrI1uPw0iZPT1Sps7r19/iqtLzxKgjZ3N9RVFtQSkbL2ujM2+ku4f1qAAAIDklEQVR42uzcC3ATdR7A8S3QhZajm+RSEmxZEhIT2vKvjU1aWqAPWr1IsRTkoRZb4Qoi6XmFYHued5coQe8wFLSoFOXV0oeIShG13ANURBmoeme9Z6dXnbP34OF517MOUo/7JykNySXZjPP/rzPb37d0y7Yz/5n9zP43u9tNmUnqHBcUqpzUakatf2QaFKqz+lQm5931T0KhWv9uDuNavwMK3XoX43oq+koYXemQxem0WLMv/fYp6Yd1Hou2v39RarHzvBLHsnyWbtmOxyRe9Do7DaWWfjmPYVjWu2CzLo0CnaejyzGUmSm3Yx0fjafi3B1PSzqsszOqHJkYx2bz6iiv7j189j93SqnTzZ5l8+mr61hnazQxg5mZ/XhisRw+6CiVHOK8POW5u7ZKqFZt8/DCV5Q6zdZ+Lw7vVCKMg8oH7cjLY78kJZ2tzdpW/G/rNTq7oihX3i+Xy21yxzy1HSmRXV17zom8s2to2S4pdUCrbfCvYZ1nBdtnGLTZMI4yVSbrU+NZpcdfkznf5Mp9Vkp9qNW2+Newzj7hdLzdZrNx/Z/Ikj9OHkLF86bqO5dYULlHx2L4wz7J1KBtOKFtGFnFOvsF+5ZVqeR5O7J2Lsmy6F3IlfqVRd3p8h55lPzU/ZKpSdu0f/8Jz8IX1qkXjHF6zo95ZL2wZLB87sdoSK/WZ1+403dcrindXS+VTl/xLE+cbhxej0Zn34D36kGJnNWyVGfqnaj4XOe8eZ84fTOLz1pWL9WwTqNgOtZ3Dsip+1b2jecR0nuPzsOnPBamvlGiYZ1nBGrcne3DwTtP8o2XMxGHlDOPJg/vOixvYZ6Ralhnt1B/uqfIe4LMsogfcpb3evpKOXy2zNqL79i7W6JhnW0CNS5M9F4+4JnUq4j7868//3z6Z3OSehS9rHdu2SoLDdskWhQ627pVlZiH43p75sxevjw+Pn55xvQFGo2mR8Fx5UVFiebflUhXZ3vk9pwrNKoQp+TjNJqUjPh4r87sBVOmaDRTemqKUKLK2L1dognrbF9oVpnSEKpJSkmaM/2mjIzlGTfNXqCZgm00SeUo0agyTm6Qrs5egRaqVMYv01hUE9ejSEqZjkvxzau4uCLObDIajd17JRrW2SOQI81oTP/y+jEIKTlWkfRZSkqKZk6PAq+gyrQK/DPVPdv3SDOs83jkmuYnpmMC092zxrAcQlyNQqHorUH4f2PSzs9IN6Ybzbapj0szYZ1cnjWn40wVd69bUdhbiV/HucrKyjErrs+vqMDfNpkriyzMHqnqPBGp1gG5HR9dqtJN2KEiPz9/48Yf4Dbm558/P6PAZDLVmdki3r7ov09IMSEdw0Q5PtUpKlRhHJOpoGDGtVUUmKoKeY7l7M4Bqeo0R+iArt+Or6/kzMIVRg9ORcVVmfP4s6BOlWCYiFhOKS/9sFmCYZ3WCP3HKvdcXk08u6rbbMb7T0HeVZ28vNi6tG71pzcvRizeeQaZllbpFVmnxeHZdVg0f+XvZ1UZsY+qqq4uFldXd3/a5ITkW/567GYdvtrilHZdqzR1DkQo13Pfi0XZfdfNqsvDZ8UrEhIme+pOuCO5Y5VM9v0H/j2TxVOL5ecfkGCRdVpLec+NCw7r3B+bZ0rPW1f2nT9+1PHRyVtW/UiGqz1439qZnkt1jrVKVKclQlbvAxdoft93q2JnFOTlrbtOdk19XeNK1uKZ5eHJapFgWKchfE0TfTeUrauwTh7mCdSp/dtfSr6XjWrs2MfaIMEi6zQswjaLM5GzxDOz8AvVuvHX4KzsOnZf/adWtCgX65S2SFOnKUI6JV96ZTHLDtyY8JtY/CL+7aN9/i4ufeAfa5libuoVF8vqmiQY1nFH1SX8EaEv3FIM60R8KvXiRc9i2rQLOLwcZc/kCumM7kAHdEAHdL4BnR9D4QId0AEd0AEd0AEd0BkFOj+FwgU6AjqPQuECHQGdB6FwgQ7ogA7ogA7ogA7ogA7oQKDztXR+CIULdEAHdEAHdEAHdEAHdEAHAp2vpfMzKFygI6DzCBQu0BHQ+QkULtABHdABHdABHdABnTAx2nZCaZnVm/zjljEDNN99zpSF0NlEuFMxa95pI9Q7a2JGxj1rYKplFOurZgxBm0JBZ9OG4+//klDvH99weGRcxwXZrVR71HGWvk572121hLqrrd0/rltWSzn3JlF0nidUkM7zlBNJp5NQQTqdlBNHp2sSoboCdSZRTiSd1wgVpPMa5cTRWf0qoVYH6rxKuRA6m0nX3naG1JvrzrS1+8d1y2i/l88dtCV0dE49R6hTgTrPUU4kHVI3doN0aN9HFkfnzcOEejNQ5zDlxNFZepBQSwN1DlJOJJ0jhArSOUI5cXROvkKok4E6r1AuhM4W0mGdY4TCOv5x3bJjlHMHbQkdnbfGEeqtQJ1xlBNJ5yihgnSOUk4cndtfJtTtgTovU04cnTduINQbgTo3UC6EzkOkwzovEArr+Md1y16gnDtoS+jojH2JUGMDdV6inDg6h14k1KFAnRcpJ45Ox1hCdQTqjKWcODr3HiLUvYE6hygnkk4HoYJ0Oignhs6G997+FaHefu8D/7iOaT+n2+sOEXRi1hwn9Zvi42tizoyMa0j+1y9o9jpTNoG6zpYjMRtIPWXwQUzXyLibNxscVP/GvaPswf/fdx4m3oQJxIbasuXhbzAqOpIJdAR0JkDhAh3QAR3QAR3QAR3QAZ3RrZNzGRTCdPk2JnUu8ITBmatnqlNzXFCobtOP/58AAwA/1aMkKhXCbQAAAABJRU5ErkJggg==) no-repeat;}.WPA3-CONFIRM { *background-image:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/panel.png);}.WPA3-CONFIRM * { position:static; z-index:auto; top:auto; left:auto; right:auto; bottom:auto; width:auto; height:auto; max-height:auto; max-width:auto; min-height:0; min-width:0; margin:0; padding:0; border:0; clear:none; clip:auto; background:transparent; color:#333; cursor:auto; direction:ltr; filter:; float:none; font:normal normal normal 12px "Helvetica Neue", Arial, sans-serif; line-height:16px; letter-spacing:normal; list-style:none; marks:none; overflow:visible; page:auto; quotes:none; -o-set-link-source:none; size:auto; text-align:left; text-decoration:none; text-indent:0; text-overflow:clip; text-shadow:none; text-transform:none; vertical-align:baseline; visibility:visible; white-space:normal; word-spacing:normal; word-wrap:normal; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; box-shadow:none; -webkit-border-radius:0; -moz-border-radius:0; -ms-border-radius:0; -o-border-radius:0; border-radius:0; -webkit-opacity:1; -moz-opacity:1; -ms-opacity:1; -o-opacity:1; opacity:1; -webkit-outline:0; -moz-outline:0; -ms-outline:0; -o-outline:0; outline:0; -webkit-text-size-adjust:none;}.WPA3-CONFIRM * { font-family:Microsoft YaHei,Simsun;}.WPA3-CONFIRM .WPA3-CONFIRM-TITLE { height:40px; margin:0; padding:0; line-height:40px; color:#2b6089; font-weight:normal; font-size:14px; text-indent:80px;}.WPA3-CONFIRM .WPA3-CONFIRM-CONTENT { height:55px; margin:0; line-height:55px; color:#353535; font-size:14px; text-indent:29px;}.WPA3-CONFIRM .WPA3-CONFIRM-PANEL { height:30px; margin:0; padding-right:16px; text-align:right;}.WPA3-CONFIRM .WPA3-CONFIRM-BUTTON { position:relative; display:inline-block!important; display:inline; zoom:1; width:99px; height:30px; margin-left:10px; line-height:30px; color:#000; text-decoration:none; font-size:12px; text-align:center;}.WPA3-CONFIRM .WPA3-CONFIRM-BUTTON-FOCUS { width:78px;}.WPA3-CONFIRM .WPA3-CONFIRM-BUTTON .WPA3-CONFIRM-BUTTON-TEXT { line-height:30px; text-align:center; cursor:pointer;}.WPA3-CONFIRM-CLOSE { position:absolute; top:7px; right:7px; width:10px; height:10px; cursor:pointer;}</style>
+
+
+    <div class="notice" id="divNotice">
+        <div class="notice-con">
+            <p class="notice-words" id="msgDiv"></p>
+        </div>
+    </div>
+
+    <div class="c-bar-box _header">
+
+
+
+
+<div class="bar-box-new">
+<div class="bar-new" style="position: relative;">
+	<p>在线客服：</p>
+    <!-- 在线QQ客服 -->
+    <!-- WPA Button Begin -->
+    <!-- WPA Button End -->
+	<ul class="bar-ul clearfix">
+    	<li class="bar-bor-r pad-r4 personal-img"><span id="showhuntername">于光伟，您好</span></li>
+       <li class="bar-bor-l bar-bor-r"><a style="cursor:pointer" onclick="javascript:window.open('/personalcenter/scorerule','_blank')" title="积分规则">积分规则</a></li>
+        <li class="bar-bor-l bar-bor-r"><a style="cursor:pointer" onclick="javascript:location.href='http://www.highpin.cn/Home/NewsIndex?typeID=0'" title="卓聘视角">卓聘视角</a></li>
+        <li class="bar-bor-l bar-bor-r"><a style="cursor:pointer" onclick="javascript:window.open('http://c.highpin.cn/PersonalCenter/NewHunter','_blank')" title="新手上路">新手上路</a></li>
+        <li class="bar-bor-l bar-bor-r"><a style="cursor:pointer" onclick="ShowSuggestion(2)" title="意见反馈">意见反馈</a></li>
+        <li class="bar-bor-l"><a style="cursor:pointer" class="logoutBtn" logouturl="http://h.highpin.cn/Hunter/LogOff">安全退出</a></li>
+    </ul>
+    <iframe name="mojiIframe" id="mojiIframe" scrolling="no" frameborder="no" border="0" allowtransparency="true" src="http://tianqi.moji.com/show/highpin?v=1473150287825" height="30" style="position: absolute; top: 0px; left: 162px; overflow: hidden;"></iframe></div>
+</div>
+
+    </div>
+
+    <div id="content" class="_container" style="min-height: 766px;">
+
+
+
+
+<input id="hidShowRadishDispatch" name="hidShowRadishDispatch" type="hidden" value="True">
+<input data-val="true" data-val-number="The field Int32 must be a number." data-val-required="The Int32 field is required." id="hunterstatus" name="hunterstatus" type="hidden" value="3">
+<!--H header-box new-->
+<div class="header-box">
+	<div class="header" id="header">
+    	<div class="website-logo">
+        	<a href="http://www.highpin.cn" target="_blank">
+                <!-- new-logo0901.png 换成 zb_logo_monkey.gif  -->
+            	<img src="http://image.highpin.cn/image/shared/header/nav-new/logo_official.png" class="logo-img">
+            </a>
+        </div>
+        <div class="nav-box">
+            <em class="l-picture sames"></em>
+
+            <ul class="mynav-radish  nav-padding">
+                <li class="mar10 mynav-click"><a href="/PersonalCenter/MyIndex">我的首页</a> </li>
+                <li id="joblink">
+                    <a href="#">职位管理</a>
+                    <ul class="sub-nav">
+                        <li><a href="/ManageJob/PubNewJob">发布新职位</a></li>
+                        <li class="last-nav"><a href="/ManageJob/ListJobInPublish?tabid=0&amp;&amp;currentPageIndex=0">职位管理列表</a></li>
+                        <em class="nav-bottom-bg "></em>
+                    </ul>
+                </li>
+                    <li id="radishDispatch">
+                    <div class="BNewNav-new"></div>
+                    <a href="/RadishDispatch/RadishDispatchList?isFist=1">萝卜派</a>
+                </li>
+                <li id="resumesearch"><a href="/SearchResume/SearchResumeConditions">搜索简历</a> </li>
+                <li id="resumemanage">
+                    <a href="#">简历管理</a>
+                    <ul class="sub-nav">
+                        <li><a href="/ResumeManage/ResumeList" "="">已推荐职位的简历</a></li>
+                        <li><a href="/ResumeManage/ResumeList?tabid=1">主动应聘的简历</a></li>
+                        <li><a href="/ResumeManage/ResumeList?tabid=2">已下载的简历</a></li>
+                        <li><a href="/ResumeManage/ResumeList?tabid=3">已收藏的简历</a></li>
+                        <li class="last-nav"><a href="/ResumeManage/ResumeList?tabid=4">已备注的简历</a></li>
+                        <em class="nav-bottom-bg "></em>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">评价管理</a>
+                    <ul class="sub-nav">
+                        <li><a href="/CommentsManage/CommentsList?commType=0">待完成的评价</a></li>
+                        <li><a href="/CommentsManage/CommentsList?commType=1">已完成评价</a></li>
+                        <li class="last-nav"><a href="/CommentsManage/CommentsList?commType=2">来自候选人的评价</a></li>
+                        <em class="nav-bottom-bg "></em>
+                    </ul>
+                </li>
+                <li><a href="/MessageManage/MessageList">消息管理</a><span id="messagealert" style="display: block;" class="messagecell">5</span>
+                </li>
+                <li style="margin-right:2px;"><a href="#">个人中心</a>
+                    <ul class="sub-nav last-pt">
+                        <li><a href="/PersonalCenter/Index?tabId=0">认证信息</a></li>
+                        <li><a href="/PersonalCenter/Index?tabId=1">基本信息</a></li>
+                        <li><a href="/PersonalCenter/Index?tabId=2">我的积分</a></li>
+                        <li><a href="/PersonalCenter/Index?tabId=3">我的信用</a></li>
+                        <li><a href="/PersonalCenter/Index?tabId=4">邀请注册</a></li>
+                        <li class="last-nav"><a href="/PersonalCenter/Index?tabid=5">修改密码</a></li>
+                        <em class="nav-bottom-bg "></em>
+                    </ul>
+                </li>
+            </ul>
+            <em class="r-picture sames"></em>
+        </div>
+        <a href="http://www.highpin.cn" target="_blank" class="comeBackHome">返回卓聘首页</a>
+    </div>
+    </div>
+
+
+
+
+
+    <!--end header-box-->
+        <div id="main">
+
+
+
+
+<div class="h-search-conditions">
+    <h1 class="h-caption">搜索简历</h1>
+    <div id="condition-sticky-wrapper" class="sticky-wrapper" style="height: 81px;"><div class="conditions-show" id="condition">
+        <div class="show-conditions clearfix">
+            <span style="white-space:pre;" class="fl s-result" title="python+北京">您搜索的是：python+北京</span>
+            <span class="fr"><a id="ChangeCondition" class="conditions-a" href="###">修改搜索条件</a><a id="SaveFromList" class="conditions-a" href="javascript:void(0);">保存搜索条件</a></span>
+            <span class="show-num fr">共：<b>4000+</b>份</span>
+        </div>
+        <div class="clearfix">
+            <div class="fl mar-t12">
+                <span class="fl" style="line-height: 20px; margin-right: 6px; color: #787878">排序：</span>
+                <ul class="h-sort-ul clearfix" id="h-sort-ul">
+                    <li class="o-active" data-order="score desc">综合</li>
+                    <li data-order="LastUpTime desc">时间</li>
+                </ul>
+            </div>
+
+            <ul class="abstract-list clearfix" id="abstract-list">
+                <li id="abstract-btn" class="a-l-active" data-isabstract="true"><span style="margin-left: 10px;">摘要</span></li>
+                <li id="list-btn" data-isabstract="false"><span style="margin-left: 10px;">列表</span></li>
+            </ul>
+
+            <!--搜索选择器-->
+            <div class="search-memory" id="search-memory">
+                <div class="memory-txt" id="memory-txt">选择搜索器<em class="s-select" id="s-select"></em></div>
+                <div class="overflow-control" id="overflow-control" style="display: none;">
+                    <ul class="memory-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div></div>
+
+
+
+
+
+</div>
+
+
+
+
+
+<!--摘要-->
+<div class="list-box-new mar-t14">
+    <div class="list-new">
+        <div id="fh-sticky-wrapper" class="sticky-wrapper" style="height: 27px;"><div class="clearfix" id="fh">
+            <div class="list-one wid-224 txt-l borR padding-l5">目前职位</div>
+            <div class="list-one wid-223 txt-l borR borL padding-l5">目前公司</div>
+            <div class="list-one wid-60 borR borL">性别</div>
+            <div class="list-one wid-60 borR borL">年龄</div>
+            <div class="list-one wid-60 borR borL">学历</div>
+            <div class="list-one wid-126 borR borL">现居住地</div>
+            <div class="list-one wid-110 borR borL">最近活跃时间</div>
+            <div class="list-one wid-94 borL">操作记录</div>
+        </div></div>
+        <div class="clearfix bor-bottom" style="height:4px"></div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="Python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=15067903&amp;resumeID=15751121&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">Python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="中电长城网际系统应用有限公司">中电长城网际系统应用有限公司</div>
+                <div class="list-three wid-62">女</div>
+                <div class="list-three wid-62">24岁</div>
+                <div class="list-three wid-62" title="硕士">硕士</div>
+                <div class="list-three wid-128" title="四川-成都">四川-成都</div>
+                <div class="list-three wid-112">
+2016/09/06
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=15067903&amp;resumeID=15751121&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2016/9/2/D1CC20D4CD7A4020BC0CF7F06EAD3E54.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>C++</span>
+                                    <span>linux  </span>
+                                    <span>SQL</span>
+                                    <span>英语</span>
+                                    <span>NoSql</span>
+                                    <span>电子商务</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2014年9月-至今 | 西南交通大学 | 通信工程 | 硕士</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2016年6月-2016年8月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="中电长城网际系统应用有限公司">中电长城网际系统应用...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="Python工程师"><em class="highlight">Python</em>工程师</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">使用<em class="highlight">Python</em>编写爬虫系统的爬虫插件以及代理插件，分析系统性能并改善框架代码。编写对于不同语种的论坛的关键词统计的自然语言处理部分。完善搜索引擎框架的web页面。</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=15060806&amp;resumeID=15743691&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京跃联互动科技有限公司">北京跃联互动科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">26岁</div>
+                <div class="list-three wid-62" title="硕士">硕士</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/09/06
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=15060806&amp;resumeID=15743691&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>开发工程师</span>
+                                    <span>英语</span>
+                                    <span>电子商务</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2013年9月-2016年3月 | 北京信息科技大学 | 计算机科学与技术 | 硕士</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年9月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京跃联互动科技有限公司">北京跃联互动科技有限...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python开发工程师"><em class="highlight">python</em>开发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">负责公司网站和App的后台及API开发，使用<em class="highlight">Python</em>语言，Django框架，MySQL, redis, memcached, Celery等工具和技术</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=15075484&amp;resumeID=15761792&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="中电长城网际">中电长城网际</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">27岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/09/06
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=15075484&amp;resumeID=15761792&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>理财</span>
+                                    <span>英语</span>
+                                    <span>项目管理</span>
+                                    <span>windows</span>
+                                    <span>计算机软件</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2009年9月-2013年7月 | 郑州大学 | 信息科学技术 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年10月-2016年4月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="中电长城网际">中电长城网际&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                &nbsp;|&nbsp;6000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">部门项目主要是一些信息安全数据的分析与展示，比如其中一个聚诊项目，这个项目就是一个分布式的数据分析的项目，我的主要工作就是使用flaskWeb开发架构进行<em class="highlight">Python</em>的web系统开发，使用mongodb,AdminLte后台管理模板，bootstrap,百度图表插件echarts参与到多个项目开...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python开发工程师（实习）"><a href="/SearchResume/SearchResumeInfo?seekerUserID=15054529&amp;resumeID=15732928&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>开发工程师（实习）</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京网思科平科技有限公司">北京网思科平科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title="硕士">硕士</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/09/06
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=15054529&amp;resumeID=15732928&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://photos.highpin.cn/Home/GetFile/2e86d989-b1bc-4029-9b47-0cbaa4c94720" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>开发工程师</span>
+                                    <span>英语</span>
+                                    <span>社区</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2014年9月-至今 | 中国科学院大学 | 计算机科学与技术 | 硕士</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年10月-2016年1月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京网思科平科技有限公司">北京网思科平科技有限...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python开发工程师（实习）"><em class="highlight">python</em>开发工程师（实习）</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">任务描述：负责SEEDS项目(海量信息资源库)Linux环境下ES集群环境搭建、数据检索模块编码、基于Django的平台环境构建
+个人贡献：
+基于Django框架搭建系统平台，为项目开发底层数据检索功能模块，能实现数据的精确、模糊和基于正则表达式的查询等功能；
+...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=9256154&amp;resumeID=10193914&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京掌万宝信息技术有限公司">北京掌万宝信息技术有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">27岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/09/02
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=9256154&amp;resumeID=10193914&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://photos.highpin.cn/Home/GetFile/b339e9df-97d5-4353-904d-adec6adb30cf" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>操作系统</span>
+                                    <span>润乾报表</span>
+                                    <span>信息技术</span>
+                                    <span>WebSphere</span>
+                                    <span>MQ</span>
+                                    <span>AIX</span>
+                                    <span>英语</span>
+                                    <span>数据库</span>
+                                    <span>Shell</span>
+                                    <span>DB2</span>
+                                    <span>app</span>
+                                    <span>SQL</span>
+                                    <span>mysql</span>
+                                    <span>linux  </span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2008年9月-2012年6月 | 四川农业大学 | 计算机科学技术 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年3月-2016年8月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京掌万宝信息技术有限公司">北京掌万宝信息技术有...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                &nbsp;|&nbsp;10000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">1年web应用后端开发经验。
+工作介绍：
+1、协助完成后端程序开发工作，参与部分系统的设计工作。
+2、部署开发和测试环境。
+3、完成系统后端模块开发工作。
+4、编写接口文档。
+4、和前端进行连调。
+5、编写部署文档。
+6、完成其它领导安排的工作（做过简单的爬虫...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python初级开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10175425&amp;resumeID=10837028&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>初级开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="悦康动力(北京)科技有限公司">悦康动力(北京)科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">25岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/09/01
+                </div>
+                <div class="list-three wid-95" title="已推荐">已推荐</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10175425&amp;resumeID=10837028&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://photos.highpin.cn/Home/GetFile/49486ab2-32df-4765-964b-ca9c56623de2" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                        <span class="readed">已浏览</span>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>C++</span>
+                                    <span>javascript</span>
+                                    <span>mysql</span>
+                                    <span>DB2</span>
+                                    <span>开发工程师</span>
+                                    <span>英语</span>
+                                    <span>MongoDB</span>
+                                    <span>电子商务</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2009年9月-2015年7月 | 北京邮电大学 | 软件工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年8月-2016年5月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="悦康动力(北京)科技有限公司">悦康动力(北京)科技有...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python初级开发工程师"><em class="highlight">python</em>初级开发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">电商平台的开发（店铺，运营后台等）。
+并将web商城接入微信公众号。</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14368273&amp;resumeID=14902972&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="西安理工大学">西安理工大学</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">27岁</div>
+                <div class="list-three wid-62" title="硕士">硕士</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/08/24
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14368273&amp;resumeID=14902972&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>英语</span>
+                                    <span>计算机软件</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2013年9月-2016年7月 | 西安理工大学 | 信息与计算科学 | 硕士</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2016年4月-2016年6月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="西安理工大学">西安理工大学&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">项目名称：数学建模建设平台
+开发周期：3个月
+开发平台：Linux
+开发工具：sublime + vim + git
+项目描述：该平台主要以数学建模为载体，介绍数学思想、数学方法、数学精神。旨在贯彻和推广数学建模思想，通过该平台提高学生的模型准备、...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="游戏后台工程师（Python）"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10740982&amp;resumeID=11269655&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank">游戏后台工程师（<em class="highlight">Python</em>）</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京爱视游技术有限公司">北京爱视游技术有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">27岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/08/12
+                </div>
+                <div class="list-three wid-95" title="已推荐">已推荐</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10740982&amp;resumeID=11269655&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                        <span class="readed">已浏览</span>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span>游戏</span>
+                                    <span>英语</span>
+                                    <span>电子商务</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2007年9月-2011年6月 | 河北大学工商学院 | 计算机科学与技术 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年6月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京爱视游技术有限公司">北京爱视游技术有限公...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="游戏后台工程师（Python）">游戏后台工程师（<em class="highlight">Python</em>）</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">在ubuntu下开发，使用django，twisted，cyclone等框架，使用postgresql数据库，由nginx负载，使用redis进行缓存，supervisor控制进程。
+完成以下任务：1、完成电视游戏《三国群英之兵临天下》游戏后台模块功能开发及优化；
+2、完成游戏运营支持平台，实现运营组各种运营...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python软件工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=4602409&amp;resumeID=5394566&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>软件工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京环球健美在线科技有限公司">北京环球健美在线科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">29岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/08/09
+                </div>
+                <div class="list-three wid-95" title="已推荐">已推荐</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=4602409&amp;resumeID=5394566&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                        <span class="readed">已浏览</span>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>软件工程师</span>
+                                    <span>研发工程师</span>
+                                    <span>电子商务</span>
+                                    <span>计算机</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2005年9月-2009年7月 | 武汉工业学院 | 工业设计 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2013年4月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京环球健美在线科技有限公司">北京环球健美在线科技...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python软件工程师"><em class="highlight">python</em>软件工程师</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">1：环球健美在线网站后台维护，根据新的业务需求，进行相关开发
+2：对于测试人员提出的Bug，进行问题分析，给出解决方案
+3：商城网站活动和体协活动的技术支持，保证活动的正常开展
+4：中国社会指导员协会官网网站后台维护，保证网站运行
+5：配合前端开发组完善网站功...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14476722&amp;resumeID=15010522&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京云途腾科技有限责任公司">北京云途腾科技有限责任公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/08/02
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14476722&amp;resumeID=15010522&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>研究院</span>
+                                    <span>英语</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2011年9月-2015年7月 | 北京交通大学 | 通信工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2016年2月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京云途腾科技有限责任公司">北京云途腾科技有限责...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                &nbsp;|&nbsp;10001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">l 负责T2CLOUD云(基于openstack)horizon模块新功能（ironic对接、外部存储等）的开发，同时对dashboard等进行bug修正和新需求改进。
+l 负责mongodb高可用集群的搭建及维护，进行 mongo自动化部署脚本、数据清理脚本、dashboard数据库搭建脚本等的编写。
+l 负责h...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14404342&amp;resumeID=14938738&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="唐山舜天科技有限公司">唐山舜天科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">24岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/08/01
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14404342&amp;resumeID=14938738&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2016/7/6/8d29af12-56c6-4e95-90e0-7bf8cf31d733.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>客服</span>
+                                    <span>研发工程师</span>
+                                    <span>电子商务</span>
+                                    <span>网络技术</span>
+                                    <span>计算机</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2012年9月-2016年7月 | 华北理工大学轻工学院 | 冶金工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年6月-2016年7月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="唐山舜天科技有限公司">唐山舜天科技有限公司&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                &nbsp;|&nbsp;6001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">负责部分模块的开发设计</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python后端"><a href="/SearchResume/SearchResumeInfo?seekerUserID=1153020&amp;resumeID=1377581&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>后端</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="黑潮网络科技">黑潮网络科技</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">34岁</div>
+                <div class="list-three wid-62" title="大专">大专</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/29
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=1153020&amp;resumeID=1377581&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2008/2/27/DF264DAB655F4B8CA02FDB0C78D71FFF.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>研发工程师</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2003年9月-2006年6月 | 南阳理工 | 信息管理技术（数据库应用） | 大专</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年3月-2016年3月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="黑潮网络科技">黑潮网络科技&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python后端"><em class="highlight">python</em>后端</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">明星衣橱产品的 <em class="highlight">python</em> 后端开发及对应维护,有编辑后台系列模块的 API 接口、中间件项
+目的部分模块开发、自动发布项目、单品同步、图片上传项目、以及项目间通信的 API 及某些脚
+本的开发;参与产品应用设计与方案讨论;负责接口文档的定义;与其它前端及客户端的沟...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=8150290&amp;resumeID=9133197&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="taagoo">taagoo</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">27岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/29
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=8150290&amp;resumeID=9133197&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                        <span class="readed">已浏览</span>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>软件工程师</span>
+                                    <span>移动互联网</span>
+                                    <span>django</span>
+                                    <span>nginx,js,html,css</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2010年9月-2014年6月 | 天津科技大学 | 软件工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年11月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="taagoo">taagoo&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">项目流程设计实现，后端模块实现，部署与维护</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title=" python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=11286833&amp;resumeID=11811909&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"> <em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title=" 苏州蜗牛数字科技股份有限公司 "> 苏州蜗牛数字科技股份有限公司 </div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">26岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/20
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=11286833&amp;resumeID=11811909&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>硬件工程师</span>
+                                    <span>用友软件</span>
+                                    <span>网络技术</span>
+                                    <span>计算机</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2008年9月-2012年7月 | 苏州大学  |  信息管理和信息系统  | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年4月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title=" 苏州蜗牛数字科技股份有限公司 "> 苏州蜗牛数字科技股...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title=" python工程师"> <em class="highlight">python</em>工程师</span>
+                                            </p></li></ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python 开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14239663&amp;resumeID=14772771&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em> 开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="上海青年科技有限公司">上海青年科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">24岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/17
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14239663&amp;resumeID=14772771&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>开发工程师</span>
+                                    <span>计算机软件</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2011年9月-2014年6月 | 衡水学院 | 计算机科学与技术 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2014年6月-2016年6月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="上海青年科技有限公司">上海青年科技有限公司&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python 开发工程师"><em class="highlight">python</em> 开发工程师</span>
+                                &nbsp;|&nbsp;10001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">主要负责用户个人中心模块,以及后台服务器应用程序的开发,根据需求完成相应模块的设计和维护</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="Python开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14095388&amp;resumeID=14623420&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">Python</em>开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="中律众筹(北京)科技股份有限公司">中律众筹(北京)科技股份有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title=""></div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/06
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14095388&amp;resumeID=14623420&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                             </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2012年6月-2016年6月 | 河南大学 | 测控技术与仪器 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年12月-2016年5月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="中律众筹(北京)科技股份有限公司">中律众筹(北京)科技股...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="Python开发工程师"><em class="highlight">Python</em>开发工程师</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">..的反反复复福福福福福福福福福福福福福福福福福福</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="数据工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14043059&amp;resumeID=14569443&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank">数据工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京维艾思气象信息科技有限公司">北京维艾思气象信息科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">25岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/02
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14043059&amp;resumeID=14569443&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://photos.highpin.cn/Home/GetFile/2daa6e01-868b-4740-8d94-4dba71d2d9ac" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>开发</span>
+                                    <span>C#</span>
+                                    <span>js</span>
+                                    <span>SQL</span>
+                                    <span>设计</span>
+                                    <span>电动车</span>
+                                    <span>英语</span>
+                                    <span>AE</span>
+                                    <span>CSS</span>
+                                    <span>Jquery</span>
+                                    <span>Matlab</span>
+                                    <span>Photoshop</span>
+                                    <span>信息技术</span>
+                                    <span>电子商务</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2010年9月-2014年7月 | 吉林大学 | 汽车发动机 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年8月-2016年1月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京智慧星光信息技术有限公司">北京智慧星光信息技术...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python开发"><em class="highlight">python</em>开发</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">爬虫：根据抓取数据要求，编写爬虫配置文件，采集百度外卖，大麦网，澎湃新闻，哔哩哔哩等视频，新闻，论坛等网站上的信息。模拟网页登录，熟练使用XPath、正则表达式等。
+利用<em class="highlight">python</em>的并发编程，网络采集与信息提取模块独立完成高并发爬虫框架设计与实现。
+数据分...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=14031309&amp;resumeID=14557379&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京金源万博IT职业教育">北京金源万博IT职业教育</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title="大专">大专</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/07/02
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=14031309&amp;resumeID=14557379&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>研发工程师</span>
+                                    <span>英语</span>
+                                    <span>教育</span>
+                                    <span>Django</span>
+                                    <span>网络技术</span>
+                                    <span>计算机</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2012年9月-2015年7月 | 河北交通职业技术学院 | 工程机械控制技术 | 大专</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年12月-2016年6月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京金源万博IT职业教育">北京金源万博IT职业...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">HTML,DIV+CSS页面布局,Javascript, Jquery,Linux，MySQL，<em class="highlight">Python</em>，Django，ajax</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=1557784&amp;resumeID=1856825&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="中科玄通（北京）科技有限公司">中科玄通（北京）科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">26岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="河南-许昌">河南-许昌</div>
+                <div class="list-three wid-112">
+2016/06/30
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=1557784&amp;resumeID=1856825&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>linux  </span>
+                                    <span>web</span>
+                                    <span>javascript</span>
+                                    <span>html</span>
+                                    <span>开发</span>
+                                    <span>编程</span>
+                                    <span>英语</span>
+                                    <span>Django</span>
+                                    <span>Jquery</span>
+                                    <span>Ajax</span>
+                                    <span>div+css</span>
+                                    <span>CSS</span>
+                                    <span>计算机</span>
+                                    <span>网络技术</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2008年9月-2011年6月 | 北京北方工商管理研修学院 | 工商管理 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2013年1月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="中科玄通（北京）科技有限公司">中科玄通（北京）科技...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">负责运维产品新功能开发以及测试，负责产品架构设计</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="Python研发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=11194484&amp;resumeID=11719486&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">Python</em>研发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京天融信软件有限公司">北京天融信软件有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">25岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/06/14
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=11194484&amp;resumeID=11719486&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://photos.highpin.cn/Home/GetFile/18302652-8831-425e-accf-55e9d5cf5022" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>研发工程师</span>
+                                    <span>计算机软件</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2012年9月-2014年7月 | 北京信息科技大学 | 计算机科学与技术 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2014年4月-2016年5月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京天融信软件有限公司">北京天融信软件有限公...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="Python研发工程师"><em class="highlight">Python</em>研发工程师</span>
+                                &nbsp;|&nbsp;6000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">2014.12-至今     参与开发TopNAC 2.0网络准入控制产品：学习华三、思科、华为交换机；调研、设计、开发基于MAC地址的PORTAL准入服务，调研、设计、开发基于MAC地址的ACL准入服务；开发语言为<em class="highlight">Python</em>；开发的TopNAC 2.0服务有trap_server, vlans...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python server"><a href="/SearchResume/SearchResumeInfo?seekerUserID=11079868&amp;resumeID=11604804&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em> server</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="Glu Mobile Limited">Glu Mobile Limited</div>
+                <div class="list-three wid-62">女</div>
+                <div class="list-three wid-62">28岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/06/05
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=11079868&amp;resumeID=11604804&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>移动互联网</span>
+                                    <span>电子商务</span>
+                                    <span>英语</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2006年9月-2010年6月 | 中国海洋大学 | 计算机科学与技术 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年4月-2016年4月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="Glu Mobile Limited">Glu Mobile Limite...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python server"><em class="highlight">python</em> server</span>
+                                &nbsp;|&nbsp;15000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">	永恒战士4     2015.4 ~ 今
+<em class="highlight">python</em>+bottle+ gevent+rpc  redis mongodb
+•	ARPG游戏。
+•	整个系统分为login, logic, edge, chat模块。edge是对外网络接口，负责对传输的信息包进行加密解密，并将更具协议将信息包传递给响应的服务。login负责用户登录，log...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python研发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10871584&amp;resumeID=11397647&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>研发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京芽芽科技公司">北京芽芽科技公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">25岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/05/19
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10871584&amp;resumeID=11397647&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2014/11/24/AC70283AD35E41C39E28A25519869096.jpg" alt="头像"></a>
+
+
+
+                                             </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>C++</span>
+                                    <span>java</span>
+                                    <span>翻译</span>
+                                    <span>linux  </span>
+                                    <span>SQL</span>
+                                    <span>研发工程师</span>
+                                    <span>英语</span>
+                                    <span>Shell</span>
+                                    <span>Network</span>
+                                    <span>computer</span>
+                                    <span>计算机软件</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2011年9月-2015年6月 | 黑龙江科技大学 | 信息与计算科学 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2014年7月-2016年4月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京芽芽科技公司">北京芽芽科技公司&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python研发工程师"><em class="highlight">python</em>研发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">主要从事多语言网站的设计，根据客户的需要进行网站的爬虫与翻译，根据不同的需要为不同的域名设计本域名下所需要的爬虫与翻译接口，并且运用国外开源的软件moses训练自己本地的翻译系统，除此之外需要在国内与国外的网络词典上通过浏览器的解析功能找到接口并且在程序...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10860451&amp;resumeID=11386639&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京智慧星光技术有限公司">北京智慧星光技术有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title="大专">大专</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/05/19
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10860451&amp;resumeID=11386639&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>开发工程师</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2012年8月-2015年6月 | 河北省保定学院    | 生物计算机科学 | 大专</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2014年8月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京智慧星光技术有限公司">北京智慧星光技术有限...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python开发工程师"><em class="highlight">python</em>开发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl"><em class="highlight">python</em>研发，数据挖掘工作并对新入员工做定期指导工作</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python研发"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10743718&amp;resumeID=11272427&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>研发</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京方物软件有限公司">北京方物软件有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">27岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/05/06
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10743718&amp;resumeID=11272427&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2015/10/31/F5A404A81B514B26901B3CF95116AE02.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>C++</span>
+                                    <span>linux  </span>
+                                    <span>研发</span>
+                                    <span>英语</span>
+                                    <span>虚拟化</span>
+                                    <span>网络安全</span>
+                                    <span>计算机软件</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2009年9月-2013年7月 | 山西大学 | 化学 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年11月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京方物软件有限公司">北京方物软件有限公司&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python研发"><em class="highlight">python</em>研发</span>
+                                &nbsp;|&nbsp;10001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">1.修改bug
+2.写需求
+3.编写内部测试程序
+4.项目优化，代码精简</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="Python研发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10698187&amp;resumeID=11228050&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">Python</em>研发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="新云东方，华盛信泰">新云东方，华盛信泰</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">24岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/05/02
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10698187&amp;resumeID=11228050&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>html</span>
+                                    <span>js</span>
+                                    <span>研发工程师</span>
+                                    <span>监控</span>
+                                    <span>英语</span>
+                                    <span>CSS</span>
+                                    <span>C语言</span>
+                                    <span>信息技术</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2010年9月-2014年7月 | 内蒙古科技大学 | 电子信息工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年5月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="新云东方，华盛信泰">新云东方，华盛信泰&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="Python研发工程师"><em class="highlight">Python</em>研发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">从事<em class="highlight">python</em>语言的项目开发，包括系统管理平台，基于openstack的公有云平台开发。</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="Python开发"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10649600&amp;resumeID=11179423&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">Python</em>开发</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京四海道达网络有限公司">北京四海道达网络有限公司</div>
+                <div class="list-three wid-62">女</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title="大专">大专</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/04/28
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10649600&amp;resumeID=11179423&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>开发</span>
+                                    <span>英语</span>
+                                    <span>电子商务</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2012年9月-2015年7月 | 廊坊师范学院 | 计算机软件 | 大专</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年9月-2016年4月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京四海道达网络有限公司">北京四海道达网络有限...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="Python开发"><em class="highlight">Python</em>开发</span>
+                                &nbsp;|&nbsp;6001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">主要工作职能：
+1、编写测试用例：
+			学习pytest使用，编写接口测试用例
+		2、开发数据导入导出脚本
+			使用<em class="highlight">python</em>与MySQL数据库建立连接，编写数据导入导出脚本
+		3、学习git pre-commit hook的使用
+	 		安装，学习使用pre-commit对项目每次提交内容进行检...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="Python开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10639248&amp;resumeID=11169407&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">Python</em>开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="量硕宏程电子商务有限公司">量硕宏程电子商务有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">26岁</div>
+                <div class="list-three wid-62" title="大专">大专</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/04/27
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10639248&amp;resumeID=11169407&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2016/4/11/f6be5906-1be2-481b-9bce-e222abbd45dd.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>电子商务</span>
+                                    <span>开发工程师</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2011年9月-2014年6月 | 大连东软信息学院 | 计算机科学与技术 | 大专</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年3月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="量硕宏程电子商务有限公司">量硕宏程电子商务有限...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="Python开发工程师"><em class="highlight">Python</em>开发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">1、负责互联网网站产品开发；
+2、参与产品设计、架构设计和文档编写；
+3、负责问题排查、调试、性能调优等开发相关工作。</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python开发工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10634923&amp;resumeID=11165024&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>开发工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="爱菠萝网络科技（北京）有限公司">爱菠萝网络科技（北京）有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">23岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/04/27
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10634923&amp;resumeID=11165024&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://my.zhaopin.com/pic/2016/4/11/0aec5e9d-0f47-4251-84b1-9fea144e62ce.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>信息技术</span>
+                                    <span>电子商务</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2011年9月-2015年7月 | 南昌大学 | 材料科学与工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2016年4月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="爱菠萝网络科技（北京）有限公司">爱菠萝网络科技（北京...&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python开发工程师"><em class="highlight">python</em>开发工程师</span>
+                                &nbsp;|&nbsp;8000元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">1. artpollo-database项目，使用sqlalchemy将数据库中的近200张表映射出来，做成pip包的格式，供其它项目使用，在model中增加有用的公用方法，整理外键关系。
+
+2. artpollo-artist项目，负责网站征集端的逻辑编写，项目使用flask框架。
+
+3. artpollo-data项目，写一...</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="python工程师"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10634158&amp;resumeID=11164241&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><em class="highlight">python</em>工程师</a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京秘银">北京秘银</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">26岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/04/27
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10634158&amp;resumeID=11164241&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2010年9月-2015年6月 | 吉林大学 | 软件工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年7月-2016年4月&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京秘银">北京秘银&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="python工程师"><em class="highlight">python</em>工程师</span>
+                                &nbsp;|&nbsp;6001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">中国建筑院bim信息管理系统
+环境：ubuntu12.04+<em class="highlight">python</em>3+postgresql+sqlalchemy+pyramid
+负责内容：
+根据需求实现view功能
+使用sqlalchemy与postgresql交互
+使用requests实现服务器间上传功能
+使用ElementTree读取并分析xml 并使用xlwt转化成excel文档提供下载</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+            <div class="clearfix bor-bottom">
+                <div class="list-three wid-223 padding-l7 txt-l hl-jt" title="数据库开发工程师 python"><a href="/SearchResume/SearchResumeInfo?seekerUserID=10450037&amp;resumeID=10984698&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank">数据库开发工程师 <em class="highlight">python</em></a></div>
+                <div class="list-three wid-223 padding-l7 txt-l hl" title="北京知果科技有限公司">北京知果科技有限公司</div>
+                <div class="list-three wid-62">男</div>
+                <div class="list-three wid-62">26岁</div>
+                <div class="list-three wid-62" title="本科">本科</div>
+                <div class="list-three wid-128" title="北京">北京</div>
+                <div class="list-three wid-112">
+2016/04/13
+                </div>
+                <div class="list-three wid-95" title="-">-</div>
+            </div>
+            <div class="abstract-box2 clearfix bor-bottom" style="">
+                <div class="abstract-one">
+                    <div class="abstract-img">
+
+                        <a href="/SearchResume/SearchResumeInfo?seekerUserID=10450037&amp;resumeID=10984698&amp;highLight=%5B%22python%22%5D&amp;highlightList=%5B%22python%22%5D" target="_blank"><img src="http://image.highpin.cn/image/seeker/resumeview/head-picture.jpg" alt="头像"></a>
+
+
+
+                                                     <em class="mark-3d-smaller"></em>
+                    </div>
+                        <span class="readed">已浏览</span>
+                </div>
+                <div class="abstractSpecial">
+                    <ul>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>简历标签</b></span><p class="fl abstractMark hl-t">
+                                    <span><em class="highlight">python</em></span>
+                                    <span>mysql</span>
+                                    <span>oracle</span>
+                                    <span>开发工程师</span>
+                                    <span>支付</span>
+                                    <span>银行</span>
+                                    <span>日语</span>
+                                    <span>电力</span>
+                                    <span>英语</span>
+                                    <span>redis</span>
+                                    <span>数据库开发</span>
+                                    <span>电子商务</span>
+                                    <span>计算机</span>
+                                    <span>铁路</span>
+                                    <span>移动互联网</span>
+                            </p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>教育背景</b></span>
+                                <p class="fl SpecialP hl">2008年9月-2012年6月 | 吉首大学 | 网络工程 | 本科</p>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl padding-r16"><b>工作经历</b></span><p class="fl SpecialP">
+                                <span class="fl">2015年11月-至今&nbsp;|&nbsp;</span>
+                                    <span class="fl hl" title="北京知果科技有限公司">北京知果科技有限公司&nbsp;|&nbsp;</span>
+                                <span class="fl hl-jt" title="数据库开发工程师 python">数据库开发工程师 <em class="highlight">python</em></span>
+                                &nbsp;|&nbsp;10001元/月
+                                                    </p></li><li class="clearfix">
+                                <span class="fl padding-r16"><b>工作描述</b></span><p class="fl SpecialP">
+                                    <span class="job-desc fl hl">负责业管后台的接口实现，相关库表的设计</span>
+                                </p>
+                            </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+    </div>
+</div>
+<!--摘要end-->
+
+
+<div class="pagebox">
+
+
+
+    <div id="SearchResumeIndex-pager" class="pagebtn" style="margin-top:10px;">
+        <ul>
+
+
+                <li class="preto-li pre-unable"><a href="###" class="preto nopress">上一页</a></li>
+
+
+
+            <li><a href="###" data="1" class="pageactive sign">1</a></li>
+
+                <li><a href="###" data="2" class="page sign">2</a></li>
+                <li><a href="###" data="3" class="page sign">3</a></li>
+
+                <li>…</li>
+                <li><a href="###" data="99" class="page sign">99</a></li>
+
+                <li class="pagenext-li next-able"><a href="###" data="2" class="pagenext press">下一页</a></li>
+            <li class="c-color100">到<input class="pageto" style="height:18px;" id="Goto" type="text" value="1">页<input type="button" class="page-sure" value="确定">
+
+            </li>
+        </ul>
+    </div>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        //var maxpage = $("#maxPage").val();
+
+
+
+        function SearchResumeIndex_pager_form_submit(pageIndex, isAjax) {
+
+            var action = "/SearchResume/SearchResumeList";
+
+var condition = {"Q":"python","Sort":"scoe desc","pageIndex":1,"pageSize":30,"IsAbstract":true,"ResumeID":"","ResumeStatus":4,"CompanyName":"","CompanyIndustry":"","JobType":"","JobLocation":"","DesiredWorkLocation":"530","WorkStatus":-1,"AnnualSalary":null,"Gender":-1,"AgeMin":null,"AgeMax":null,"WorkStartedYear":null,"WorkExperience":null,"Degree":null,"FullTime":null,"SchoolName":"","LanguageType":null,"OverseasJobExperience":-1,"AdegreeMin":-1,"AdegreeMax":-1,"ProfessionalTitle":"","Language1":-1,"Language2":-1,"Language3":-1,"Ability1":-1,"Ability2":-1,"Ability3":-1,"IsArecent":false,"WorkExperienceMin":-1,"WorkExperienceMax":-1,"sType":null,"CompanyBlacklist":null,"IsPartialMatch":false,"IsJobTitleOnly":false,"Terms":1,"JobId":0,"Referer":0,"SeekerUserId":null,"OrgId":0,"JobName":null,"IsInviteSearch":false};
+            if ($("#hfLastTab").length > 0) {
+                condition["hfLastTab"] = $("#hfLastTab").val();
+            }
+            condition["pageIndex"] = pageIndex;
+
+            if (updateDynamicParam) {
+                updateDynamicParam(condition);
+            }
+            if (isAjax) {
+                $.post(action, condition, function (data) {
+                    // Callback
+                    var callback;
+                    if (callback) {
+                        callback(data);
+                    }
+                }, "html");
+            }
+            else {
+                var form = $.dynamicForm(action);
+                $.each(condition, function (key, value) {
+                    form.addHidden(key, value === 0 ? value : (value || ""));
+                });
+                form.submit();
+            }
+        }
+
+        $("#SearchResumeIndex-pager a").unbind("click");
+        $("#SearchResumeIndex-pager .pageto").unbind("change");
+
+        $("#SearchResumeIndex-pager a.press").on("click", function () {
+            SearchResumeIndex_pager_form_submit($(this).attr("data"), false);
+        });
+
+        $("#SearchResumeIndex-pager a.sign").on("click", function () {
+            SearchResumeIndex_pager_form_submit($(this).attr("data"), false);
+        });
+
+        $("#SearchResumeIndex-pager .pageto").numeral();
+        $("#SearchResumeIndex-pager .pageto").on("change", function () {
+            if ($(this).val() != "") {
+                var maxpage = "99";
+                if (parseInt($(this).val()) > parseInt(maxpage)) {
+                    SearchResumeIndex_pager_form_submit(maxpage, false);
+                }
+                else {
+                    SearchResumeIndex_pager_form_submit(parseInt($(this).val()), false);
+                }
+            }
+        });
+    });
+</script>
+
+</div>
+
+<form action="/SearchResume/SearchResumeList" id="SearchResumeListForm" method="get"><input type="hidden" name="Q" value="python"><input type="hidden" name="Sort" value="scoe desc"><input type="hidden" name="pageIndex" value="1"><input type="hidden" name="pageSize" value="30"><input type="hidden" name="IsAbstract" value="true"><input type="hidden" name="ResumeID" value=""><input type="hidden" name="ResumeStatus" value="4"><input type="hidden" name="CompanyName" value=""><input type="hidden" name="CompanyIndustry" value=""><input type="hidden" name="JobType" value=""><input type="hidden" name="JobLocation" value=""><input type="hidden" name="DesiredWorkLocation" value="530"><input type="hidden" name="WorkStatus" value="-1"><input type="hidden" name="AnnualSalary" value=""><input type="hidden" name="Gender" value="-1"><input type="hidden" name="AgeMin" value=""><input type="hidden" name="AgeMax" value=""><input type="hidden" name="WorkStartedYear" value=""><input type="hidden" name="WorkExperience" value=""><input type="hidden" name="Degree" value=""><input type="hidden" name="FullTime" value=""><input type="hidden" name="SchoolName" value=""><input type="hidden" name="LanguageType" value=""><input type="hidden" name="OverseasJobExperience" value="-1"><input type="hidden" name="AdegreeMin" value="-1"><input type="hidden" name="AdegreeMax" value="-1"><input type="hidden" name="ProfessionalTitle" value=""><input type="hidden" name="Language1" value="-1"><input type="hidden" name="Language2" value="-1"><input type="hidden" name="Language3" value="-1"><input type="hidden" name="Ability1" value="-1"><input type="hidden" name="Ability2" value="-1"><input type="hidden" name="Ability3" value="-1"><input type="hidden" name="IsArecent" value=""><input type="hidden" name="WorkExperienceMin" value="-1"><input type="hidden" name="WorkExperienceMax" value="-1"><input type="hidden" name="sType" value=""><input type="hidden" name="CompanyBlacklist" value=""><input type="hidden" name="IsPartialMatch" value=""><input type="hidden" name="IsJobTitleOnly" value=""><input type="hidden" name="Terms" value="1"><input type="hidden" name="JobId" value=""><input type="hidden" name="Referer" value=""><input type="hidden" name="SeekerUserId" value=""><input type="hidden" name="OrgId" value=""><input type="hidden" name="JobName" value=""><input type="hidden" name="IsInviteSearch" value=""></form>
+
+<script>
+    var condition = {"Q":"python","Sort":"scoe desc","pageIndex":1,"pageSize":30,"IsAbstract":true,"ResumeID":"","ResumeStatus":4,"CompanyName":"","CompanyIndustry":"","JobType":"","JobLocation":"","DesiredWorkLocation":"530","WorkStatus":-1,"AnnualSalary":null,"Gender":-1,"AgeMin":null,"AgeMax":null,"WorkStartedYear":null,"WorkExperience":null,"Degree":null,"FullTime":null,"SchoolName":"","LanguageType":null,"OverseasJobExperience":-1,"AdegreeMin":-1,"AdegreeMax":-1,"ProfessionalTitle":"","Language1":-1,"Language2":-1,"Language3":-1,"Ability1":-1,"Ability2":-1,"Ability3":-1,"IsArecent":false,"WorkExperienceMin":-1,"WorkExperienceMax":-1,"sType":null,"CompanyBlacklist":null,"IsPartialMatch":false,"IsJobTitleOnly":false,"Terms":1,"JobId":0,"Referer":0,"SeekerUserId":null,"OrgId":0,"JobName":null,"IsInviteSearch":false};
+    var from = $("#SearchResumeListForm");
+    $.each(condition, function (key, value) {
+        from.addHidden(key, value);
+    });
+    var highlight = ["python"];
+    var highlightList = ["python"];
+</script>
+</div>
+    <!--main end-->
+
+
+
+    </div>
+
+
+
+
+    <input type="hidden" id="ChatUserID" value="H57960">
+    <input type="hidden" id="ChatType" value="2">
+    <input type="hidden" id="ChatSendChannel" value="5">
+<script src="http://image.highpin.cn/js/Chat/messenger.js?version=20160901205415"></script>
+<script src="http://image.highpin.cn/Js/Shared/Common/highpin.js?version=20160901205415"></script>
+<script src="http://image.highpin.cn/Js/Chat/chat_init.js?version=20160901205415"></script>
+
+    <div class="footer-new-box _footer oldStyle">
+        <div class="footer-content clearfix">
+            <div class="fl">
+                <img src="http://image.highpin.cn/image/shared/header/nav-new/footer-logo0901.png" class="footer-logo">
+                <img src="http://image.highpin.cn/image/shared/header/nav-new/footer-phone-new.jpg" class="footer-phone">
+            </div>
+            <div class="footer-anchor">
+                <ul class="clearfix">
+                    <li class="newFootreLiBg"><a href="http://c.highpin.cn/PersonalCenter/Introduce" title="关于我们" target="_blank" rel="nofollow">关于我们</a></li>
+                    <li class="newFootreLiBg"><a href="http://www.highpin.cn/sitemap.html" title="网站地图" target="_blank">网站地图</a></li>
+                    <li class="newFootreLiBg"><a href="http://c.highpin.cn/PersonalCenter/LegalStatement" title="法律声明" target="_blank" rel="nofollow">法律声明</a></li>
+                    <li class="newFootreLiBg"><a href="http://c.highpin.cn/PersonalCenter/Security" title="保密承诺" target="_blank" rel="nofollow">保密承诺</a></li>
+                    <li class="newFootreLiBg"><a href="http://ir.zhaopin.com" target="_blank" title="Investor Relations" rel="nofollow">Investor&nbsp;Relations</a></li>
+
+                        <li class="newFootreLiBg"><a style="cursor:pointer" target="_blank" onclick="ShowSuggestion(2)" title="联系我们" rel="nofollow">联系我们</a></li>
+                    <li class="pr_0"><a href="http://www.zhaopin.com" target="_blank" title="智联招聘" rel="nofollow">智联招聘</a></li>
+                </ul>
+                <p class="footer-p">未经highpin.cn同意,不得转载本网站之所有招聘信息及作品 智联卓聘网版权所有 2013-2016 京ICP备12025925号 京公网安备11010502027277</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="dialog-message" title="卓聘网" style="display: none; overflow: hidden">
+        <p id="message" class="alert"></p>
+    </div>
+
+
+
+    <script src="http://image.highpin.cn/js/shared/common/sea.js?version=20160901205415"></script>
+
+    <script src="http://image.highpin.cn/js/modules/common/base_init.js?version=20160901205415"></script>
+
+
+    <script src="/Scripts/SelfScripts/js/myindex-header.js?version=20160901205415"></script>
+
+    <script src="/Scripts/SelfScripts/js/messageHeader.js?version=20160901205415"></script>
+
+
+    <script src="http://image.highpin.cn/Js/Shared/Common/jquery.highlight.js?version=20160901205415"></script>
+
+    <script src="http://image.highpin.cn/Js/Shared/Common/jquery.sticky.js?version=20160901205415"></script>
+
+    <script src="http://image.highpin.cn/Js/Hunter/SaveSearchResumeConditions.js?version=20160901205415"></script>
+
+    <script src="http://image.highpin.cn/Js/Hunter/SearchJobs/searchjob-summary-js.js?version=20160901205415"></script>
+
+
+
+
+
+
+     <script src="http://image.highpin.cn/js/shared/common/reference_ga.js?version=20160901205415"></script>
+
+    <div class="qqIconStyle">
+            <iframe width="92" height="22" scrolling="no" frameborder="0" allowtransparency="true" src="about:blank"></iframe><script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzgwMDAwNjc0NF8yMTYyODVfODAwMDA2NzQ0Xw" async="async"></script>
+    </div>
+
+
+<iframe id="chatIframe" name="chatIframe" src="http://chat.highpin.cn/chats.html?ChatUserID=H57960&amp;ChatSendChannel=5&amp;v=0.14580104505585778" frameborder="0" border="0" allowtransparency="true" style="position: fixed; right: 0px; bottom: 0px; width: 212px; height: 42px; z-index: 999;"></iframe><div style="display: none; position: fixed; z-index: 1; left: 50%; top: 710px; width: 44px; height: 44px; margin-left: 520px; color: rgb(255, 255, 255); font-size: 12px; text-align: center; cursor: pointer; opacity: 1; background: url(&quot;http://image.highpin.cn/image/shared/bg/go-back.png&quot;) 0px -46px no-repeat;"></div><script src="http://image.highpin.cn/js/Chat/chat.js?v=0.2586708914385272" id="chatJsScript"></script></body>

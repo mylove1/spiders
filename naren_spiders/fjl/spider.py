@@ -18,7 +18,11 @@ logger = logging.getLogger()
 def __get_area(narenkeywords):
     area = narenkeywords["desworklocation"].values()[0].decode('utf-8')
     _district = area.split('-')[1]
-    hareas = __address(_district)
+    try:
+        hareas = __address(_district)
+    except Exception:
+        hareas = ""
+        logger.warning("the desworklocation %s ignored" % _district)
     return hareas
 
 
@@ -27,11 +31,11 @@ def __get_job(narenkeywords):
     naren_jobs = narenkeywords["destitle"].values()
     for naren_job in naren_jobs:
         naren_job = naren_job.decode('utf-8')
-        if naren_job == u'其他':
-            logger.warning('the destitle keyword %s is fail:\n%s' % (naren_job, traceback.format_exc()))
-        else:
+        try:
             job = str(__jobs(naren_job))
             _jobs.append(job)
+        except Exception:
+            logger.warning("the destitle %s ignored" % naren_job)
     jobs = ",".join(_jobs)
     return jobs
 
@@ -56,6 +60,8 @@ def __get_sexs(narenkeywords):
 
 def __get_education(narenkeywords):
     _edu = narenkeywords['education'].decode('utf-8')
+    if _edu == "--":
+        _edu = u"不限"
     educations = {
         u"不限": 0,
         u"中小学": 1,
@@ -68,31 +74,18 @@ def __get_education(narenkeywords):
         u"博士": 9,
         u"博士后": 10
     }
+    if _edu not in educations.iterkeys():
+        _edu = u"不限"
     degree = "%s-0" % educations[_edu]
     return degree
 
 
 def __get_low_workage(narenkeywords):
-    workage = narenkeywords["low_workage"].decode('utf-8')
-    workages = {
-        u"不限": 0,
-        u"1": 1,
-        u"2": 2,
-        u"3": 3,
-        u"4": 4,
-        u"5": 5,
-        u"6": 6,
-        u"7": 7,
-        u"8": 8,
-        u"9": 9,
-        u"10": 10,
-        u"11": 11,
-        u"12": 12,
-        u"13": 13,
-        u"14": 14,
-        u"15": 15,
-    }
-    workYear = "%s-9999" % workages[workage]
+    workage = narenkeywords["low_workage"]
+    if workage == "不限":
+        workYear = ""
+    else:
+        workYear = "%s-9999" % workage
     return workYear
 
 
@@ -151,7 +144,7 @@ def __splice_search_urls(narenkeywords):
         "sortType": 1,
         "workYear": workYear,
         "degree": degree,
-        "_random": random.uniform(0, 1)
+        # "_random": random.uniform(0, 1)
     }
     return param
 
@@ -186,6 +179,9 @@ def __get_resume_urls(session, url, __param, dedup, proxies=None):
                 break
             time.sleep(random.uniform(10, 60))
             param["offset"] = offset
+            param["_random"] = random.uniform(0, 1)
+            if param.get('degree') == "0-0":
+                param.pop("degree")
             for k, v in param.items():
                 if v == "":
                     param.pop(k)
@@ -213,8 +209,12 @@ def __get_resume_urls(session, url, __param, dedup, proxies=None):
                     time.sleep(30)
                     continue
                 if "totalSize" not in response.text:
-                    logger.warning("response without totalSize: \n%s\n%s"%(response.text, traceback.format_exc()))
-                    time.sleep(600)
+                    logger.warning("response with param %s without totalSize: \n%s\n%s" % (param, response.text, traceback.format_exc()))
+                    time.sleep(random.uniform(300, 600))
+                    continue
+                if u"""'list': None""" in response.text:
+                    logger.error("response \n%s with params \n%s error \n%s" % (response_datas, param, traceback.format_exc()))
+                    time.sleep(random.uniform(300, 600))
                     continue
                 try:
                     response_datas = json.loads(response.text, encoding='utf-8')
@@ -226,11 +226,17 @@ def __get_resume_urls(session, url, __param, dedup, proxies=None):
             if response_datas == "":
                 break
             ids_num = response_datas["list"]
+            if ids_num is None or ids_num == "":
+                break
             ids = []
+            updatetimes = []
             for num in xrange(len(ids_num)):
-                id = ids_num[num]['id']
-                ids.append(id)
-            rest_ids = dedup(ids)
+                id = ids_num[num].get("id")
+                updatetime = ids_num[num].get("updateDate")
+                if id and updatetime:
+                    ids.append(id)
+                    updatetimes.append(updatetime)
+            rest_ids = dedup(ids, updatetimes)
             totalSize = int(response_datas['totalSize'])
             if totalSize == 0 or totalSize == "" or totalSize is None:
                 break
@@ -241,7 +247,6 @@ def __get_resume_urls(session, url, __param, dedup, proxies=None):
                 else:
                     resume_300_flag = 1
                     break
-
 
 def __download_resume(session, id, headers, param, proxies=None):
     urls = 'http://www.fenjianli.com/search/getDetail.htm'
@@ -296,7 +301,6 @@ def __download_resume(session, id, headers, param, proxies=None):
         return response.text
 
 
-
 username = None
 password = None
 
@@ -313,3 +317,5 @@ def fjl_search(params, dedup, proxies=None):
     url = 'http://www.fenjianli.com/search/search.htm'
     params = __splice_search_urls(params)
     return __get_resume_urls(session, url, params, dedup, proxies=proxies)
+
+

@@ -1,287 +1,229 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
+import os
 reload(sys)
 sys.setdefaultencoding('utf-8')
 import requests
 import random
-# from nanabase import baseutil as nautil
+from nanabase import baseutil as nautil
 import time
 import logging
 import traceback
-import os
-import json
-import base64
-import urllib
 from pyquery import PyQuery as pq
-# from naren_spiders.worker import upload
+from assistlib.job import QianChenUser
+from naren_spiders.worker import upload
+import tempfile
+import shutil
+
 
 logger = logging.getLogger()
 
-def __get_access_51job(user_agent, proxies=None):
-    http_headers = {
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Encoding": "gzip, deflate, sdch",
-        "Accept-Language": "zh-CN,zh;q=0.8",
-        "Cache-Control": "max-age=0",
-        "Host": "51job.com",
-        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36"
-    }
-    __timeout = 30
-    session = requests.Session()
-    response = session.get(url="http://51job.com/", headers=http_headers, timeout=__timeout, proxies=proxies)
-    assert response.status_code == 200
-    response.encoding = "utf-8"
-    return session
 
-
-def __get_access_main_login(session, user_agent, proxies=None):
-    headers = {
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Encoding": "gzip, deflate, sdch",
-        "Accept-Language": "zh-CN,zh;q=0.8",
-        "Cache-Control": "max-age=0",
-        "Host": "ehire.51job.com",
-        "Referer": "http://51job.com/",
-        "User-Agent": user_agent,
-    }
-    __timeout = 30
-    url = "http://ehire.51job.com/MainLogin.aspx"
-    session_content = {}
-    try:
-        logger.warning("fetch url %s with proxy %s"%(url, proxies))
-        response = session.get(url, headers=headers,timeout=__timeout, proxies=proxies)
-        assert response.status_code == 200
-        response.encoding = "utf-8"
-        session_content["session"] = session
-        session_content["content"] = response.text
-        return session_content
-    except Exception:
-        raise Exception('fetching url %s headers %s with %s fail:\n%s' % (url, headers, proxies, traceback.format_exc()))
-
-
-def __login(session, user_agent, membername, username, password, proxies=None):
-    session_content = __get_access_main_login(session, user_agent, proxies=proxies)
-    _session = session_content["session"]
-    content = session_content["content"]
-    old_access_key = pq(content).find("#hidAccessKey").attr("value")
-    fksc = pq(content).find("#fksc").attr("value")
-    hid_ehire_guid = pq(content).find("#hidEhireGuid").attr("value")
-    hid_lang_type = pq(content).find("#hidLangType").attr("value")
-
-    url = "https://ehirelogin.51job.com/Member/UserLogin.aspx"
-    headers = {
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Encoding": "gzip, deflate, br",
-        "Accept-Language": "zh-CN, zh;q = 0.8",
-        "Cache-Control": "max-age=0",
-        "Connection": "keep-alive",
-        "Host": "ehirelogin.51job.com",
-        "Content-Type": "application/x-www-form-urlencoded",
-        "User-Agent": user_agent,
-        "Origin": "http://ehire.51job.com",
-        "Referer": "http://ehire.51job.com/MainLogin.aspx",
-        "Upgrade-Insecure-Requests": "1",
-    }
-    params = {
-        "ctmName": urllib.quote(membername),
-        "userName": urllib.quote(username),
-        "password": urllib.quote(password),
-        "checkCode": "",
-        "oldAccessKey": old_access_key,
-        "langtype": hid_lang_type.replce("&amp;", "&"),
-        "isRememberMe": "false",
-        "sc": fksc,
-        "ec": hid_ehire_guid,
-        "returl": "",
-    }
-    _timeout = 30
-    try_times = 0
-    while True:
-        try:
-            try_times += 1
-            logger.warning('fetching %s with %s' % (url, proxies))
-            response = _session.post(url, data=params, headers=headers, timeout=_timeout, proxies=proxies)
-            assert response.text
-            assert response.status_code == 200
-            response.encoding = 'utf-8'
-        except Exception:
-            logger.warning('fetching url %s headers %s with %s fail:\n%s' % (url, headers, proxies, traceback.format_exc()))
-            if try_times > 5:
-                raise Exception("PROXY_FAIL!")
-            else:
-                time.sleep(30)
-        else:
-            break
-    print response.text
-    # if u"强制下线" in response.text:
-
-    if u"退出" in response.text and u"公司信息管理" in response.text:
-        return _session
-
-
-def login(username, password, proxies=None):
-    if not os.path.exists('cookies'):
-        os.mkdir('cookies')
-    if not os.path.exists('cookies/fjl_cookies'):
-        os.mkdir('cookies/fjl_cookies')
-    session = requests.Session()
-    cookie_file_name = 'cookies/fjl_cookies/%s' % username
-    if os.path.exists(cookie_file_name):
-        with open(cookie_file_name, 'r') as cookie_file:
-            session.cookies.update(json.load(cookie_file))
-    url = "http://www.fenjianli.com/"
-    headers = {
+def __get_viewstate(session, user_agent, proxies=None):
+    time.sleep(random.uniform(1, 5))
+    viewstate_page = session.get(url="http://ehire.51job.com/Candidate/SearchResumeIndexNew.aspx", headers={
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Encoding": "gzip, deflate",
-        "Accept-Language": "zh-CN, zh;q = 0.8",
+        "Accept-Language": "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3",
         "Connection": "keep-alive",
-        "Host": "www.fenjianli.com",
-        "User-Agent": nautil.user_agent(),
-    }
-    _timeout = 30
-    time.sleep(random.uniform(3, 10))
-    try_times = 0
-    while True:
-        try_times += 1
-        try:
-            logger.warning('fetching url %s with %s' % (url, proxies))
-            response = session.get(url, headers=headers, timeout=_timeout, proxies=proxies)
-            assert response.status_code == 200
-            response.encoding = 'utf-8'
-        except Exception:
-            logger.warning('fetching url %s headers %s with %s fail: \n%s' % (url, headers, proxies, traceback.format_exc()))
-            if try_times > 5:
-                raise Exception("PROXY_FAIL!")
-            else:
-                time.sleep(30)
-        else:
-            break
-    if "智联模式" in response.text and '<a href="/login/logout.htm">退出</a></li>' in response.text:
-        return session
+        "User-Agent": user_agent,
+        "Host": "ehire.51job.com",
+        "Referer": "http://ehire.51job.com/Navigate.aspx?ShowTips=11&PwdComplexity=N&returl=%2fCandidate%2fSearchResumeNew.aspx",
+        "Upgrade-Insecure-Requests": "1",
+    }, proxies=proxies)
+    if viewstate_page.status_code != 200:
+        raise Exception("__get_viewstate failed(%s)" % viewstate_page.status_code if viewstate_page else "(None viewstate_page)")
+
+    viewstate_page.encoding = "utf-8"
+    viewstate_page_text = viewstate_page.text
+    if u"""<a id="MainMenuNew1_hl_LogOut" class="Common_login-out" href="/LoginOut.aspx">退出</a>""" in viewstate_page_text and u"公司信息管理" in viewstate_page_text:
+        viewstate = pq(viewstate_page_text).find(".aspNetHidden").find("#__VIEWSTATE").attr("value")
+        return viewstate
     else:
-        login_session = __login(username, password, proxies=proxies)
-        with open(cookie_file_name, 'w') as cookie_file:
-            _cookies = {}
-            for k, v in login_session.cookies.iteritems():
-                _cookies[k] = v
-            json.dump(_cookies, cookie_file)
-        return login_session
+        raise Exception("PROXY_FAIL!")
 
+def __fet_contanct(session, resume_id, user_agent, proxies=None):
 
-def __fetch_contact(session, resume_id, proxies):
-    assert isinstance(resume_id, (str, unicode))
-    encrypt_resume_id = base64.b64encode(str(int(resume_id)))
-    user_agent = nautil.user_agent()
-    search_headers = {
-        "Accept": "application/json, text/javascript, */*; q=0.01",
-        "User-Agent": user_agent,
-        "Host": "www.fenjianli.com",
-        "Origin": "http://www.fenjianli.com",
+    def __session(method, url, headers={}, data=None, proxies=proxies):
+        logger.info('-------\nRequesting %s On %s With Data:\n%s\n-------' % (method, url, data))
+        time.sleep(random.uniform(1, 5))
+        assert method in ('get', 'post')
+        assert method == 'post' or not data
+        requests_headers = {
+            'User-Agent': user_agent,
+        }
+
+        for k, v in headers.iteritems():
+            requests_headers[k] = v
+        try_times = 0
+        while True:
+            try_times += 1
+            try:
+                if method == 'get':
+                    response = session.get(url, headers=requests_headers, proxies=proxies)
+                if method == 'post':
+                    response = session.post(url, headers=requests_headers, data=data, proxies=proxies)
+                assert response
+                assert response.status_code == 200
+            except Exception:
+                logger.warning('fetching url %s headers %s with %s fail: \n%s' % (url, headers, proxies, traceback.format_exc()))
+                if try_times > 5:
+                    raise Exception("PROXY_FAIL!")
+                else:
+                    time.sleep(30)
+            else:
+                break
+        response.encoding = "utf-8"
+        return response
+
+    viewstate = __get_viewstate(session, user_agent, proxies=proxies)
+    post_data = {
+        "__VIEWSTATE": viewstate,
+        "search_area_hid": "",
+        "sex_ch": "99|不限",
+        "sex_en": "99|Unlimited",
+        "send_cycle": "1",
+        "send_time": "7",
+        "send_sum": "10",
+        "feedback": "on",
+        "hidWhere": "",
+        "searchValueHid": "%s##1##########99##########1#0##"%resume_id,
+        "showGuide": "",
+    }
+    time.sleep(random.uniform(1, 5))
+    main_page = __session('post', url="http://ehire.51job.com/Candidate/SearchResumeNew.aspx", headers={
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Encoding": "gzip,deflate",
+        "Accept-Language": "zh-CN,zh;q=0.8",
+        "Cache-Control": "max-age=0",
         "Connection": "keep-alive",
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "X-Requested-With": "XMLHttpRequest",
-        "Referer": "http://www.fenjianli.com/search/detail.htm?ids=%s" % encrypt_resume_id,
-        "X-Requested-With": "XMLHttpRequest"
-    }
-    logger.info('fetching resume detail >> http://www.fenjianli.com/search/detail.htm?ids=%s' % encrypt_resume_id)
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Host": "ehire.51job.com",
+        "Oringin": "http://ehire.51job.com",
+        "Referer": "http://ehire.51job.com/Candidate/SearchResumeIndexNew.aspx",
+        "Upgrade-Insecure-Requests": "1",
+    }, data=post_data, proxies=proxies)
+    if main_page.status_code != 200:
+        return {"err_code": 20013, "err_msg": "获取搜索页面错误"}
+    main_page.encoding = "utf-8"
+    main_page_text = main_page.text
+    open(session.temp_folder+os.path.sep+'main_page_text.html', 'w').write(main_page_text)
+    if u"退出" in main_page_text and u"公司信息管理" in main_page_text:
+        if u"抱歉，没有搜到您想找的简历！" in main_page_text:
+            logger.warning("抱歉，没有搜到您想找的简历%s!" % resume_id)
+            return {"err_code": 20020, "err_msg": "该ID没有简历"}
+        resume_url = pq(main_page_text).find("#spanB%s" % resume_id).find("a").attr("href")
+        logger.info("简历%s搜索成功, \nURL: %s!" % (resume_id, resume_url))
+        return {"err_code": 0, "err_msg": resume_url}
+    else:
+        return {"err_code": 20011, "err_msg": "登录失败"}
 
-    r = session.post('http://www.fenjianli.com/search/getDetail.htm', headers=search_headers, proxies=proxies, data={'id': resume_id, '_random': random.random()})
-    assert r.status_code == 200, r.status_code
-    data = json.loads(r.text)
-    if 'originalFilePath' not in data:
-        return {'err_code': '25732', 'err_msg': '获取联系方式失败, 可能是由于纷简历处已找不到该简历\nhttp://www.fenjianli.com/search/detail.htm?ids=%s&kw=hi' % encrypt_resume_id}
-    logger.info('fetching path %s' % data['originalFilePath'])
+def login(user_name, passwd, proxies=None):
+    session = requests.Session()
+    ctmname, username = user_name.split("@")
+    user = QianChenUser(ctmname, username, passwd, proxies=proxies, logging=logger)
+    _result, _details = user.login()
+    if _result:
+        logger.info("登录成功-----")
+    else:
+        return False, _details
+    _session = user.session.requests
+    _session_cookies_HRUSERINFO = _session.cookies.get("HRUSERINFO")
+    _session_cookies_AccessKey = _session.cookies.get("AccessKey", domain="ehirelogin.51job.com")
+    session.cookies.set("HRUSERINFO", _session_cookies_HRUSERINFO)
+    session.cookies.set("AccessKey", _session_cookies_AccessKey)
+    return True, session
 
-    raw_headers = {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate, sdch',
-        'Accept-Language': 'zh-CN,zh;q=0.8',
-        'Cache-Control': 'max-age=0',
-        'Connection': 'keep-alive',
-        "User-Agent": user_agent,
-        # "Host": "demo.fenjianli.com:9344",
-        'Upgrade-Insecure-Requests': '1',
-    }
-    r = session.get(data['originalFilePath'], headers=raw_headers, proxies=proxies)
-    assert r.status_code == 200, '%s\n%s' % (r.status_code, r.content)
-    return upload(r.content, 'fjl', get_contact=True, fjl_id=resume_id)
+def __get_resume_page(session, url, proxies=None):
+    __timeout = 30
+    time.sleep(random.uniform(1, 5))
+    logger.info("获取简历页 ...")
+    resume_page = session.get(url, headers={
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Encoding": "gzip,deflate,sdch",
+        "Accept-Language": "zh-CN,zh;q=0.8",
+        "Cache-Control": "max-age=0",
+        "Connection": "keep-alive",
+        "Host": "ehire.51job.com",
+        "Referer": "http://ehire.51job.com/Candidate/SearchResumeIndexNew.aspx",
+        "Upgrade-Insecure-Requests": "1",
+    }, timeout=__timeout, proxies=proxies)
+    if resume_page.status_code != 200:
+        logger.warning("获取简历页.....失败.....")
+        return {"err_code": 20019, "err_msg": "获取简历失败"}
+    resume_page.encoding = "utf-8"
+    logger.info("获取简历页.....成功.....")
+    return {"err_code": 0, "err_msg": resume_page.text}
 
-
-def fetch_contact(resume_id, user_name, user_password, proxies=None, logger_name=None):
+def fetch_contact_impl(resume_id, user_name, passwd, proxies=None, logger_name=None):
     if logger_name:
         global logger
         logger = logging.getLogger(logger_name)
-    session = login(user_name, user_password, proxies)
-    return __fetch_contact(session, resume_id, proxies)
+    __timeout = 30
+    user_agent = nautil.user_agent()
+    result, session = login(user_name, passwd, proxies=proxies)
+    if not result:
+        return session
+    session.temp_folder = os.path.join(tempfile.gettempdir(), "naren", str(random.randint(1, 10000)))
+    if not os.path.isdir(session.temp_folder):
+        os.makedirs(session.temp_folder)
+    result = __fet_contanct(session, resume_id, user_agent, proxies=proxies)
+    if result["err_code"] != 0:
+        return result
+    url = "http://ehire.51job.com/%s" % result["err_msg"]
+    resume_page_result = __get_resume_page(session, url, proxies=proxies)
+    if resume_page_result["err_code"] != 0:
+        return resume_page_result
+    resume_page_text = resume_page_result["err_msg"]
+    if u"电　话：" in resume_page_text and u"E-mail：" in resume_page_text:
+        logger.info("简历联系方式已存在")
+        shutil.rmtree(session.temp_folder)
+        return upload(resume_page_text, "j51", get_contact=True, logger_in=logger)
+
+    if u"点击查看联系方式！" in resume_page_text and u"简历信息" in resume_page_text:
+        post_data = {
+            "doType": "SearchToCompanyHr",
+            "userId": resume_id,
+            "strWhere": "",
+        }
+        post_headers = {
+            "Accept": "application/xml, text/xml, */*",
+            "Accept-Encoding": "gzip,deflate",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept-Language": "zh-CN,zh;q=0.8",
+            "Cache-Control": "max-age=0",
+            "Connection": "keep-alive",
+            "Host": "ehire.51job.com",
+            "Origin": "http://ehire.51job.com",
+            "Referer": url,
+            "X-Requested-With": "XMLHttpRequest",
+        }
+        time.sleep(random.uniform(1, 5))
+        logger.info("获取简历详情......")
+        resume_text = session.post(url="http://ehire.51job.com/Ajax/Resume/GlobalDownload.aspx", headers=post_headers, data=post_data, timeout=__timeout, proxies=proxies)
+        if u"您要下载的简历有部分或全部不属于以上地区" in resume_text:
+            return {"err_code": 20022, "err_msg": "对不起，您暂时不能下载该份简历，原因是：您选中的简历中存在应聘者所在地超出合同范围的情况。请核实您的情况，若有疑问请与销售或客服人员联系。"}
+        if resume_text.status_code != 200:
+            return {"err_code": 20019, "err_msg": "获取简历失败"}
+        resume_text.encoding = "utf-8"
+        resume_result = __get_resume_page(session, url, proxies=proxies)
+        logger.info('fetch resume_id %s done, try upload resume' % resume_id)
+        shutil.rmtree(session.temp_folder)
+        return upload(resume_result["err_msg"], "j51", get_contact=True, logger_in=logger)
+    else:
+        return {"err_code": 20020, "err_msg": "该ID没有简历"}
+
+
+def fetch_contact(*argv, **kwargv):
+    try:
+        return fetch_contact_impl(*argv, **kwargv)
+    except Exception, e:
+        return {"err_code": 90400, "err_msg": str(e)}
+
+
 
 if __name__ == "__main__":
-    # login('474390501@qq.com', '1qaz2wsx')
-    # logger.addHandler(logging.StreamHandler())
-    # logger.setLevel(logging.INFO)
-    # print fetch_contact('000020958392', '474390501@qq.com', '1qaz2wsx')
-    __login("橡皮树互动", "xpsh959", "xp32%#")
-
-
-    class JobMining(Methods):
-        """
-            51job简历挖掘
-        """
-        TASK_VALUE = []
-        MEMBER_ID = ""
-        USER_ID = ""
-        PASS_WORD = ""
-        MAX_RESUME_REQUEST_COUNT = 0
-        MAX_SEARCH_COUNT = 0
-        UNIT_ID = ""
-
-        def __init__(self, *args, **kwargs):
-            super(JobMining, self).__init__(source_id=SourceCode.JOB)
-            self._cookies_file = None
-            # 装在cookies files
-            self.__init_cookie_file()
-            # 请求次数
-            self._request_count = 0
-            # 开始时间，取值范围：0-23，如果传递0 则指的是全天
-            self._start_hour = args[0]
-            # 停止时间，取值范围 0 - 23 ，如贵传递24 表示不停止
-            self._stop_hour = args[1]
-            # 是否已经登录
-            self._is_login = False
-            # 日志
-            self._logger = logging.getLogger(__name__)
-            # 会话
-            self._session = None
-            # 当前代理
-            self._current_proxy = None
-            # 简历请求上限
-            self._resume_count = 300
-
-        def __login(self, count=1):
-            try:
-                self._cookies_file = './cookies/cookies_j.dat.' + self.USER_ID
-                user = QianChenUser(self.MEMBER_ID, self.USER_ID, self.PASS_WORD[0:12], logging=self._logger)
-                user.proxies = self._session.proxies
-                self._logger.info("start login ...")
-                is_login, dep_ids = user.login()
-                if is_login:
-                    self.__save_cookies(QianChenCookie(self.USER_ID).load())
-                    self._logger.info("login succeed")
-                    return ErrorCode.LOGIN_SUCCESS
-                else:
-                    self._logger.error(
-                        "login failed(%s): %s" % (dep_ids.get('err_code', '-1'), dep_ids.get('err_msg', '')))
-                    if dep_ids.get('err_code') in (10005, 10007):
-                        raise "需要换代理"
-                    return dep_ids.get('err_code', '-1')
-            except Exception as ex:
-                if count <= 9:
-                    self._logger.warning(u"connection https error")
-                    if not self.__create_session():
-                        self._logger.error("获取代理失败(%s次重试)" % count)
-                        return ErrorCode.GET_PROXY_FAILED
-                    return self.__login(count=count + 1)
-                else:
-                    self._logger.error("登录失败(%s次重试)" % count)
-                    return ErrorCode.LOGIN_FAILED
-            assert 0, "should not go here"
+    logger.setLevel(logging.INFO)
+    logger.addHandler(logging.StreamHandler())
+    fetch_contact("303195192", "橡皮树互动@xpsh959", "xps34#hd")

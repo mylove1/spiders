@@ -54,11 +54,11 @@ def __get_job(narenkeywords):
     naren_jobs = narenkeywords["destitle"].values()
     for naren_job in naren_jobs:
         naren_job = naren_job.decode('utf-8')
-        if naren_job == u'其他':
-            logger.warning('the destitle keyword %s is fail' % naren_job)
-        else:
+        try:
             job = jobs(naren_job)
             _jobs.append(job)
+        except Exception:
+            logger.warning("the destitle %s ignored" % naren_jobs)
     return _jobs
 
 
@@ -80,21 +80,24 @@ def __get_sexs(narenkeywords):
 
 
 def __get_low_workage(narenkeywords):
-    workage = int(narenkeywords["low_workage"])
-    if workage == u"不限" or workage == "":
+    workage = narenkeywords["low_workage"]
+    if workage == "不限" or workage == "":
         period = [-1]
-    elif workage == 1:
-        period = [2, 3, 4, 5, 6, 7]
-    elif workage == 2:
-        period = [3, 4, 5, 6, 7]
-    elif workage == 3 or workage == 4:
-        period = [4, 5, 6, 7]
-    elif workage == 5 or workage == 6 or workage == 7:
-        period = [5, 6, 7]
-    elif workage == 8 or workage == 9:
-        period = [6, 7]
     else:
-        period = [7]
+        if type == int:
+            workage = str(workage)
+        if workage == "1":
+            period = [2, 3, 4, 5, 6, 7]
+        elif workage == "2":
+            period = [3, 4, 5, 6, 7]
+        elif workage == "3" or workage == "4":
+            period = [4, 5, 6, 7]
+        elif workage == "5" or workage == "6" or workage == "7":
+            period = [5, 6, 7]
+        elif workage == "8" or workage == "9":
+            period = [6, 7]
+        else:
+            period = [7]
     return period
 
 
@@ -136,7 +139,13 @@ def __get_posttime(narenkeywords):
 def __splice_search_urls(narenkeywords):
 
     if "desworklocation" in narenkeywords:
-        city_district = __get_area(narenkeywords)
+        city_district = {}
+        try:
+            city_district = __get_area(narenkeywords)
+        except Exception:
+            city_district["city"] = "12"
+            city_district["district"] = ""
+            logger.warning("the desworklocation %s ignored" % narenkeywords["desworklocation"])
         city = city_district["city"]
         district = city_district["district"]
     else:
@@ -144,7 +153,11 @@ def __splice_search_urls(narenkeywords):
         district = ''
 
     if "destitle" in narenkeywords:
-        major_tags = __get_job(narenkeywords)
+        try:
+            major_tags = __get_job(narenkeywords)
+        except Exception:
+            major_tags = []
+            logger.warning("the destitle %s ignored" % narenkeywords["destitle"])
     else:
         major_tags = []
 
@@ -317,9 +330,10 @@ def __get_resume_urls(session, urls, dedup, proxies=None):
             if resume_300_flag == 1:
                 break
             time.sleep(random.uniform(30, 100))
+            url = uu + '&page=%s' % page
             _timeout = 30
             try_times = 0
-            url = uu + '&page=%s' % page
+            try_parse_times = 0
             while True:
                 try_times += 1
                 try:
@@ -327,6 +341,9 @@ def __get_resume_urls(session, urls, dedup, proxies=None):
                     response = session.get(url, headers=headers, timeout=_timeout, proxies=proxies)
                     assert response.status_code == 200
                     resume_failues = u"您的访问速度太快了，如果您不是机器的话，输入下面的验证码来继续访问吧"
+                    error_message = u"亲爱的用户，您访问的速度太快"
+                    if error_message in response.text:
+                        raise Exception("ERROR_MESSAGE!")
                     if resume_failues in response.text:
                         verify_headers = {
                             "User-Agent": headers["User-Agent"],
@@ -337,6 +354,7 @@ def __get_resume_urls(session, urls, dedup, proxies=None):
                         }
                         img = pq(response.text).find('.error').find('span').find('img').attr('src')
                         error_url = 'http://www.ganji.com' + img
+                        try_parse_times += 1
                         verify_code = parse_check_code(session, error_url, 'ganji', proxies)
                         data = session.post(error_url, data=verify_code, headers=verify_headers, timeout=_timeout)
                         assert data.status_code == 200
@@ -347,6 +365,8 @@ def __get_resume_urls(session, urls, dedup, proxies=None):
                     else:
                         time.sleep(30)
                 else:
+                    if try_parse_times > random.randint(2, 5):
+                        raise Exception("PROXY_FAIL!")
                     # raise Exception("SPEED_TOO_FAST!")
                     break
             response.encoding = 'utf-8'
@@ -362,7 +382,7 @@ def __get_resume_urls(session, urls, dedup, proxies=None):
             if not last_resume_ids.difference(set(resume_ids_urls.keys())):
                 proxy_error_counter += 1
                 if proxy_error_counter > 5:
-                    raise Exception("PROXY_BROKEN!")
+                    raise Exception("PROXY_FAIL!")
             if resume_ids_urls:
                 last_resume_ids = set(resume_ids_urls.keys())
             rest_ids = dedup(resume_ids_urls.keys())  # 简历去重
@@ -409,6 +429,9 @@ def __download_resume(session, url, proxies=None):
             resume_data.encoding = 'utf-8'
             resume = resume_data.text
             resume_failues = u"您的访问速度太快了，如果您不是机器的话，输入下面的验证码来继续访问吧"
+            error_message = u"亲爱的用户，您访问的速度太快"
+            if error_message in resume:
+                raise Exception("ERROR_MESSAGE!")
             if resume_failues in resume:
                 verify_headers = {
                     "User-Agent": headers["User-Agent"],
@@ -448,20 +471,21 @@ def ganji_search(params, dedup, proxies=None):
     urls = __splice_search_urls(params)
     return __get_resume_urls(session, urls, dedup, proxies=proxies)
     # return __download_resume(session, resumes)
-"""
-# if __name__ == '__main__':
+
+if __name__ == '__main__':
 #     session = requests.Session()
-#     p = {
-#                 "destitle": {"010130084": "电话销售"},
-#                 "education": "大专",
-#                 "low_workage": "1",
-#                 # "sex":"只选男",
-#                 "desworklocation": {"35":'北京市-朝阳区'},
-#                 "lastupdatetime": "最近30天",
-#                 # "resumekeywords": ["java"]
-#             }
+    p = {
+                "destitle": {"010130084": "电话销售"},
+                "education": "大专",
+                "low_workage": "1",
+                # "sex":"只选男",
+                "desworklocation": {"35":'北京市-朝阳区'},
+                "lastupdatetime": "最近30天",
+                # "resumekeywords": ["java"]
+            }
     # urls = ['http://www.ganji.com/findjob/resume_list.php?city=12&type=1&major=&tag=&intval1=&key=python&open=1&sex=&period=&age=&age_start=&age_end=&edu=&pay=&parttime_pay=&time=']
     # __get_resume_urls(session, urls)
     # __splice_search_urls(p)
     # ganji_search(p)
-"""
+
+    __splice_search_urls(p)
