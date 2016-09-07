@@ -1,0 +1,185 @@
+[11992][2016-09-05 12:18:02,221](INFO)com.core.zhaopin : ==========启动智联招聘任务系统==========
+[11992][2016-09-05 12:18:02,223](INFO)com.core.zhaopin : ===***===生成数据库./data/20160905.db3成功===***===
+[11992][2016-09-05 12:18:02,773](INFO)com.core.zhaopin : {"unit_id": "9", "account": "FQAAAFEbc4+y3aLwh/6CKTlv2CeeE8w06+CHMg==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11992][2016-09-05 12:18:02,828](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11992][2016-09-05 12:18:02,836](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11992][2016-09-05 12:18:03,058](INFO)com.core.zhaopin : ===***===***zhaopin代理：120.26.80.194:47549***===***===
+[11992][2016-09-05 12:18:25,859](INFO)com.core.zhaopin : start login ...
+[11992][2016-09-05 12:18:25,859](INFO)com.core.zhaopin : ZhiLianUser.login(zhangjh2016, cacsh2016), using proxy {u'http': u'http://120.26.80.194:47549', u'https': u'http://120.26.80.194:47549'}, using cookie True
+[11992][2016-09-05 12:18:28,829](INFO)com.core.zhaopin : cookie失效，登陆
+[11992][2016-09-05 12:18:28,829](INFO)com.core.zhaopin : ZhiLianUser.login(zhangjh2016, cacsh2016), using proxy {u'http': u'http://120.26.80.194:47549', u'https': u'http://120.26.80.194:47549'}, using cookie False
+[11992][2016-09-05 12:18:34,378](INFO)com.core.zhaopin : result: {u'result': {u'code': u'3ssa'}, u'err_code': 0}
+[11992][2016-09-05 12:18:37,556](ERROR)com.core.zhaopin : 用户名或密码错误！
+[11992][2016-09-05 12:18:37,558](ERROR)com.core.zhaopin : login failed(10008): 用户名或密码错误！
+[11992][2016-09-05 12:18:37,558](INFO)com.core.zhaopin : 登录返回：插入数据失败，切换帐号
+[11992][2016-09-05 12:18:37,563](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11992][2016-09-05 12:18:37,563](INFO)com.core.zhaopin : ===***===更新tb_account表数据成功===***===
+[11992][2016-09-05 12:18:37,720](INFO)com.core.zhaopin : {"unit_id": "4908", "account": "FQAAAMfCBE266YkWE3Tzinpolb3IG4Q8kVvEDA==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11992][2016-09-05 12:18:37,720](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11992][2016-09-05 12:18:37,729](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11052][2016-09-05 12:21:00,670](INFO)com.core.zhaopin : ==========启动智联招聘任务系统==========
+[11052][2016-09-05 12:21:01,127](INFO)com.core.zhaopin : {"unit_id": "8864", "account": "GAAAAHRONdW7hZ1tZB+5EjfSbFU2ppvoAu8hzw==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11052][2016-09-05 12:21:01,181](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11052][2016-09-05 12:21:01,190](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11052][2016-09-05 12:23:25,608](INFO)com.core.zhaopin : ===***===***zhaopin代理：220.248.230.217:3128***===***===
+[11052][2016-09-05 12:23:49,410](INFO)com.core.zhaopin : start login ...
+[11052][2016-09-05 12:23:49,410](INFO)com.core.zhaopin : ZhiLianUser.login(kgs67459222w, 2016eversec), using proxy {u'http': u'http://220.248.230.217:3128', u'https': u'http://220.248.230.217:3128'}, using cookie True
+[11052][2016-09-05 12:24:11,545](WARNING)com.core.zhaopin : connection https error
+[11052][2016-09-05 12:25:27,670](INFO)com.core.zhaopin : start login ...
+[11052][2016-09-05 12:25:27,670](INFO)com.core.zhaopin : ZhiLianUser.login(kgs67459222w, 2016eversec), using proxy {u'http': u'http://122.72.33.138:80', u'https': u'http://122.72.33.138:80'}, using cookie True
+[11052][2016-09-05 12:25:28,151](INFO)com.core.zhaopin : cookie失效，登陆
+[11052][2016-09-05 12:25:28,151](INFO)com.core.zhaopin : ZhiLianUser.login(kgs67459222w, 2016eversec), using proxy {u'http': u'http://122.72.33.138:80', u'https': u'http://122.72.33.138:80'}, using cookie False
+[11052][2016-09-05 12:25:34,220](INFO)com.core.zhaopin : result: {u'result': {u'code': u'682k'}, u'err_code': 0}
+[11052][2016-09-05 12:25:35,039](DEBUG)com.core.zhaopin : 验证成功
+[11052][2016-09-05 12:25:37,128](WARNING)com.core.zhaopin : 登陆成功
+[11052][2016-09-05 12:25:37,130](INFO)com.core.zhaopin : login succeed
+[11052][2016-09-05 12:26:02,176](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[11052][2016-09-05 12:26:02,177](INFO)com.core.zhaopin : 获得搜索页面成功
+[11052][2016-09-05 12:26:02,180](INFO)com.core.zhaopin : task value中没有任务，正在获取任务。
+[11052][2016-09-05 12:26:02,391](INFO)com.core.zhaopin : 插入新的任务到task value中
+[11052][2016-09-05 12:26:02,392](INFO)com.core.zhaopin : 任务内容：{"context": {"position_id": "3616496", "position_name": "\u9700\u6c42\u6d4b\u8bd5\u90e8\u4ea7\u54c1\u7ecf\u7406", "hunter_email": "yuguangwei@nrnr.me", "unit_id": "2966", "condition_id": "166481"}, "condition": "SF_1_1_18", "task_value": [{"column": "SF_1_1_4", "id": "2,99", "name": "2\u5e74;\u53ca\u4ee5\u4e0a"}, {"column": "SF_1_1_7", "id": "4,9", "name": "\u6700\u8fd1\u4e00\u4e2a\u6708"}, {"column": "SF_1_1_5", "id": "7,15", "name": "\u672c\u79d1;\u535a\u58eb"}, {"column": "SF_1_1_18", "id": "530", "name": "\u5317\u4eac"}, {"column": "SF_1_1_1", "id": "WMS", "name": "WMS"}]}
+[11052][2016-09-05 12:26:10,660](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[11052][2016-09-05 12:26:10,660](INFO)com.core.zhaopin : 获取到搜索结果页面
+[11052][2016-09-05 12:26:10,706](INFO)com.core.zhaopin : 查找到：60份简历，准备过滤。
+[11052][2016-09-05 12:26:31,710](ERROR)com.core.zhaopin : filter_resume_id:HTTPConnectionPool(host='10.168.56.248', port=9100): Max retries exceeded with url: /unit/resume_upload_query (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x0000000004B9C320>: Failed to establish a new connection: [Errno 10060] ',))
+[11052][2016-09-05 12:26:31,710](INFO)com.core.zhaopin : 简历过滤完毕，准备解析
+[11052][2016-09-05 12:26:31,733](INFO)com.core.zhaopin : X查找到：60份简历。
+[11052][2016-09-05 12:26:32,161](INFO)com.core.zhaopin : __goto_page_save_cookie OK for http://rdsearch.zhaopin.com/home/RedirectToRd/EdO3w7SZspMQKy7NnpsqCQ_1_1?searchresume=1
+[11052][2016-09-05 12:26:32,700](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[11052][2016-09-05 12:26:32,703](INFO)com.core.zhaopin : 请求简历次数：1999
+[11052][2016-09-05 12:26:32,703](INFO)com.core.zhaopin : 上传简历，职位编号：3616496，简历标识：EdO3w7SZspMQKy7NnpsqCQ_1_1?searchresume=1&t=1473049566&k=4B30BEA9E7132FB402E81C0E69300367
+[11052][2016-09-05 12:26:34,959](ERROR)com.core.zhaopin : post_data:HTTPConnectionPool(host='uploadserver', port=9100): Max retries exceeded with url: /unit/resume_upload (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x0000000004BB9550>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
+[11052][2016-09-05 12:26:45,461](INFO)com.core.zhaopin : X简历EdO3w7SZspMQKy7NnpsqCQ_1_1完毕
+[11052][2016-09-05 12:26:45,815](INFO)com.core.zhaopin : __goto_page_save_cookie OK for http://rdsearch.zhaopin.com/home/RedirectToRd/x3sSlgKBf0srstB1jmhkFw_1_1?searchresume=1
+[11052][2016-09-05 12:26:46,183](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[11052][2016-09-05 12:26:46,187](INFO)com.core.zhaopin : 请求简历次数：1998
+[11052][2016-09-05 12:26:46,187](INFO)com.core.zhaopin : 上传简历，职位编号：3616496，简历标识：x3sSlgKBf0srstB1jmhkFw_1_1?searchresume=1&t=1473049566&k=D9733B0E0D7467E1A1DFDB27AE948720
+[11052][2016-09-05 12:26:48,443](ERROR)com.core.zhaopin : post_data:HTTPConnectionPool(host='uploadserver', port=9100): Max retries exceeded with url: /unit/resume_upload (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x0000000004BB9A58>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
+[1992][2016-09-05 12:28:58,957](INFO)com.core.zhaopin : ==========启动智联招聘任务系统==========
+[1992][2016-09-05 12:28:59,186](INFO)com.core.zhaopin : {"unit_id": "468", "account": "GQAAAN1HN9pWk62WbWFkfziDapsTPslDaLZp/rH65sla+SDf", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[1992][2016-09-05 12:28:59,279](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[1992][2016-09-05 12:28:59,285](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[1992][2016-09-05 12:30:16,960](INFO)com.core.zhaopin : ===***===***zhaopin代理：223.68.1.38:8000***===***===
+[1992][2016-09-05 12:30:41,961](INFO)com.core.zhaopin : start login ...
+[1992][2016-09-05 12:30:41,961](INFO)com.core.zhaopin : ZhiLianUser.login(ehx30337573g, sohochina836), using proxy {u'http': u'http://223.68.1.38:8000', u'https': u'http://223.68.1.38:8000'}, using cookie True
+[1992][2016-09-05 12:30:46,157](INFO)com.core.zhaopin : cookie失效，登陆
+[1992][2016-09-05 12:30:46,157](INFO)com.core.zhaopin : ZhiLianUser.login(ehx30337573g, sohochina836), using proxy {u'http': u'http://223.68.1.38:8000', u'https': u'http://223.68.1.38:8000'}, using cookie False
+[1992][2016-09-05 12:30:53,726](INFO)com.core.zhaopin : result: {u'result': {u'code': u'5668'}, u'err_code': 0}
+[11408][2016-09-05 13:20:15,608](INFO)com.core.zhaopin : ==========启动智联招聘任务系统==========
+[11408][2016-09-05 13:20:15,825](INFO)com.core.zhaopin : {"unit_id": "397", "account": "DwAAABk6N1JdOVl2TJQjtlWINIs=", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11408][2016-09-05 13:20:15,881](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11408][2016-09-05 13:20:15,888](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:20:53,312](INFO)com.core.zhaopin : ===***===***zhaopin代理：121.10.234.15:3128***===***===
+[11408][2016-09-05 13:21:14,513](INFO)com.core.zhaopin : start login ...
+[11408][2016-09-05 13:21:14,513](INFO)com.core.zhaopin : ZhiLianUser.login(njtsdc, tsdcrise), using proxy {u'http': u'http://121.10.234.15:3128', u'https': u'http://121.10.234.15:3128'}, using cookie True
+[11408][2016-09-05 13:21:16,283](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:21:16,283](INFO)com.core.zhaopin : ZhiLianUser.login(njtsdc, tsdcrise), using proxy {u'http': u'http://121.10.234.15:3128', u'https': u'http://121.10.234.15:3128'}, using cookie False
+[11408][2016-09-05 13:21:21,828](INFO)com.core.zhaopin : result: {u'result': {u'code': u'6y95'}, u'err_code': 0}
+[11408][2016-09-05 13:21:34,770](DEBUG)com.core.zhaopin : 验证成功
+[11408][2016-09-05 13:21:48,690](INFO)com.core.zhaopin : login succeed
+[11408][2016-09-05 13:22:40,684](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[11408][2016-09-05 13:22:40,686](INFO)com.core.zhaopin : 获得搜索页面成功
+[11408][2016-09-05 13:22:40,686](INFO)com.core.zhaopin : __get_search_page failed: 必要条件不满足
+[11408][2016-09-05 13:22:40,694](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:22:41,221](INFO)com.core.zhaopin : {"unit_id": "404", "account": "HAAAAGqoNtcV8H2+f+7Ak6kV021DdyeaQPsfRx6pqiyVehO/", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11408][2016-09-05 13:22:41,223](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11408][2016-09-05 13:22:41,230](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:28:32,921](INFO)com.core.zhaopin : ===***===***zhaopin代理：80.80.160.252:8080***===***===
+[11408][2016-09-05 13:28:33,921](INFO)com.core.zhaopin : start login ...
+[11408][2016-09-05 13:28:33,921](INFO)com.core.zhaopin : ZhiLianUser.login(kuey27684353 , zhaowei6582711), using proxy {u'http': u'http://80.80.160.252:8080', u'https': u'http://80.80.160.252:8080'}, using cookie True
+[11408][2016-09-05 13:28:38,601](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:28:38,601](INFO)com.core.zhaopin : ZhiLianUser.login(kuey27684353 , zhaowei6582711), using proxy {u'http': u'http://80.80.160.252:8080', u'https': u'http://80.80.160.252:8080'}, using cookie False
+[11408][2016-09-05 13:28:51,471](INFO)com.core.zhaopin : result: {u'result': {u'code': u'87s7'}, u'err_code': 0}
+[11408][2016-09-05 13:28:57,828](ERROR)com.core.zhaopin : 您的账户已被冻结，请和销售人员联系！
+[11408][2016-09-05 13:28:57,828](ERROR)com.core.zhaopin : login failed(10001): 您的账户已被冻结，请和销售人员联系！
+[11408][2016-09-05 13:28:57,828](INFO)com.core.zhaopin : 登录返回：创建文件夹错误，切换帐号
+[11408][2016-09-05 13:28:57,835](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:28:57,835](INFO)com.core.zhaopin : ===***===更新tb_account表数据成功===***===
+[11408][2016-09-05 13:28:58,114](INFO)com.core.zhaopin : {"unit_id": "413", "account": "FgAAADUQNs+4rfqP3EjmdeiYV6rDJ5mH1PllBQ==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11408][2016-09-05 13:28:58,115](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11408][2016-09-05 13:28:58,121](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:32:35,141](INFO)com.core.zhaopin : ===***===***zhaopin代理：183.60.200.171:8888***===***===
+[11408][2016-09-05 13:32:35,142](INFO)com.core.zhaopin : start login ...
+[11408][2016-09-05 13:32:35,142](INFO)com.core.zhaopin : ZhiLianUser.login(wanxiekeji, wanxiehrno1), using proxy {u'http': u'http://183.60.200.171:8888', u'https': u'http://183.60.200.171:8888'}, using cookie True
+[11408][2016-09-05 13:32:35,588](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:32:35,588](INFO)com.core.zhaopin : ZhiLianUser.login(wanxiekeji, wanxiehrno1), using proxy {u'http': u'http://183.60.200.171:8888', u'https': u'http://183.60.200.171:8888'}, using cookie False
+[11408][2016-09-05 13:32:38,584](INFO)com.core.zhaopin : result: {u'result': {u'code': u'3559'}, u'err_code': 0}
+[11408][2016-09-05 13:32:39,302](ERROR)com.core.zhaopin : 用户名或密码错误！
+[11408][2016-09-05 13:32:39,302](ERROR)com.core.zhaopin : login failed(10008): 用户名或密码错误！
+[11408][2016-09-05 13:32:39,302](INFO)com.core.zhaopin : 登录返回：插入数据失败，切换帐号
+[11408][2016-09-05 13:32:39,309](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:32:39,309](INFO)com.core.zhaopin : ===***===更新tb_account表数据成功===***===
+[11408][2016-09-05 13:32:39,460](INFO)com.core.zhaopin : {"unit_id": "458", "account": "FwAAAAEo7vFdVWSLrJY8ks2JkP9ndrbNGAcC1w==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[11408][2016-09-05 13:32:39,460](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[11408][2016-09-05 13:32:39,469](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[11408][2016-09-05 13:33:49,213](INFO)com.core.zhaopin : ===***===***zhaopin代理：212.155.230.214:8080***===***===
+[11408][2016-09-05 13:33:49,213](INFO)com.core.zhaopin : start login ...
+[11408][2016-09-05 13:33:49,213](INFO)com.core.zhaopin : ZhiLianUser.login(beijingzyd, beijing12345), using proxy {u'http': u'http://212.155.230.214:8080', u'https': u'http://212.155.230.214:8080'}, using cookie True
+[11408][2016-09-05 13:33:52,380](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:33:52,380](INFO)com.core.zhaopin : ZhiLianUser.login(beijingzyd, beijing12345), using proxy {u'http': u'http://212.155.230.214:8080', u'https': u'http://212.155.230.214:8080'}, using cookie False
+[11408][2016-09-05 13:33:58,578](INFO)com.core.zhaopin : result: {u'result': {u'code': u'7gd2'}, u'err_code': 0}
+[11408][2016-09-05 13:34:03,072](DEBUG)com.core.zhaopin : 验证成功
+[11408][2016-09-05 13:34:07,171](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:34:07,171](INFO)com.core.zhaopin : ZhiLianUser.login(beijingzyd, beijing12345), using proxy {u'http': u'http://212.155.230.214:8080', u'https': u'http://212.155.230.214:8080'}, using cookie False
+[11408][2016-09-05 13:34:14,174](INFO)com.core.zhaopin : result: {u'result': {u'code': u'a373'}, u'err_code': 0}
+[11408][2016-09-05 13:34:18,388](DEBUG)com.core.zhaopin : 验证成功
+[11408][2016-09-05 13:34:21,312](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:34:21,312](INFO)com.core.zhaopin : ZhiLianUser.login(beijingzyd, beijing12345), using proxy {u'http': u'http://212.155.230.214:8080', u'https': u'http://212.155.230.214:8080'}, using cookie False
+[11408][2016-09-05 13:34:29,259](INFO)com.core.zhaopin : result: {u'result': {u'code': u'n723'}, u'err_code': 0}
+[11408][2016-09-05 13:34:33,752](DEBUG)com.core.zhaopin : 验证成功
+[11408][2016-09-05 13:34:36,756](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:34:36,756](INFO)com.core.zhaopin : ZhiLianUser.login(beijingzyd, beijing12345), using proxy {u'http': u'http://212.155.230.214:8080', u'https': u'http://212.155.230.214:8080'}, using cookie False
+[11408][2016-09-05 13:34:47,220](INFO)com.core.zhaopin : result: {u'result': {u'code': u'N586'}, u'err_code': 0}
+[11408][2016-09-05 13:34:53,016](DEBUG)com.core.zhaopin : 验证成功
+[11408][2016-09-05 13:34:56,049](INFO)com.core.zhaopin : cookie失效，登陆
+[11408][2016-09-05 13:34:56,049](INFO)com.core.zhaopin : ZhiLianUser.login(beijingzyd, beijing12345), using proxy {u'http': u'http://212.155.230.214:8080', u'https': u'http://212.155.230.214:8080'}, using cookie False
+[9152][2016-09-05 15:39:25,562](INFO)com.core.zhaopin : ==========启动智联招聘任务系统==========
+[9152][2016-09-05 15:39:26,065](INFO)com.core.zhaopin : {"unit_id": "593", "account": "FAAAAJW/t7QnAe/gP77cMIdz4C7zoS/fnd3peg==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[9152][2016-09-05 15:39:26,122](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[9152][2016-09-05 15:39:26,132](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[1948][2016-09-05 15:39:38,788](INFO)com.core.zhaopin : ==========启动智联招聘任务系统==========
+[1948][2016-09-05 15:39:38,944](INFO)com.core.zhaopin : {"unit_id": "603", "account": "FQAAAGv4LQ71b+oqKpMPQdXBErfpadHom7PK0A==", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[1948][2016-09-05 15:39:39,078](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[1948][2016-09-05 15:39:39,088](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[1948][2016-09-05 15:40:53,368](INFO)com.core.zhaopin : ===***===***zhaopin代理：80.242.219.50:3128***===***===
+[1948][2016-09-05 15:41:16,770](INFO)com.core.zhaopin : start login ...
+[1948][2016-09-05 15:41:16,770](INFO)com.core.zhaopin : ZhiLianUser.login(dbwz70329032, abcd1234), using proxy {u'http': u'http://80.242.219.50:3128', u'https': u'http://80.242.219.50:3128'}, using cookie True
+[1948][2016-09-05 15:41:21,242](INFO)com.core.zhaopin : cookie失效，登陆
+[1948][2016-09-05 15:41:21,242](INFO)com.core.zhaopin : ZhiLianUser.login(dbwz70329032, abcd1234), using proxy {u'http': u'http://80.242.219.50:3128', u'https': u'http://80.242.219.50:3128'}, using cookie False
+[1948][2016-09-05 15:41:29,707](INFO)com.core.zhaopin : result: {u'result': {u'code': u'64d3'}, u'err_code': 0}
+[1948][2016-09-05 15:41:33,859](DEBUG)com.core.zhaopin : 验证成功
+[1948][2016-09-05 15:41:35,869](WARNING)com.core.zhaopin : connection https error
+[1948][2016-09-05 15:41:50,868](INFO)com.core.zhaopin : start login ...
+[1948][2016-09-05 15:41:50,868](INFO)com.core.zhaopin : ZhiLianUser.login(dbwz70329032, abcd1234), using proxy {u'http': u'http://218.90.174.167:3128', u'https': u'http://218.90.174.167:3128'}, using cookie True
+[1948][2016-09-05 15:41:52,365](ERROR)com.core.zhaopin : login failed(10001): 登录失败: 您的的账户已过期
+[1948][2016-09-05 15:41:52,365](INFO)com.core.zhaopin : 登录返回：创建文件夹错误，切换帐号
+[1948][2016-09-05 15:41:52,371](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[1948][2016-09-05 15:41:52,371](INFO)com.core.zhaopin : ===***===更新tb_account表数据成功===***===
+[1948][2016-09-05 15:41:52,513](INFO)com.core.zhaopin : {"unit_id": "605", "account": "GQAAAPPmEkqbBNbBTvqCu1S69GTV4ZeJzVEXvIAM4ZoTEIwq", "search_limit": 300, "download_limit": 2000, "err_code": 0}
+[1948][2016-09-05 15:41:52,513](INFO)com.core.zhaopin : 查询次数：300，简历请求次数：2000
+[1948][2016-09-05 15:41:52,519](INFO)com.core.zhaopin : ===***===插入表tb_account数据成功===***===
+[1948][2016-09-05 15:41:52,658](INFO)com.core.zhaopin : ===***===***zhaopin代理：218.90.174.167:3128***===***===
+[1948][2016-09-05 15:41:52,660](INFO)com.core.zhaopin : start login ...
+[1948][2016-09-05 15:41:52,660](INFO)com.core.zhaopin : ZhiLianUser.login(33657803qwft, Yicoolhr2015), using proxy {u'http': u'http://218.90.174.167:3128', u'https': u'http://218.90.174.167:3128'}, using cookie True
+[1948][2016-09-05 15:41:53,348](INFO)com.core.zhaopin : cookie失效，登陆
+[1948][2016-09-05 15:41:53,349](INFO)com.core.zhaopin : ZhiLianUser.login(33657803qwft, Yicoolhr2015), using proxy {u'http': u'http://218.90.174.167:3128', u'https': u'http://218.90.174.167:3128'}, using cookie False
+[1948][2016-09-05 15:41:59,714](INFO)com.core.zhaopin : result: {u'result': {u'code': u'dd8n'}, u'err_code': 0}
+[1948][2016-09-05 15:42:00,599](DEBUG)com.core.zhaopin : 验证成功
+[1948][2016-09-05 15:42:02,651](WARNING)com.core.zhaopin : 登陆成功
+[1948][2016-09-05 15:42:02,657](INFO)com.core.zhaopin : login succeed
+[1948][2016-09-05 15:42:37,540](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[1948][2016-09-05 15:42:37,543](INFO)com.core.zhaopin : 获得搜索页面成功
+[1948][2016-09-05 15:42:37,549](INFO)com.core.zhaopin : task value中没有任务，正在获取任务。
+[1948][2016-09-05 15:42:38,954](INFO)com.core.zhaopin : 插入新的任务到task value中
+[1948][2016-09-05 15:42:38,956](INFO)com.core.zhaopin : 任务内容：{"context": {"position_id": "71733", "position_name": "WEB\u524d\u7aef\u5f00\u53d1\u5de5\u7a0b\u5e08", "hunter_email": "hushinan@nrnr.me", "unit_id": "340", "condition_id": "25586"}, "condition": "SF_1_1_2;SF_1_1_18", "task_value": [{"column": "SF_1_1_2", "id": "045", "name": "\u8f6f\u4ef6\u5de5\u7a0b\u5e08"}, {"column": "SF_1_1_4", "id": "2,99", "name": "2\u5e74;\u53ca\u4ee5\u4e0a"}, {"column": "SF_1_1_7", "id": "4,9", "name": "\u6700\u8fd1\u4e00\u4e2a\u6708"}, {"column": "SF_1_1_5", "id": "7,15", "name": "\u672c\u79d1;\u535a\u58eb"}, {"column": "SF_1_1_18", "id": "530", "name": "\u5317\u4eac"}, {"column": "SF_1_1_1", "id": "javascript", "name": "javascript"}]}
+[1948][2016-09-05 15:42:41,944](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[1948][2016-09-05 15:42:41,944](INFO)com.core.zhaopin : 获取到搜索结果页面
+[1948][2016-09-05 15:42:41,989](INFO)com.core.zhaopin : 查找到：58份简历，准备过滤。
+[1948][2016-09-05 15:43:02,994](ERROR)com.core.zhaopin : filter_resume_id:HTTPConnectionPool(host='10.168.56.248', port=9100): Max retries exceeded with url: /unit/resume_upload_query (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x0000000004F18390>: Failed to establish a new connection: [Errno 10060] ',))
+[1948][2016-09-05 15:43:02,996](INFO)com.core.zhaopin : 简历过滤完毕，准备解析
+[1948][2016-09-05 15:43:03,019](INFO)com.core.zhaopin : X查找到：58份简历。
+[1948][2016-09-05 15:43:03,276](INFO)com.core.zhaopin : __goto_page_save_cookie OK for http://rdsearch.zhaopin.com/home/RedirectToRd/obMfabCQq3)TNrkvdoCjeA_1_1?searchresume=1
+[1948][2016-09-05 15:43:03,871](INFO)com.core.zhaopin : ===***===插入数据到tb_log表成功===**===
+[1948][2016-09-05 15:46:49,303](INFO)com.core.zhaopin : 请求简历次数：1999
+[1948][2016-09-05 15:46:54,229](INFO)com.core.zhaopin : 上传简历，职位编号：71733，简历标识：obMfabCQq3)TNrkvdoCjeA_1_1?searchresume=1&t=1473061363&k=EEEAB036D6FD7540F6FC0955FE10ADF7
+[1948][2016-09-05 15:46:57,312](ERROR)com.core.zhaopin : post_data:HTTPConnectionPool(host='uploadserver', port=9100): Max retries exceeded with url: /unit/resume_upload (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x00000000052EB208>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed',))
