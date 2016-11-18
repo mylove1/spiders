@@ -18,9 +18,40 @@ from naren_spiders.worker import upload
 
 logger = logging.getLogger()
 
-def login(username, user_agent, proxies=None):
+def __login(username, passwd, user_agent, proxies=None):
+    try:
+        from naren_browser.blind_browser import browse
+    except Exception, e:
+        raise Exception("无法导入browse!")
+    url_js = {
+        "https://passport.58.com/login/": """
+            sleep();
+            document.querySelector("#login_tab_orig").click();
+            sleep();
+            document.querySelector(".username_new[name=username]").value="{name}";
+            sleep();
+            document.querySelector(".password_new[type=password]").value="{password}";
+            sleep();
+            document.querySelector(".btns_new[name=btnSubmit]").click();
+        """.format(
+            name=username,
+            password=passwd,
+        ),
+        "http://my.58.com/index": '''
+             quit();
+         '''
+    }
+    try:
+        response, cookie = browse('https://passport.58.com/login/', [], url_js=url_js, user_agent=user_agent, visible=False, html_only=False, timeout=300, proxy=proxies)
+    except Exception:
+        logger.warning("获取cookie发生异常,\n%s" % traceback.format_exc())
+        raise Exception("PROXY_FAIL!")
+    return cookie
+
+def login(username, password, user_agent, proxies=None):
     session = requests.Session()
-    login_cookies = get_cookie('x58', username)
+    # login_cookies = get_cookie('x58', username)
+    login_cookies = __login(username, password, user_agent, proxies=proxies)
     assert isinstance(login_cookies, list)
     login_cookie_jar = requests.cookies.RequestsCookieJar()
     for login_cookie in login_cookies:
@@ -89,7 +120,8 @@ def __fetch_contact(session, resume_id, user_name, user_password, proxies=None):
     main_page = __session('get', 'http://my.58.com/index')
     if '普通登录方式' in main_page:
         logger.info('cookie fail, try login')
-        login_cookies = get_cookie('x58', user_name)
+        # login_cookies = get_cookie('x58', user_name)
+        login_cookies = __login(user_name, user_password, user_agent, proxies=proxies)
         assert isinstance(login_cookies, list)
         login_cookie_jar = requests.cookies.RequestsCookieJar()
         for login_cookie in login_cookies:
@@ -124,19 +156,23 @@ def __fetch_contact(session, resume_id, user_name, user_password, proxies=None):
 
 
 def fetch_contact(resume_id, user_name, user_password, logger_name=None, other_fields=None):
-
-    try:
-        s = login(user_name, user_password)
-        s.temp_folder = os.path.join(tempfile.gettempdir(), "x58", str(random.randint(1, 10000)))
-        if not os.path.isdir(s.temp_folder):
-            os.makedirs(s.temp_folder)
-        contact = __fetch_contact(s, resume_id, user_name, user_password)
-        return contact
-    except Exception, e:
-        return {"err_code": 90400, "err_msg": str(e)}
+    user_agent = nautil.user_agent()
+    # try:
+    s = login(user_name, user_password, user_agent=user_agent)
+    s.temp_folder = os.path.join(tempfile.gettempdir(), "x58", str(random.randint(1, 10000)))
+    if not os.path.isdir(s.temp_folder):
+        os.makedirs(s.temp_folder)
+    contact = __fetch_contact(s, resume_id, user_name, user_password)
+    return contact
+    # except Exception, e:
+    #     return {"err_code": 90400, "err_msg": str(e)}
 
 
 
 if __name__ == '__main__':
     logger.setLevel(logging.INFO)
     logger.addHandler(logging.StreamHandler())
+    #__login("北京纳人网络", "naren123456nn", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36", proxies=None)
+    proxies = {'http': 'http://121.40.105.5:29900', 'https': 'http://121.40.105.5:29900'}
+    __login("huangw010@sina.com", "naren123", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36", proxies=proxies)
+    # fetch_contact('90496921106188', "北京纳人网络", "naren123456nn")

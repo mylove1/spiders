@@ -160,7 +160,6 @@ def __address(hareas):
     }
     return address_keywords_dict[hareas]
 
-
 def __jobs(job):
     job_dict = {
         u"预结算员": 433, u"数码直印/菲林输出": 505, u"理货员": 761, u"钳工/机修工/钣金工": 889, u"嵌入式软件开发(Linux/单片机/PLC/DSP…)": 386, u"投诉专员": 268, u"网站架构设计师": 281, u"高级软件工程师": 313,

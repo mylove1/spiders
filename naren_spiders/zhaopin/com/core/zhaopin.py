@@ -305,22 +305,21 @@ class ZhaoPinMining(Methods):
             self._logger.error(u"{0:s}:{1:s}".format(self.__send_report_email.__name__, ex.message))
 
     def get_task(self, **kwargs):
-        try:
-            c = Config("./config/config.conf")
-            c.read_config()
-            url = c.get_config(section="default", key="task_server", default_value="")
-            r = requests.post(url="http://{0:s}/gettask".format(url),
-                              data={"source_id": SourceCode.ZHAO_PIN, "condition": ";".join(kwargs.get("condition")),
-                                    "account": self._user_name})
-            if r.status_code == 200:
-                return r.content
-        except Exception:
-            d = Result(
-                error_code=ErrorCode.GET_TASK_ERROR,
-                error_message=ErrorCode.format(ErrorCode.GET_TASK_ERROR),
-                data=""
-            ).convert_to_json()
-            return json.dumps(d)
+        c = Config("./config/config.conf")
+        c.read_config()
+        url = c.get_config(section="default", key="task_server", default_value="")
+        while True:
+            r = None
+            try:
+                r = requests.post(url="http://{0:s}/gettask".format(url),
+                                  data={"source_id": SourceCode.ZHAO_PIN, "condition": ";".join(kwargs.get("condition")),
+                                        "account": self._user_name})
+                if r.status_code == 200:
+                    return r.content
+            except Exception:
+                pass
+            self._logger.error("gettask failed %s" % r.status_code if r else "__None__")
+            time.sleep(30)
 
     def __init_cookie_file(self):
         """

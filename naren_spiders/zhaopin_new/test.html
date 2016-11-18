@@ -1,0 +1,969 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <title>根据关键词搜索简历结果</title>
+    <link type="text/css" rel="stylesheet" href="http://img01.zhaopin.cn/2014/common/css/reset.css">
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/reset.min.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/rd/rd_basic.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/rd/resumes_common.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/rd/resumes_index.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/rd/resumes_item.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/rd/resumes_result.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/rd/resumes_list.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/ui/xw_selection/set-selection.css" />
+    <link rel="stylesheet" href="http://img00.zhaopin.cn/2012/css/ui/xw_rdAllUi/style.css" />
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/jquery-1.6.4.min.js"></script>
+</head>
+<style>
+    body table tr td.first-weight a.clicked {
+        color: #800;
+    }
+
+    .survey {
+        width: 12px;
+        color: #fff;
+        left: 50%;
+        margin-left: 480px;
+        top: 139px;
+        position: fixed;
+        background: url(http://img02.zhaopin.cn/2012/img/rd/survey_img_1.png) 0 0 no-repeat;
+        cursor: pointer;
+        _position: absolute;
+        _top: expression(documentElement.scrollTop+128);
+        background-color: #0f7acc;
+        padding: 30px 7px 12px;
+    }
+
+        .survey:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .back-to-top {
+        left: 50%;
+        margin-left: 479px;
+        z-index: 1000;
+        bottom: 100px;
+        position: fixed;
+        width: 26px;
+        height: 81px;
+        background: url(/Content/images/toTop.gif) 0 0 no-repeat;
+        cursor: pointer;
+        _position: absolute;
+        _top: expression(documentElement.scrollTop+documentElement.clientHeight-95);
+        display: none;
+    }
+
+    .online-service-margin {
+        margin-right: 2px;
+    }
+
+    .guide {
+        position: absolute;
+        top: -30px;
+        left: 300px;
+        width: 175px;
+        height: 66px;
+        background: url(/Content/images/here.png) no-repeat;
+    }
+</style>
+<style type="text/css">
+
+</style>
+<body>
+<!-- begin top --><link type="text/css" rel="stylesheet" href="http://img00.zhaopin.cn/2014/rd2/css/head.css"><script type="text/javascript">    if (typeof jQuery == 'undefined')        document.write(decodeURIComponent('%3Cscript%20type%3D%22text%2Fjavascript%22%20src%3D%22http%3A%2F%2Fimg01.zhaopin.cn%2F2012%2Fjs%2Fjquery-1.6.4.min.js%22%3E%3C%2Fscript%3E'))</script><div class="posRelat" id="RD_topCon">    <div class="top_control" id="top_control">        <div class="textCon">            <div class="showLogin"><!-- 显示部门名称 -->[<span title='北京自由天宇网络技术有限公司'>北京自由天宇网络技术有限公司</span>]</div>            <div class="links">                <!-- 显示切换到CS系统 --><a href="http://jobads.zhaopin.com/News/Feedback" class="__ga__xiaoxizhongxin_xiaoxizhongxindianjiliang_001">消息中心</a><em>|</em>                <a href="#" onclick="window.open('http://interact.zhaopin.com/feedback/feedback_ent.asp', '_blank', 'width=1,height=1,left=100,top=60, scrollbars=0, overflow=auto, status=0');return false;">反馈</a><em>|</em>                <a href="http://img09.zhaopin.cn/2012/other/rdhelp201211/index.htm" target="_blank">帮助</a><em>|</em>                <a href="http://rd2.zhaopin.com/s/setup/password.asp">修改密码</a><em>|</em>                <a href="#" onclick="location.href = 'http://rd2.zhaopin.com/s/loginmgr/logout.asp';return false;">退出</a>            </div>        </div>    </div>    <!-- begin top menu -->    <div class="rd_nav_line">        <div id="RD_MenuCon">            <div id="comp_logo"><a href="http://rd2.zhaopin.com/s/homepage.asp"><!--显示Logo--> <img class='logoImg' src='http://img01.zhaopin.cn/2014/rd2/img/rd_logo1.png' title='网聘5.0' /></a></div>            <div id="RD_menu">                <ul id="RD_menu_ul">                    <li class="RD_menuItem" id="RD_menuItem_home"><a href="http://rd2.zhaopin.com/s/homepage.asp">首页</a></li>                    <li class="RD_menuItem" id="RD_menuItem_vaca">                        <span class="new-icon"></span>                        <a href="http://rd2.zhaopin.com/s/vacainfo/PositionManage.asp">职位管理</a>                        <div class="menu_box none">                            <div class="RD_subMenu_outer">                                <a href="http://rd2.zhaopin.com/s/vacainfo/PositionUpdate.asp">发布新职位</a>                                <a href="http://ihr.zhaopin.com/job/jobonsitepub.do" id="lnk_daomian" onclick="dyweTrackEvent('positionmanage', 'positionmanagedaomian')">发布保面试职位<span></span></a>                                <a href="http://ihr.zhaopin.com/job/jobmanager.do" id="lnk_daomianlist">管理保面试职位</a>                                <a href="http://jobads.zhaopin.com/Position/PositionManage">管理职位列表</a>                                <a href="http://rd2.zhaopin.com/s/vacainfo/TemplateManage.asp">设置职位模板</a>                            </div>                        </div>                    </li>                    <li class="RD_menuItem" id="RD_menuItem_resu">                        <!--根据应聘简历版本决定使用新简历收件箱还是旧简历收件箱-->                        <a href="http://rd2.zhaopin.com/RdApply/Resumes/Apply/index">简历管理</a>                        <div class="menu_box none">                            <div class="RD_subMenu_outer">                                <a href="http://rd2.zhaopin.com/s/resuadmi/vacancyList.asp">简历收件箱</a>                                <a class="__ga__JobInviteLU_clickTopmenu_001" href="http://rd2.zhaopin.com/s/resuadmi/vacancyList.asp">发送橄榄枝</a>                                <a href="http://rd2.zhaopin.com/RdApply/Resumes/Resume/Index">简历夹管理</a>                                <a href="http://rd2.zhaopin.com/RdApply/Resumes/Resume/Recycle">回收站</a>                                <a href="http://rd2.zhaopin.com/s/help/resumeFolder.html" target="_blank" class="ask-icon"></a>                            </div>                        </div>                    </li>                    <li class="RD_menuItem" id="RD_menuItem_sear">                        <a class="head_current" href="http://rdsearch.zhaopin.com/Home/SearchByCustom?source=rd">简历库</a>                        <div class="menu_box none">                            <div class="RD_subMenu_outer">                                <a href="http://rdsearch.zhaopin.com/Home/SearchByCustom?source=rd"><span>搜索简历</span></a>                                <a href="http://rd2.zhaopin.com/s/resuadmi/ShowFavoriteResumes_recent.asp"><span>已下载的简历</span></a>                            </div>                        </div>                    </li>                    <li class="RD_menuItem" id="RD_menuItem_repo">                        <a href="http://rd2.zhaopin.com/s/report2/rpt_pos.asp">统计报表</a>                        <div class="menu_box none">                            <div class="RD_subMenu_outer">                                <a href="http://rd2.zhaopin.com/s/report2/rpt_pos.asp"><span>职位发布效果统计</span></a>                                <a href="http://rd2.zhaopin.com/s/report2/rpt_sms.asp"><span>短信发送统计</span></a>                                <a href="http://rd2.zhaopin.com/s/report/operalog.asp"><span>操作日志</span></a>                            </div>                        </div>                    </li>                    <!-- 校聘入口 -->                                        <li class="RD_menuItem"><a target="_blank" class="__ga__RDDHCEPING_RDDHCEPING001_001" href="http://eas.zhaopin.com/CompanyPlatform/PartnerLogin.aspx?resource=rd">智联测评</a></li>                    <!-- 易聘用户显示HR助手 -->                    <li class="RD_menuItem"><a target="_blank" class="__ga__RDDHGAODUAN_RDDHGAODUAN001_001" href="http://hr.highpin.cn/Recruiter/ProductIntroduction?pagetype=2&loginname=zyty001&accountnumber=CC554211225&IsAdmin=false">高端招聘</a></li>                    <li class="RD_menuItem" style="border-right:1px solid #EBEBEB;">                        <a href="#">控制面板</a>                        <div class="menu_box none" id="RD_menuItem_config_Popup">                            <div onclick="event.cancelBubble=true;" class="RD_subMenu_outer popupMoreMenuItems">                                <a class="configMenuItem">用户管理</a>                                <a href="http://rd2.zhaopin.com/s/setup/userInfo.asp">修改用户信息和密码</a>                                <a href="http://rd2.zhaopin.com/s/setup/emailTemplate.asp" class="configSubMenuItem">设置信件模板</a>                                <a href="http://ihr.zhaopin.com/privilege/manage.do">我的优惠券</a>                                <!-- 用户显示设置项 -->                                                            </div>                        </div>                    </li>                </ul>            </div>        </div>    </div>    <!-- end top menu --></div><!-- end top --><div id="live25" class="live800_20130926"></div><!--<script language="javascript" src="http://service.zhaopin.com/live800/chatClient/staticButton.js?companyID=8899&configID=25&codeType=steady&live800_city=&info=userId%3d678079277%26loginname%3dzyty001%26name%3d%e5%8c%97%e4%ba%ac%e8%87%aa%e7%94%b1%e5%a4%a9%e5%ae%87%e7%bd%91%e7%bb%9c%e6%8a%80%e6%9c%af%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8%26hashCode%3d780CA183A04A83C8EB3B858B20B24B1B%26timestamp%3d1479479290758"></script>--><script type="text/javascript">    var lis = document.getElementById("RD_menu_ul").children;    var nowshow = 0;    for (var i = 0; i <= lis.length - 1; i++) {        lis[i].onmouseover = function () {            var subMenu = this.getElementsByTagName("div");            if (subMenu.length > 0) {                subMenu[0].style.display = "block";            }        };        lis[i].onmouseout = function () {            var subMenu = this.getElementsByTagName("div");            if (subMenu.length > 0) {                subMenu[0].style.display = "none";            }        };    }    function loadJS(id, fileUrl, callback) {        var scriptTag = document.getElementById(id);        var oHead = document.getElementsByTagName('HEAD').item(0);        var oScript = document.createElement("script");        if (scriptTag) oHead.removeChild(scriptTag);        oScript.id = id;        oScript.type = "text/javascript";        oScript.src = fileUrl;        if (callback) {            if (window.navigator.userAgent.toLowerCase().indexOf("msie") > -1) {                oScript.onreadystatechange = function () {                    if (oScript.readyState == "loaded" || oScript.readyState == "complete") {                        callback();                    }                };            } else {                oScript.onload = function () {                    callback();                };            }        }        oHead.appendChild(oScript);    }    $(document).ready(function () {        if (location.host.toLowerCase().indexOf('ihr.zhaopin.com') >= 0) {            return;        }        try {            loadJS("live800000", "http://service.zhaopin.com/live800/chatClient/staticButton.js?companyID=8899&configID=25&codeType=steady&live800_city=&info=userId%3d678079277%26loginname%3dzyty001%26name%3d%e5%8c%97%e4%ba%ac%e8%87%aa%e7%94%b1%e5%a4%a9%e5%ae%87%e7%bd%91%e7%bb%9c%e6%8a%80%e6%9c%af%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8%26hashCode%3d780CA183A04A83C8EB3B858B20B24B1B%26timestamp%3d1479479290758", function () {                loadJS("live800001", "http://service.zhaopin.com/live800/chatClient/script/utils.js", function () {                    loadJS("live800002", "http://service.zhaopin.com/live800/chatClient/staticButtonStatic.js", checkStaticIcon_generateFn);                });            });            function writehtml() {                var temptext = StaticIcon_generate();                document.getElementById('live25').innerHTML = temptext;                setTimeout('write.src', 9000);            }            function checkStaticIcon_generateFn() {                if (typeof StaticIcon_generate == "undefined") {                    setTimeout(checkStaticIcon_generateFn, 3000);                    return;                }                writehtml();            }        } catch (e) { console.log(e); }    });</script><script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/rd2/rdnotice.js?version=20160822"></script>        <div class="resumes-index">
+
+<div class="resumes-index-top">
+    <div id="breadcrumb" style="width: 950px; height: 30px;">
+        <div class="textCon">我的位置：<a href="http://rdsearch.zhaopin.com/?from=breadcrumb">智联简历库</a> &gt; 搜索简历</div>
+        <div id="live20" class="fr-margin online-service-margin">
+            <a id="live800iconlink" href="javascript:void(0)" onclick="try{parent.closeMini();}catch(e){;}globalStaticIcon.getOnGenerateClick()">
+                <img name="live800icon" id="live800icon" src="" border="0"></a>
+        </div>
+    </div>
+    <!--是否显示售卖链接isRootCompany:暂时不加-->
+        <span class="title-h1">搜索简历</span>
+    <span class="fr-margin">下载剩余：<span
+        class="fc-cc3333" id="DownloadBalanceCount">0</span>份</span>
+
+        <span class="fr-margin fc999"><a href="http://rd2.zhaopin.com/RdApply/Resumes/Resume/Index">暂存简历</a></span> <span class="fr-margin fc999">
+                <a href="http://rd2.zhaopin.com/s/resuadmi/ShowFavoriteResumes_recent.asp">已下载简历</a></span>
+</div>
+
+        </div>
+    <div class="resumes-index-main">
+    <div class="resumes-index-title">
+        <a href="/Home/SearchByCustom" class="menu current">关键词搜索</a> <a href="/Home/SearchByPosition" class="menu ">根据发布职位搜索</a> <a href="/Home/SearchByResumeId" class="menu ">简历ID搜索</a>
+            <div class="fr-button">
+                <div class="btn-gray btn-gray-small fc315" id="devRecentlySerch">
+                    <span class="icon-img"></span>最近搜索过的条件
+                </div>
+                <div class="rd-resume-input" id="devSearcherSwitcher">
+                    <input id="searcherSwitcher_input" class="rd-popinput popinput-small"
+                        value="选择搜索器" title="选择搜索器" onfocus="this.blur()"
+                        type="button">
+                </div>
+
+            </div>
+    </div>
+        <style type="text/css">
+.result-layer-input .wordTips,.result-layer-input .wordNum {font-size:12px;color:#999999;}
+.result-layer-input .wordTips em {font-style:normal;}
+</style>
+<div class="resumes-result-body">
+    <form name="frmMain" action="/Home/ResultForCustom">
+    <div class="resumes-result-top">
+        <div class="search-item result-item-tips search-item-add">
+            <div class="search-item-name">
+                关&nbsp;键&nbsp;词</div>
+            <input id="SF_1_1_1" name="SF_1_1_1"  maxlength="100"  value="陇东学院附属中学" class="rd-input input-xxbig" type="text" placeholder="请输入简历关键词，多关键词可用空格分隔"/>
+        </div>
+        <div class="search-item result-item-tips search-item-add">
+            <div class="search-item-name">
+                公司名称</div>
+            <input id="SF_1_1_25" name="SF_1_1_25" maxlength="200" value="" class="rd-input input-xxbig-add"
+                type="text" placeholder="请输入公司名称关键词" />
+        </div>
+        <div id="searchSubmit" class="input-submit resumes-result-button input-submit-big">
+            <button type="submit" disabled="disabled" >人才搜索</button>
+        </div>
+        <div class="rd-checkbox-add">
+            <input type="hidden" id="SF_1_1_25_ContainFields" name="SF_1_1_25_ContainFields"
+                value="COMPANY_NAME_ALL,COMPANY_NAME_LAST" />
+            <label for="SF_1_1_25_SelectField">
+                <input id="SF_1_1_25_SelectField" name="SF_1_1_25_SelectField"
+                    type="checkbox" /><span class="rd-checkbox-span">只搜最近一份工作</span></label></div>
+        <div class="rd-checkbox-add" style="width: 476px">
+            <label for="SF_1_1_1_IsContainsKeyWord">
+                <input id="SF_1_1_1_IsContainsKeyWord" name="SF_1_1_1_IsContainsKeyWord"
+                    type="checkbox"  /><span
+                        class="rd-checkbox-span">包含任一关键词</span></label></div>
+        <div class="button-tips" id="searchSubmitTips">
+            <div class="tips-img">
+                <em>◆</em> <span>◆</span>
+            </div>
+            输入关键词或设置条件，再进行搜索
+        </div>
+    </div>
+    <div class="resumes-result-form clearfix">
+        <div class="resumes-result-form-add">
+            <div class="result-form-top clearfix">
+                    <div class="resumes-result-item form-input">
+                        <div class="search-item-name">职位名称</div>
+            <div id="Selector_SF_1_1_2" class="rd-resume-input">
+                <input id="button_SF_1_1_2F" name="button_SF_1_1_2F" class="rd-popinput popinput-normal" onfocus="this.blur()" type="button" />
+                <input id="SF_1_1_2" name="SF_1_1_2" value="" type="hidden" />
+            </div>
+                    </div>
+                    <div class="resumes-result-item form-input">
+                        <div class="search-item-name">所在行业</div>
+            <div id="Selector_SF_1_1_3" class="rd-resume-input">
+                <input id="button_SF_1_1_3F" name="button_SF_1_1_3F" class="rd-popinput popinput-normal" onfocus="this.blur()" type="button" />
+                <input id="SF_1_1_3" name="SF_1_1_3" value="" type="hidden" />
+            </div>
+                    </div>
+                    <div class="resumes-result-item form-input">
+                        <div class="search-item-name">更新日期</div>
+            <select id="SF_1_1_7" name="SF_1_1_7" class="rd-select popinput-normal"></select>
+                    </div>
+                    <div class="resumes-result-item select-item form-input">
+                        <div class="search-item-name">工作年限</div>
+            <select id="SF_1_1_4_min" name="SF_1_1_4" class="rd-select select-xsmall"></select>
+            <div  id="div_SF_1_1_4" class="item-name-select">-</div>
+            <select id="SF_1_1_4_max" name="SF_1_1_4" class="rd-select select-xsmall"></select>
+                    </div>
+                    <div class="resumes-result-item select-item form-input">
+                        <div class="search-item-name">学    历</div>
+            <select id="SF_1_1_5_min" name="SF_1_1_5" class="rd-select select-xsmall"></select>
+            <div  id="div_SF_1_1_5" class="item-name-select">-</div>
+            <select id="SF_1_1_5_max" name="SF_1_1_5" class="rd-select select-xsmall"></select>
+                    </div>
+                    <div class="resumes-result-item form-input">
+                        <div class="search-item-name">期望工作地区</div>
+            <div id="Selector_SF_1_1_18" class="rd-resume-input">
+                <input id="button_SF_1_1_18F" name="button_SF_1_1_18F" class="rd-popinput popinput-normal" onfocus="this.blur()" type="button" />
+                <input id="SF_1_1_18" name="SF_1_1_18" value="" type="hidden" />
+            </div>
+                    </div>
+                    <div class="resumes-result-item form-input">
+                        <div class="search-item-name">学校名称</div>
+            <input id="SF_1_1_11" name="SF_1_1_11" value="" class="rd-input input-xnormal" maxlength="200" type="text" placeholder="请输入学校名称关键词" />
+                    </div>
+                    <div class="resumes-result-item form-input">
+                        <div class="search-item-name">年    龄</div>
+            <input  id="SF_1_1_8_min" name="SF_1_1_8" value="20" class="rd-input input-xsmall" min="0" max="100" type="text" data-type="number">
+            <div class="item-name-select">-</div>
+            <input  id="SF_1_1_8_max" name="SF_1_1_8" value="25" class="rd-input input-xsmall" min="0" max="100" type="text" data-type="number">
+                    </div>
+<input id="orderBy" name="orderBy" value="DATE_MODIFIED,1" type="hidden"/>            </div>
+                <div class="result-form-inline">
+                <div id="HrQueryConditionSettings" class="btn-gray btn-gray-small fc315">
+                    <span class="icon-img icon-bg"></span>更多可选搜索条件</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="result-tips">
+        <span class="rd-resume-tips-icon icon-down"></span>
+        <a>更多搜索条件</a>
+    </div>
+    <div class="result-tips-one">
+        <div id="HrQueryCondition" class="result-tips-oneleft">
+            您搜索的是：</div>
+        <div class="result-tips-icon fc315">
+            <span class="result-tips-iconbg result-icon-close">
+            </span><a id="clearConditionSettings" href="javascript:void(0)">
+                清空搜索条件</a>
+        </div>
+            <div class="result-tips-icon fc315">
+            <span class="result-tips-iconbg"></span><a id="saveConditionSettings"
+                href="javascript:void(0)">保存搜索条件</a></div>
+    </div>
+    </form>
+</div>
+<div class="result-layer">
+    <div class="result-layer-img">
+        <em>◆</em> <span>◆</span>
+    </div>
+    <div class="result-layer-body">
+        <!---下面为错误样式,result-layer-input替换layer-input-error为错误提示样式，并增加layer-input-error-tips--->
+        <div class="result-layer-input">
+            <div class="wordTips">最多保存99条，还可保存<em class="surplusNum">99</em>条。</div>
+	        <input id="searcher-name" type="text" name="" value="">
+	        <div class="wordNum">最多15个字</div>
+        </div>
+        <div class="layer-input-error-tips fc990000">
+        </div>
+        <div class="result-layer-botton">
+            <div id="save-searcher" class="layer-botton">
+                保&nbsp;存</div>
+            <div id="cancel-searcher" class="layer-botton layer-botton-blue">
+                取&nbsp;消</div>
+        </div>
+    </div>
+    <!---已下2个DIV已经隐藏，需要动态与result-layer-body进行显示及隐藏--->
+    <div class="result-success fc333">
+        保存成功!
+    </div>
+    <div class="result-success-icon fc333">
+        正在保存搜索器
+    </div>
+</div>
+<div class="resumes-list">
+    <div class="search-list-title">
+        <div class="list-title">
+            <div class="rd-resumelist-span">
+                共<span>4</span>份简历
+            </div>
+        </div>
+        <div class="list-title fr fr-border">
+            <div class="bottom-page">
+                <a  class="rd-page-top gray-page">首页</a>
+<a  class="rd-page-lefticon left-icon gray-left-icon"></a>
+<span id="rd-resumelist-pageNum">1/1</span>
+ <a  class="rd-page-lefticon right-icon gray-right-icon"></a>
+<span>到</span>
+<input class="rd-resumelist-page" type="text" value="1" readonly />
+<input id="rd-resumelist-pageCount" type="hidden" value="1" />
+<span>页</span>
+<button class="rd-resumelist-img gray-icon-go" type="button"></button>
+            </div>
+        </div>
+        <div class="list-title fr fr-border">
+            <div class="rd-resumelist-num manner-icon1">
+                &nbsp;每页显示 <span class="resumelist-num-icon manner-border">30</span><span class="resumelist-num-icon">60</span>
+                条
+            </div>
+        </div>
+            <div class="list-title fr">
+                <div class="rd-resumelist-num manner-icon1">
+                    &nbsp;查看方式 <span id="displayModel-list" class="rd-resumelist-manner manner-icon1-current manner-border" title="简单列表" tag="list"></span><span id="displayModel-detail" class="rd-resumelist-manner manner-icon2"
+                        title="详细列表" tag="detail"></span>
+                </div>
+            </div>
+    </div>
+    <div class="search-list-title gray-bg-img">
+        <div class="list-title">
+            <div class="result-tips-two-add">
+                <span class="rd-checkbox-span">简历语言</span>
+                <select id="rd-result-select" name="SF_1_1_27"  onchange="dyweTrackEvent('rdsearch','resumelang');">
+                    <option value="">全部</option>
+                    <option value="0" selected>中文</option>
+                    <option value="1" >英文</option>
+                </select>
+            </div>
+            <div class="result-tips-two-fl">
+                <input id="SF_1_1_26" class="rd-result-checkbox" name="SF_1_1_26" type="checkbox"   onclick="dyweTrackEvent('rdsearch', 'hasphoto');" />
+                <span class="rd-checkbox-span">
+                    <label for="SF_1_1_26">
+                        有照片</label></span>
+            </div>
+            <div class="result-tips-two-fl">
+                <input id="exclude" class="rd-result-checkbox" name="exclude" type="checkbox"  checked onclick="dyweTrackEvent('rdsearch', 'exclude');" />
+                <span class="rd-checkbox-span">
+                    <label for="exclude" id="excludeTips" title="同一求职者的多份简历只显示最新的一份" style="color: red">
+                        去重</label></span>
+            </div>
+        </div>
+        <div class="list-title fr-border">
+            排序方式: <span class="list-title-input"><span class="blue-border" name="orderBy" id="orderBy_DATE_MODIFIED"
+                tag="DATE_MODIFIED" title="更新时间由近到远"><span class="rd-show-img bule-icon-01" style="margin-right: 2px;"></span>时间</span><span class="blue-border" name="orderBy" id="orderBy_score" tag="score"
+                    title="相关度由高到低"><span class="rd-show-img bule-icon-02" style="margin-right: 2px;"></span>相关度 </span><span class="blue-border" name="orderBy" id="orderBy_BIRTH_YEAR" tag="BIRTH_YEAR"
+                        title="年龄由高到低排序">年龄<span class="rd-show-img showimg-down"></span>
+                    </span><span class="blue-border" name="orderBy" id="orderBy_EDUCATION_LEVEL" tag="EDUCATION_LEVEL"
+                        title="学历由低到高排序">学历<span class="rd-show-img showimg-up"></span>
+                    </span></span>
+
+        </div>
+            <div class="list-title fr fr-border">
+                <div  onclick="dyweTrackEvent('rdsearch','changecol');" class="btn-gray btn-gray-small fc315" id="HrInfoFieldSettings" tag="HrID_1B36089BCC95A2CE4E74CB9093A25369">
+                    <span class="icon-img icon-bg"></span>修改显示字段
+                </div>
+            </div>
+    </div>
+    <form name="frmResult" method="post">
+        <input type="hidden" name="select_unique_id" value="" />
+        <input type="hidden" name="selectedResumeList" value="" />
+        <input type="hidden" name="resumeName" value="" />
+        <input type="hidden" name="resumeUrl" value="" />
+        <input type="hidden" name="chkid" value="" />
+        <input type="hidden" name="searchKeyword" value="" />
+        <input type="hidden" name="schoolName" value="" />
+        <input type="hidden" name="companyName" value="" />
+        <input type="hidden" id="t" name="t" value=""/>
+        <input type="hidden" id="k" name="k" value=""/>
+        <input type="hidden" id="companyId" value="55421122" />
+        <input type="hidden" id="hrId" value="678079277" />
+        <table cellspacing="0" cellpadding="0" border="0">
+            <thead>
+                <tr>
+                    <td width="13" nowrap></td>
+                        <td  nowrap>
+                            简历名称
+                        </td>
+                        <td width="18" nowrap></td>
+                        <td width=140 nowrap>
+                            职位名称
+                        </td>
+                        <td width=45 nowrap>
+                            学历
+                        </td>
+                        <td width=40 nowrap>
+                            性别
+                        </td>
+                        <td width=40 nowrap>
+                            年龄
+                        </td>
+                        <td width=80 nowrap>
+                            现居住地
+                        </td>
+                        <td width=60 nowrap>
+                            更新时间
+                        </td>
+                </tr>
+            </thead>
+            <tbody>
+                        <tr valign="top">
+                            <td>
+                                <input type="checkbox" name="chkid" dev_name="语文老师" resumename="语文老师"
+                                               resumeurl="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/Go1CmZvXSVINXMiqzhFbJw_1.htm"
+                                               value="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/Go1CmZvXSVINXMiqzhFbJw_1.htm|Go1CmZvXSVINXMiqzhFbJw_1"
+                                               onclick="unChkSelectAll('chkall')"
+                                               class = "smpcheckbox" data-smpcvid="Go1CmZvXSVINXMiqzhFbJw_1" data-smpownerid="" data-smpxtable="" data-smpkpi="M1"
+                                               />
+                            </td>
+                                        <td class="first-weight">
+                                        <a name="resumeLink" t="1479450490" k="D1BC12B4E538CFA339913DB7686A411F" resumeURLPart="Go1CmZvXSVINXMiqzhFbJw_1_1" tag="Go1CmZvXSVINXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/Go1CmZvXSVINXMiqzhFbJw_1_1?searchresume=1','1479450490','D1BC12B4E538CFA339913DB7686A411F',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/Go1CmZvXSVINXMiqzhFbJw_1_1?searchresume=1" target="_blank">语文老师</a>
+
+                                        </td>
+                                        <td class="rd-show-btn">
+                                                 <a></a>
+                                        </td>
+                                        <td>语文老师</td>
+                                        <td>本科</td>
+                                        <td>女</td>
+                                        <td>22</td>
+                                        <td>北京-朝阳区</td>
+                                        <td>16-11-18</td>
+                        </tr>
+                                <tr class="info"  style="display: none" tag="Go1CmZvXSVINXMiqzhFbJw_1">
+                                    <td colspan="9">
+                                        <div class="resumes-list-none clearfix">
+                                            <div class="resumes-avatar">
+                                                <a name="resumeLink" t="1479450490" k="D1BC12B4E538CFA339913DB7686A411F" resumeURLPart="Go1CmZvXSVINXMiqzhFbJw_1_1" tag="Go1CmZvXSVINXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/Go1CmZvXSVINXMiqzhFbJw_1_1?searchresume=1','1479450490','D1BC12B4E538CFA339913DB7686A411F',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/Go1CmZvXSVINXMiqzhFbJw_1_1?searchresume=1" target="_blank">
+                                                    <img src="http://img02.zhaopin.cn/2012/img/rd/lookResumes.jpg" tag="" width="93" height="131" />
+                                                </a>
+                                            </div>
+                                            <div class="resumes-list-none-right">
+                                                <div class="resumes-content">
+                                                    <div class="resumes-none-main">
+                                                        <span class="span-padding">居住地：北京-朝阳区</span> <span>期望月薪：2001-4000元/月</span><br>
+                                                        当前状态：我目前处于离职状态，可立即上岗
+                                                    </div>
+                                                </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最近工作</h1>
+                                                        <h2>
+                                                            <span class="span-padding tips">2015-09 ～ 2015-11</span>陇东学院附属中学（2个月）</h2>
+                                                        <h2>
+                                                            -&nbsp;&nbsp;|&nbsp;&nbsp;
+                                                            语文老师&nbsp;&nbsp;|&nbsp;&nbsp;2001-4000元/月</h2>
+                                                        教育/培训/院校&nbsp;&nbsp;|&nbsp;&nbsp;-&nbsp;&nbsp;|&nbsp;&nbsp;-
+                                                        <p>
+                                                            工作描述：工作认真，有极大的热情
+                                                        </p>
+                                                    </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最高学历</h1>
+2012-09 ～ 2016-07&nbsp;&nbsp;&nbsp;&nbsp;陇东学院&nbsp;&nbsp;&nbsp;&nbsp;汉语言文学&nbsp;&nbsp;&nbsp;&nbsp;本科<br/>                                                    </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                        <tr valign="top">
+                            <td>
+                                <input type="checkbox" name="chkid" dev_name="汽车销售与服务 2年 西安" resumename="汽车销售与服务 2年 西安"
+                                               resumeurl="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/gg(sa4P4FaUNXMiqzhFbJw_1.htm"
+                                               value="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/gg(sa4P4FaUNXMiqzhFbJw_1.htm|gg(sa4P4FaUNXMiqzhFbJw_1"
+                                               onclick="unChkSelectAll('chkall')"
+                                               class = "smpcheckbox" data-smpcvid="gg(sa4P4FaUNXMiqzhFbJw_1" data-smpownerid="" data-smpxtable="" data-smpkpi="M1"
+                                               />
+                            </td>
+                                        <td class="first-weight">
+                                        <a name="resumeLink" t="1479450490" k="253029B14D00533E1D15418F30C193C0" resumeURLPart="gg(sa4P4FaUNXMiqzhFbJw_1_1" tag="gg(sa4P4FaUNXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/gg(sa4P4FaUNXMiqzhFbJw_1_1?searchresume=1','1479450490','253029B14D00533E1D15418F30C193C0',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/gg(sa4P4FaUNXMiqzhFbJw_1_1?searchresume=1" target="_blank">汽车销售与服务 2年 西安</a>
+                                            <img src='http://img02.zhaopin.cn/2012/img/rd/icon_havephoto.gif' width='12' height='12' />
+                                        </td>
+                                        <td class="rd-show-btn">
+                                                 <a></a>
+                                        </td>
+                                        <td>销售顾问</td>
+                                        <td>大专</td>
+                                        <td>男</td>
+                                        <td>23</td>
+                                        <td>西安</td>
+                                        <td>16-08-15</td>
+                        </tr>
+                                <tr class="info"  style="display: none" tag="gg_sa4P4FaUNXMiqzhFbJw_1">
+                                    <td colspan="9">
+                                        <div class="resumes-list-none clearfix">
+                                            <div class="resumes-avatar">
+                                                <a name="resumeLink" t="1479450490" k="253029B14D00533E1D15418F30C193C0" resumeURLPart="gg(sa4P4FaUNXMiqzhFbJw_1_1" tag="gg(sa4P4FaUNXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/gg(sa4P4FaUNXMiqzhFbJw_1_1?searchresume=1','1479450490','253029B14D00533E1D15418F30C193C0',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/gg(sa4P4FaUNXMiqzhFbJw_1_1?searchresume=1" target="_blank">
+                                                    <img src="http://img02.zhaopin.cn/2012/img/rd/lookResumes.jpg" tag="http://my.zhaopin.com/pic/2015/4/14/243A976539134821961FE80A5DEFC6C5.jpg" width="93" height="131" />
+                                                </a>
+                                            </div>
+                                            <div class="resumes-list-none-right">
+                                                <div class="resumes-content">
+                                                    <div class="resumes-none-main">
+                                                        <span class="span-padding">居住地：西安</span> <span>期望月薪：6001-8000元/月</span><br>
+                                                        当前状态：我目前在职，正考虑换个新环境（如有合适的工作机会，到岗时间一个月左右）
+                                                    </div>
+                                                </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最近工作</h1>
+                                                        <h2>
+                                                            <span class="span-padding tips">2015-04 ～ 至今</span>陕西天锐盛航汽车销售有限公司（1年7个月）</h2>
+                                                        <h2>
+                                                            -&nbsp;&nbsp;|&nbsp;&nbsp;
+                                                            销售顾问&nbsp;&nbsp;|&nbsp;&nbsp;4001-6000元/月</h2>
+                                                        汽车/摩托车&nbsp;&nbsp;|&nbsp;&nbsp;民营&nbsp;&nbsp;|&nbsp;&nbsp;500-999人
+                                                        <p>
+                                                            工作描述：1、负责整车销售服务和进店客户咨询服务；2、负责整理各车型的销售资料及客户档案；3、负责开拓产品的销售市场，完成各项销售指标；4、负责挖掘客户需求，实现产品销售；5、负责售前业务跟进及售后客户维系工作6，在店兼职试驾专员和管理装潢客户
+                                                        </p>
+                                                    </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最高学历</h1>
+2011-09 ～ 2014-06&nbsp;&nbsp;&nbsp;&nbsp;西安汽车科技职业学院&nbsp;&nbsp;&nbsp;&nbsp;汽车运用技术&nbsp;&nbsp;&nbsp;&nbsp;大专<br/>                                                    </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                        <tr valign="top">
+                            <td>
+                                <input type="checkbox" name="chkid" dev_name="西北师范大学化学本科毕业生 1年 北京" resumename="西北师范大学化学本科毕业生 1年 北京"
+                                               resumeurl="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/CQAohjlS8D0NXMiqzhFbJw_1.htm"
+                                               value="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/CQAohjlS8D0NXMiqzhFbJw_1.htm|CQAohjlS8D0NXMiqzhFbJw_1"
+                                               onclick="unChkSelectAll('chkall')"
+                                               class = "smpcheckbox" data-smpcvid="CQAohjlS8D0NXMiqzhFbJw_1" data-smpownerid="" data-smpxtable="" data-smpkpi="M1"
+                                               />
+                            </td>
+                                        <td class="first-weight">
+                                        <a name="resumeLink" t="1479450490" k="40437658FDF699F132D4D4296E0E6FB0" resumeURLPart="CQAohjlS8D0NXMiqzhFbJw_1_1" tag="CQAohjlS8D0NXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/CQAohjlS8D0NXMiqzhFbJw_1_1?searchresume=1','1479450490','40437658FDF699F132D4D4296E0E6FB0',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/CQAohjlS8D0NXMiqzhFbJw_1_1?searchresume=1" target="_blank">西北师范大学化学本科毕业生 1年 北京</a>
+                                            <img src='http://img02.zhaopin.cn/2012/img/rd/icon_havephoto.gif' width='12' height='12' />
+                                        </td>
+                                        <td class="rd-show-btn">
+                                                 <a></a>
+                                        </td>
+                                        <td>教学/教务管理人员</td>
+                                        <td>本科</td>
+                                        <td>女</td>
+                                        <td>24</td>
+                                        <td>北京-海淀区</td>
+                                        <td>16-01-03</td>
+                        </tr>
+                                <tr class="info"  style="display: none" tag="CQAohjlS8D0NXMiqzhFbJw_1">
+                                    <td colspan="9">
+                                        <div class="resumes-list-none clearfix">
+                                            <div class="resumes-avatar">
+                                                <a name="resumeLink" t="1479450490" k="40437658FDF699F132D4D4296E0E6FB0" resumeURLPart="CQAohjlS8D0NXMiqzhFbJw_1_1" tag="CQAohjlS8D0NXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/CQAohjlS8D0NXMiqzhFbJw_1_1?searchresume=1','1479450490','40437658FDF699F132D4D4296E0E6FB0',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/CQAohjlS8D0NXMiqzhFbJw_1_1?searchresume=1" target="_blank">
+                                                    <img src="http://img02.zhaopin.cn/2012/img/rd/lookResumes.jpg" tag="http://my.zhaopin.com/pic/2015/12/28/2DE68BBDDC5A4239B143BF46399F57C0.jpg" width="93" height="131" />
+                                                </a>
+                                            </div>
+                                            <div class="resumes-list-none-right">
+                                                <div class="resumes-content">
+                                                    <div class="resumes-none-main">
+                                                        <span class="span-padding">居住地：北京-海淀区</span> <span>期望月薪：保密</span><br>
+                                                        当前状态：我目前处于离职状态，可立即上岗
+                                                    </div>
+                                                </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最近工作</h1>
+                                                        <h2>
+                                                            <span class="span-padding tips">2014-09 ～ 至今</span>陇东学院附属中学（2年2个月）</h2>
+                                                        <h2>
+                                                            -&nbsp;&nbsp;|&nbsp;&nbsp;
+                                                            教学/教务管理人员&nbsp;&nbsp;|&nbsp;&nbsp;4001-6000元/月</h2>
+                                                        教育/培训/院校&nbsp;&nbsp;|&nbsp;&nbsp;-&nbsp;&nbsp;|&nbsp;&nbsp;-
+                                                        <p>
+                                                            工作描述：担任政教助理，负责检查教师出勤，管理学生奖励及文体活动组织。工作受到领导肯定，同事好评。
+                                                        </p>
+                                                    </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最高学历</h1>
+2010-09 ～ 2014-07&nbsp;&nbsp;&nbsp;&nbsp;西北师范大学&nbsp;&nbsp;&nbsp;&nbsp;化学&nbsp;&nbsp;&nbsp;&nbsp;本科<br/>                                                    </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                        <tr valign="top">
+                            <td>
+                                <input type="checkbox" name="chkid" dev_name="行政专员/助理 1年 北京" resumename="行政专员/助理 1年 北京"
+                                               resumeurl="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/jmSYIup4iEANXMiqzhFbJw_1.htm"
+                                               value="http://resume.zhaopin.com/P5/JR0616/6474/R900/000/jmSYIup4iEANXMiqzhFbJw_1.htm|jmSYIup4iEANXMiqzhFbJw_1"
+                                               onclick="unChkSelectAll('chkall')"
+                                               class = "smpcheckbox" data-smpcvid="jmSYIup4iEANXMiqzhFbJw_1" data-smpownerid="" data-smpxtable="" data-smpkpi="M1"
+                                               />
+                            </td>
+                                        <td class="first-weight">
+                                        <a name="resumeLink" t="1479450490" k="B4729AEBB01A53E8913F2640BB01CAC1" resumeURLPart="jmSYIup4iEANXMiqzhFbJw_1_1" tag="jmSYIup4iEANXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/jmSYIup4iEANXMiqzhFbJw_1_1?searchresume=1','1479450490','B4729AEBB01A53E8913F2640BB01CAC1',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/jmSYIup4iEANXMiqzhFbJw_1_1?searchresume=1" target="_blank">行政专员/助理 1年 北京</a>
+
+                                        </td>
+                                        <td class="rd-show-btn">
+                                                 <a></a>
+                                        </td>
+                                        <td>政教处职员</td>
+                                        <td>本科</td>
+                                        <td>女</td>
+                                        <td>24</td>
+                                        <td>北京-海淀区</td>
+                                        <td>15-12-31</td>
+                        </tr>
+                                <tr class="info"  style="display: none" tag="jmSYIup4iEANXMiqzhFbJw_1">
+                                    <td colspan="9">
+                                        <div class="resumes-list-none clearfix">
+                                            <div class="resumes-avatar">
+                                                <a name="resumeLink" t="1479450490" k="B4729AEBB01A53E8913F2640BB01CAC1" resumeURLPart="jmSYIup4iEANXMiqzhFbJw_1_1" tag="jmSYIup4iEANXMiqzhFbJw_1" et="101" onclick="javascript:viewOneResume('http://rdsearch.zhaopin.com/home/RedirectToRd/jmSYIup4iEANXMiqzhFbJw_1_1?searchresume=1','1479450490','B4729AEBB01A53E8913F2640BB01CAC1',this);this.style.color='#800000';return false;" href="http://rdsearch.zhaopin.com/home/RedirectToRd/jmSYIup4iEANXMiqzhFbJw_1_1?searchresume=1" target="_blank">
+                                                    <img src="http://img02.zhaopin.cn/2012/img/rd/lookResumes.jpg" tag="" width="93" height="131" />
+                                                </a>
+                                            </div>
+                                            <div class="resumes-list-none-right">
+                                                <div class="resumes-content">
+                                                    <div class="resumes-none-main">
+                                                        <span class="span-padding">居住地：北京-海淀区</span> <span>期望月薪：4001-6000元/月</span><br>
+                                                        当前状态：我目前处于离职状态，可立即上岗
+                                                    </div>
+                                                </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最近工作</h1>
+                                                        <h2>
+                                                            <span class="span-padding tips">2014-09 ～ 2015-12</span>陇东学院附属中学（1年3个月）</h2>
+                                                        <h2>
+                                                            -&nbsp;&nbsp;|&nbsp;&nbsp;
+                                                            政教处职员&nbsp;&nbsp;|&nbsp;&nbsp;2001-4000元/月</h2>
+                                                        政府/公共事业/非盈利机构&nbsp;&nbsp;|&nbsp;&nbsp;-&nbsp;&nbsp;|&nbsp;&nbsp;-
+                                                        <p>
+                                                            工作描述：检查老师的日常出勤，以及学生的奖罚及文艺活动组织
+                                                        </p>
+                                                    </div>
+                                                    <div class="resumes-content">
+                                                        <h1>最高学历</h1>
+2010-09 ～ 2014-06&nbsp;&nbsp;&nbsp;&nbsp;西北师范大学&nbsp;&nbsp;&nbsp;&nbsp;化学&nbsp;&nbsp;&nbsp;&nbsp;本科<br/>                                                    </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+            </tbody>
+        </table>
+
+        <!-- Trace Data Start -->
+        <input type="hidden" id="dda_operatorid" value="678079277" />
+        <input type="hidden" id="dda_companyid" value="55421122" />
+        <input type="hidden" id="dda_type" value="cvdownload" />
+        <input type="hidden" id="dda_custom" value="" />
+        <input type="hidden" id="dda_source" value="2" />
+        <input type="hidden" id="dda_position" value="searchresultkeywords" />
+        <!-- Trace Data End   -->
+
+    </form>
+    <div class="bottom-button">
+        <div class="bottom-input">
+            <input id="chkall" type="checkbox" onclick="ChkSelectAll('chkid', 'chkall')" value="1"
+                name="chkall" />全选
+        </div>
+        <div class="resumelist-button-left">
+            <a class="rd-button rd-button-small" onclick="Javascript:viewmore('&searchresume=1')" name="view"><span
+                class="rd-button-icon left-icon1"></span>查看</a>
+                <a class="rd-button rd-button-small smpevent"
+                onclick="Javascript:movetofavorite('rdsearch','download')" name="download" data-smpposition="searchresultkeywords" data-smpaction="downloadresume"><span
+                    class="rd-button-icon left-icon2"></span>下载 </a><a class="rd-button rd-button-small smpevent"
+                onclick="Javascript:movetovacancy('rdsearch', 'recommend')" name="recommend" data-smpposition="searchresultkeywords" data-smpaction="recommendresume"><span
+                    class="rd-button-icon left-icon3"></span>推荐 </a><a class="rd-button rd-button-small smpevent"
+                onclick="Javascript:movetointerim('rdsearch', 'ts')" name="save" data-smpposition="searchresultkeywords" data-smpaction="savetemporaryresume"><span class="rd-button-icon left-icon4"></span>暂存 </a>
+        </div>
+        <div class="bottom-page fr">
+            <a  class="rd-page-top gray-page">首页</a>
+<a  class="rd-page-lefticon left-icon gray-left-icon"></a>
+<span id="rd-resumelist-pageNum">1/1</span>
+ <a  class="rd-page-lefticon right-icon gray-right-icon"></a>
+<span>到</span>
+<input class="rd-resumelist-page" type="text" value="1" readonly />
+<input id="rd-resumelist-pageCount" type="hidden" value="1" />
+<span>页</span>
+<button class="rd-resumelist-img gray-icon-go" type="button"></button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var batchViewURLParameter = "&t=1479450490&k=DB251D2F7FFB23EAA391CE4E90260883";
+</script>
+
+    </div>
+
+        <div class="rd-resume-foot">
+            版权所有 zhaopin.com 2015
+        </div>
+        <a href="http://www.wenjuan.com/s/Enauqi/" target="_blank" class="survey" style="font-family: Verdana">你最钟意的简历调查</a>
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/ui/jquery.zlzp.popupbase.js"></script>
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/ui/xw_selection/jquery.zlzp.selection.js"></script>
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/arrdata.js"></script>
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/basedata.js"></script>
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/ui/xw_rdAllUi/all-ui-min.js?version=20160722"></script>
+
+
+        <script type="text/javascript" src="http://rd2.zhaopin.com/s/js/erd2/animationPopupDiv.js"></script>
+        <script type="text/javascript" src="http://rd2.zhaopin.com/s/include/js/utilScript.js"></script>
+    <script type="text/javascript" src="/Scripts/rd_func.js?t=20160824"></script>
+    <script type="text/javascript" src="/Scripts/jquery_plugin.js"></script>
+    <script type="text/javascript" src="/Scripts/search_control_com.js"></script>
+    <script type="text/javascript" src="/Scripts/search_business_ext.js?t=20160531"></script>
+    <script type="text/javascript">
+        var count = $('.rd-resumelist-span').find('span').text();
+        var url4zpAnalytics = document.location.pathname + document.location.search + '&rt=' + count;
+    </script>
+    <script type="text/javascript" src="http://img01.zhaopin.cn/2012/js/za/rdga.js"></script>
+
+    <script language="javascript" type="text/javascript">
+
+$("#button_SF_1_1_18F").selectCity({ district:[],outInput:"button_SF_1_1_18F",
+				   hiddenInput:"SF_1_1_18",title:"期望工作地区"});
+    lib_singleSelect("SF_1_1_7",arrNewUpDate,"8,9");
+
+    lib_select("SF_1_1_5",arrEducation,"5,16");
+
+    lib_select("SF_1_1_4",arrWorkYear,"0,99");
+    $("#button_SF_1_1_3F").selectPosition({outInput:"button_SF_1_1_3F",hiddenInput:"SF_1_1_3",data:arrIndustry,title:"所在行业"
+	});
+
+        $("#button_SF_1_1_2F").selectPosition({
+		outInput:"button_SF_1_1_2F",
+		hiddenInput:"SF_1_1_2",
+		data:arrJobtype,
+		selectType:"job",
+		title:"职位名称"
+	});
+
+        $(document).ready(function() {
+
+            InitCompanyName("");
+            /*搜索器改版 删除 jjj 20130326
+            var sn = $.query.get(searcherName);
+            if (sn.length > 0) {
+                $("#searcherSwitcher_input").val("搜索器：" + sn.substring(0, 6) + "...").attr("title", "搜索器：" + sn);
+                $("#delSerchSpan").css("display", "inline-block");
+            }*/
+
+            if ($.cookie(cookieKeyFlag + "isOpen") === "false") {
+                $(".resumes-result-form").css('display', 'none');
+                $(".result-tips").find("a").text("更多搜索条件");
+            } else {
+                $(".resumes-result-form").css('display', 'block');
+                $(".result-tips").find("a").text("收起搜索条件");
+            }
+
+
+
+            //当控件点击按钮有relative时
+            $(".result-tips").prev().find("div").each(function() {
+                var _el = $(this);
+                if (_el.css("position") === "relative") {
+                    _el.addClass("relativePosition");
+                }
+            });
+
+            //如果结果为空，给空页的搜索关键字赋值
+            var resultcount = 4;
+            if (resultcount == 0) {
+                var queries = $("#HrQueryCondition").text().split("：");
+                if (queries.length > 1) {
+                    var queryCondition = queries[1];
+                    $("#SearchConditionTextOnNoResult").html(queryCondition.length > 15 ? queryCondition.substring(0, 15) : queryCondition);
+                }
+            } else {
+                //高亮设置的关键字
+                document.frmResult.searchKeyword.value = $.query.get("SF_1_1_1"); //+ $.query.get("SF_1_1_11") + $.query.get("SF_1_1_25").split(':')[1] ;
+                document.frmResult.searchKeyword.value = $.trim(document.frmResult.searchKeyword.value);
+                //高亮--公司名称
+                document.frmResult.companyName.value = '';
+                if ($.query.get("SF_1_1_25") !== "") { //公司名称
+                    var arrValue = $.query.get("SF_1_1_25").split(":");
+                    if (arrValue.length > 1) {
+                        document.frmResult.companyName.value = $.trim(arrValue[1]);
+                    }
+                }
+                //高亮--学校名称
+                document.frmResult.schoolName.value = $.trim($.query.get("SF_1_1_11"));
+            }
+        });
+
+        $("#saveConditionSettings").click(function() {
+            var count = 0;
+            $.getJSON("/Json/SearcherList", function(data) {
+                if (data != null && data.length >= 0) {
+                    count = 99 - data.length;
+                    $(".surplusNum:first").html(count);
+                    if (count > 0 ) {
+                       if (searchCondition(true) == 0) {
+                            alert("当前无搜索条件，无法保存");
+                            return;
+                        }
+                        var _top =$("#saveConditionSettings").offset().top,
+                            _left = $("#saveConditionSettings").offset().left;
+                        $(".result-layer").css('left', _left - 78).css('top', _top + 22).show();
+                        $(".result-success").hide();
+                        $(".layer-input-error-tips").hide();
+                        $("#searcher-name").val("");
+                        $(".result-layer-body").show();
+                        var queries = $("#HrQueryCondition").text().split("：");
+                        if (queries.length > 1) {
+                            var queryCondition = queries[1];
+                            if (queryCondition.length > 15) {
+                                queryCondition = queryCondition.substring(0, 15);
+                            }
+                            $("#searcher-name").val(queryCondition.replace(" ", "_"));
+                        }
+
+                    } else {
+                        var r=confirm("您的搜索器已满，请删除一个搜索器");
+                        if (r == true) {
+                             showSearchList();
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                }
+          });
+       });
+
+        $(".result-tips").click(function() {
+            var el = $(this);
+            var txt = el.find("a");
+            var slideDiv = el.prev();
+            var relaDiv = slideDiv.find(".relativePosition");
+            relaDiv.css("position", "static");
+            if (txt.text() === "更多搜索条件") {
+                txt.text("收起搜索条件");
+                setForeverCookie(cookieKeyFlag + "isOpen", true);
+            } else {
+                txt.text("更多搜索条件");
+                setForeverCookie(cookieKeyFlag + "isOpen", false);
+            }
+            el.find("span").toggleClass("icon-down");
+            $(".resumes-result-form").slideToggle(function() {
+                relaDiv.css("position", "relative");
+            });
+        });
+
+        function SaveSearcher(displayName) {
+            var query = getSubmitQuery();
+            var errorTips = $(".layer-input-error-tips");
+            $.getJSON("/Json/SaveSearcher", { displayName: displayName, conditionStr: query }, function(data) {
+                $(".result-success-icon").hide();
+                if (data === 0) {
+                    $(".result-layer-body").show();
+                    errorTips.text("该搜索器名字已经存在");
+                    errorTips.show();
+                    $(".wordNum").hide();
+                } else if (data === -1) {
+                    $("#searcher-name").parent().addClass("layer-input-error");
+                    $(".result-layer-body").show();
+                    errorTips.text("保存搜索器失败");
+                    errorTips.show();
+                    $(".wordNum").hide();
+                } else {
+                    var searcherCtr = $("#searcher-name");
+                    searcherCtr.val("");
+                    searcherCtr.parent().removeClass("layer-input-error");
+                    $(".layer-input-error-tips").hide();
+                    $(".result-layer-body").hide();
+                    $(".result-success").show();
+                    $(".result-layer").delay(1000).fadeOut(500);
+                }
+            });
+        }
+
+        var lenFor = function(str) {
+            var byteLen = 0, len = str.length;
+            if (str) {
+                for (var i = 0; i < len; i++) {
+                    if (str.charCodeAt(i) > 255) {
+                        byteLen += 2;
+                    } else {
+                        byteLen++;
+                    }
+                }
+                return byteLen;
+            } else {
+                return 0;
+            }
+        };
+        $("saveConditionSettings").click(function() {
+            $.getJSON("/Json/SearcherList", function(data) {
+                if (data != null && data.length > 0) {
+                    $(".surplusNum").val(99 - data);
+                }
+            });
+
+        });
+        $("#save-searcher").click(function() {
+            $(".wordNum").show();
+            var el = $("#searcher-name");
+            var er = $(".layer-input-error-tips");
+            if (el.val() === "") {
+                $(".wordNum").hide();
+                el.parent().addClass("layer-input-error");
+                er.text("请输入搜索器名称");
+                er.show();
+            } else if (lenFor(el.val()) > 30) {
+                $(".wordNum").hide();
+                el.parent().addClass("layer-input-error");
+                er.text("最多15个汉字");
+                er.show();
+            } else {
+                $(".wordNum").hide();
+                $(".result-layer-body").hide();
+                $(".result-success").hide();
+                $(".result-success-icon").show();
+                SaveSearcher(el.val());
+            }
+        });
+
+        $(".layer-botton-blue").click(function() {
+            $(".result-layer").hide();
+        })
+
+        $(".rd-result-checkbox").click(function() {
+            var key = $(this).attr("name");
+            var query = null;
+            var urlQuery = $.query.toString();
+            if (urlQuery !== "" && urlQuery.indexOf("SF_") > -1) {
+                if ($("#" + key).is(":checked")) {
+                    query = $.query.remove(pageIndexFlag).set(key, "1");
+                } else {
+                    query = $.query.remove(pageIndexFlag).remove(key);
+                }
+            }
+            if (query != null) {
+                jumpNewPage(query);
+            }
+        });
+
+        $("#rd-result-select").change(function() {
+            var key = $(this).attr("name");
+            var value = $(this).val();
+            var query = null;
+            var urlQuery = $.query.toString();
+            if (urlQuery !== "" && urlQuery.indexOf("SF_") > -1) {
+                if (value != "") {
+                    query = $.query.remove(pageIndexFlag).set(key, value);
+                } else {
+                    query = $.query.remove(pageIndexFlag).remove(key);
+                }
+            }
+            if (query != null) {
+                jumpNewPage(query);
+            }
+        });
+
+        function addSearchLog(url, urlDesc) {
+            $.ajax({
+                type: "POST",
+                url: "/Json/SaveSearchLog",
+                data: '{searchExp:"' + url + '",searchDesc:"' + encodeURIComponent(urlDesc) + '"}',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+                    removeCookie(cookieKeyFlag + searchFlag);
+                }
+            });
+        }
+
+        $.ajaxSetup({
+            cache: false //关闭AJAX相应的缓存
+        });
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        //回到顶部
+        var $backToTopTxt = "", $backToTopEle = $('<div class="back-to-top"></div>').appendTo($("body"))
+        .text($backToTopTxt).attr("title", $backToTopTxt).click(function () {
+            $("html, body").animate({ scrollTop: 0 }, 120);
+        }), $backToTopFun = function () {
+            var st = $(document).scrollTop(), winh = $(window).height();
+            (st > 300) ? $backToTopEle.show() : $backToTopEle.hide();
+            //IE6下的定位
+            if (!window.XMLHttpRequest) {
+                $backToTopEle.css("top", st + winh - 166);
+            }
+        };
+        $(window).bind("scroll", $backToTopFun);
+        $(function () { $backToTopFun(); });
+
+        // ERD 主导航弹层
+        $('#headerNav').find('.popSubNav').mouseenter(function () {
+            $('.popoSubNavLay').hide();
+            if ($(this).hasClass('psn1')) {
+                $('#subNav1').show();
+            } else if ($(this).hasClass('psn2')) {
+                $('#subNav2').show();
+            } else if ($(this).hasClass('psn3')) {
+                $('#subNav3').show();
+            } else if ($(this).hasClass('psn4')) {
+                $('#subNav4').show();
+            } else if ($(this).hasClass('psn5')) {
+                $('#subNav5').show();
+            }
+        });
+
+        $('.popoSubNavLay').mouseleave(function () { $(this).hide() });
+
+    </script>
+    <!--统计-->
+    <script language="javascript" type="text/javascript" src="http://img01.zhaopin.cn/2012/js/za/smp.min.js"></script>
+    <script language="javascript" type="text/javascript" src="http://service.zhaopin.com/live800/chatClient/staticButton.js?companyID=8899&configID=25&codeType=steady&live800_city=%e5%8c%97%e5%88%86&info=userId%3d678079277%26loginname%3dzyty001%26name%3d%e5%8c%97%e4%ba%ac%e8%87%aa%e7%94%b1%e5%a4%a9%e5%ae%87%e7%bd%91%e7%bb%9c%e6%8a%80%e6%9c%af%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8%26hashCode%3d%ef%bf%bd%ef%bf%bd%ef%bf%bdY%ef%bf%bd%03%ef%bf%bdj%ef%bf%bdx%1b%ef%bf%bd%13%ef%bf%bd%ef%bf%bdK%26timestamp%3d1479479290762"></script>
+    <script language="javascript" type="text/javascript" id='write'>        function writehtml() { var temptext = StaticIcon_generate(); document.getElementById('live20').innerHTML = temptext; setTimeout('write.src', 9000); } writehtml();</script>
+    
+    <script type="text/javascript" src="http://images.zhaopin.com/2012/js/jquery.cookie.js"></script>   
+</body>
+</html>

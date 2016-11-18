@@ -189,7 +189,8 @@ class Methods(object):
         Args:
         Returns:
         """
-        random_str = "".join(random.sample('zyxwvutsrqponmlkjihgfedcba', 5))
+        #random_str = "".join(random.sample('zyxwvutsrqponmlkjihgfedcba', 5))
+        random_str = str(time.time())
         new_pass_word = hashlib.new("md5", "%s%s" % (self._post_pass_word, random_str)).hexdigest()
         http_url = "http://www.xnaren.cn/sys/get_next_other_account"
 
@@ -229,6 +230,7 @@ class Methods(object):
                         )
                     )
             else:
+                time.sleep(8)
                 return Result(
                     error_code=ErrorCode.GET_ACCOUNT_FAILED,
                     error_message=ErrorCode.format(ErrorCode.GET_ACCOUNT_FAILED),
@@ -317,36 +319,35 @@ class Methods(object):
         :param unit_id: 用户标识
         :return:
         """
-        try:
-            random_str = str(time.time())
-            new_pass_word = hashlib.new("md5", "%s%s" % (self._post_pass_word, random_str)).hexdigest()
-            http_url = "http://www.xnaren.cn/sys/get_unit_httpproxy"
+        while True:
+            try:
+                random_str = str(time.time())
+                new_pass_word = hashlib.new("md5", "%s%s" % (self._post_pass_word, random_str)).hexdigest()
+                http_url = "http://www.xnaren.cn/sys/get_unit_httpproxy"
 
-            post_data = {
-                "user_auth_id": "1001",
-                "password": new_pass_word,
-                "stampie": random_str,
-                "unit_id": unit_id,
-                "target": "zhaopin" if self._source_id == SourceCode.ZHAO_PIN else "j51" if self._source_id == SourceCode.JOB else "liepin",
-                "reject_ipport": reject_ipport if reject_ipport else "",
-                "https": 1 if int(https) else 0
-            }
-            r = requests.post(
-                http_url,
-                post_data
-            )
-            if r.status_code == 200:
-                result = json.loads(r.content)
-                if result.get("err_code") == 0:
-                    return Result(
-                        error_code=ErrorCode.GET_PROXY_SUCCESS,
-                        error_message=ErrorCode.format(ErrorCode.GET_PROXY_SUCCESS),
-                        data=result
-                    )
-            return Result(
-                error_code=ErrorCode.GET_PROXY_FAILED,
-                error_message=ErrorCode.format(ErrorCode.GET_PROXY_FAILED),
-                data=""
-            )
-        except Exception as ex:
-            raise
+                post_data = {
+                    "user_auth_id": "1001",
+                    "password": new_pass_word,
+                    "stampie": random_str,
+                    "unit_id": unit_id,
+                    "target": "zhaopin" if self._source_id == SourceCode.ZHAO_PIN else "j51" if self._source_id == SourceCode.JOB else "liepin",
+                    "reject_ipport": reject_ipport if reject_ipport else "",
+                    "https": 1 if int(https) else 0
+                }
+                r = requests.post(
+                    http_url,
+                    post_data
+                )
+                if r.status_code == 200:
+                    result = json.loads(r.content)
+                    if result.get("err_code") == 0:
+                        return Result(
+                            error_code=ErrorCode.GET_PROXY_SUCCESS,
+                            error_message=ErrorCode.format(ErrorCode.GET_PROXY_SUCCESS),
+                            data=result
+                        )
+            except Exception, e:
+                pass
+            time.sleep(random.randint(10, 30))
+            continue
+

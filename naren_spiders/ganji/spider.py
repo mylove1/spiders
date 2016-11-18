@@ -321,12 +321,12 @@ def __get_resume_urls(session, urls, dedup, proxies=None):
         "Host": "www.ganji.com",
         "Referer": "http://www.ganji.com/findjob/resume_index.php"
     }
-    pages = [0, 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448]
+    # pages = [0, 32, 64, 96, 128, 160, 192, 224, 256, 288, 320, 352, 384, 416, 448]
     resume_300_flag = 0
     for uu in urls:
         proxy_error_counter = 0
         last_resume_ids = set("None")
-        for page in pages:
+        for page in xrange(0, 640, 32):
             if resume_300_flag == 1:
                 break
             time.sleep(random.uniform(30, 100))
@@ -445,6 +445,8 @@ def __download_resume(session, url, proxies=None):
                 verify_code = parse_check_code(session, error_url, 'ganji', proxies)
                 response = session.post(error_url, data=verify_code, headers=verify_headers, timeout=__timeout)
                 if u"对不起！您要查看的页面没有找到或已删除" in response.text:
+                    break
+                if u"对不起，该简历已停止找工作了~" in response.text:
                     break
                 assert response.status_code == 200
                 continue

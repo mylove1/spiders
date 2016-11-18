@@ -152,10 +152,10 @@ def fetch_contact_impl(resume_id, user_name, user_password, logger_name=None):
     return contact
 
 def fetch_contact(*args, **kwargs):
-    try:
-        fetch_contact_impl(*args, **kwargs)
-    except Exception, e:
-        return {"err_code": 90400, "err_msg": str(e)}
+    # try:
+    fetch_contact_impl(*args, **kwargs)
+    # except Exception, e:
+    #     return {"err_code": 90400, "err_msg": str(e)}
 
 if __name__ == '__main__':
     logger.setLevel(logging.INFO)

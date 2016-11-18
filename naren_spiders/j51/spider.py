@@ -111,6 +111,9 @@ def __get_resume_page(session, user_agent, datas, dedup=None, proxies=None):
     }
     time.sleep(random.uniform(3, 10))
     resume_page_text = session_request(session, "post", url, headers, proxies=proxies, data=params)
+    if u"对不起，您无权操作该页面。" in resume_page_text:
+        logger.warning("账号出错，请检查该账号")
+        raise Exception("账号出错，请检查该账号username:%s, password: %s" % (username, password))
     if u"退出" in resume_page_text and u"公司信息管理" in resume_page_text:
         # resume_total = pq(resume_page_text).find("#labAllResumes").text()
         resume_total_300_flag = 0
@@ -118,7 +121,11 @@ def __get_resume_page(session, user_agent, datas, dedup=None, proxies=None):
         resume_counter = 0
         for i in xrange(1, 10):
             page_num = pq(resume_page_text).find(".Search_num-set").find("span").text()
-            current_page, total_page = page_num.split("/")
+            if page_num:
+                current_page, total_page = page_num.split("/")
+            else:
+                logger.warning("查找页码出错%s，\n%s" % (page_num, resume_page_text))
+                break
             # print current_page, total_page, resume_counter
             if resume_total_300_flag == 1:
                 break
@@ -274,7 +281,7 @@ def __get_resume_page(session, user_agent, datas, dedup=None, proxies=None):
                         post_data[k] = ""
                 # print post_data
                 if int(total_page) > 6:
-                    for num in xrange(2, 7):
+                    for num in xrange(2, 15):
                         post_data["__EVENTTARGET"] = "pagerBottomNew$btnNum%s" % num
                         time.sleep(random.uniform(3, 10))
                         resume_page_text = session_request(session, "post", url, headers, proxies=proxies, data=post_data)

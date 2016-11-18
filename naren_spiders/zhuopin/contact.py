@@ -55,7 +55,7 @@ def search_resume(session, args, page=1, proxies=None):
         if not args:
             return []
         return [MAPPING_CITYS.get(i[:2]) for i in args]
-    def __session(method, url, headers={}, data=None, proxies=proxies):
+    def __session(method, url, headers={}, params=None, proxies=proxies):
         search_times = 0
         while True:
             search_times += 1
@@ -296,5 +296,7 @@ if __name__ == "__main__":
         "age": ["23", "55"],
         # "destitle":["xxx","python"],
         "desindustry": "",
+        "units": "",
+        "schools":""
     }
     fetch_contact(args, "75149152@qq.com", "ygw9152")

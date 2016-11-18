@@ -1,0 +1,2412 @@
+﻿
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>简历库 - 猎8网</title>
+
+        <link href="http://css.818cv.com/css/bootstrap.min.css?var=20161030" rel="stylesheet">
+        <link href="http://css.818cv.com/css/??qzbase.css,common.css,company.css,selectBar.css,js/jquery.popmsg.css,addrBar.css,searchSelector.css?var=20161030" rel="stylesheet">
+        <link href="http://css.818cv.com/css/??newFontFamily.css,resume.search.css,nav.footer.css,font-awesome.min.css,resume.searchpage.css?var=20161030" rel="stylesheet" type="text/css">
+		  <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+        <script src="http://js.818cv.com/js/??jquery-1.11.0.min.js,bootstrap.min.js,modal.js,transition.js?var=20161030"></script>
+        <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+        <script>
+        $.fn.live = function(e,callback){
+            $.fn.on(document,e,this,callback);
+        };
+        </script>
+        <!--script src="http://js.818cv.com/js/??jquery.browser.js,config.js,cookie.js,base.js,qzbase.js,jquery.popmsg.js"></script>
+        <script src="http://js.818cv.com/js/??jquery.selecter.js,jquery.mask.js,selectBar.js,AddrBar.js,jquery.getKeyWord.js,searchSelector.js"></script-->
+        <script  src='http://js.818cv.com/js/??data/ajaxdata.js,data/industry_cn.js,data/degree_cn.js,data/profession_cn.js,data/major_cn.js?var=20161030'></script>
+        <script src='http://js.818cv.com/js/??jquery.browser.js,config.js,base.js,jquery.popmsg.js?var=20161030'></script>
+		<script src='http://js.818cv.com/js/??jquery.selecter.js,qzbase.js,cookie.js,selectBar.js,AddrBar.js,jquery.mask.js,jquery.getKeyWord.js,searchSelector.js,base64mini.js?var=20161030'></script>
+        <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+<script>
+$.page.setParameter('isStart','0');
+$.page.setParameter('resumesEmailAndMobile','oiqxsTRHHFSmTNaSZITLxuNIbAWuLmNJO240ojXdwnv9sjAoP6YUJ6pPGp9rtJljGLUqt3WIMqO3GztXkBswcC5vYiV1+NGbZduzDcaFFUGMWpW5+0rsUWatdhgw1Ob/H2WXDKTirB2G9yfpJeNPgcWnm8Y4EhODS6ZNGOQSyXZeuLydwS45JSKzm136pqqDrFllHgQ8HV3v9hp48+C8rWATH31iCa4LtbOG+0CfcNX9sjAoP6YUJwP7fTaC4FKv6rRXkTft0X98yPEDw0WE5awCFZdvdmtjGLUqt3WIMqOCj3EkZr6WNW+JO/TIvnOTqD88TqkxQtbSSvCAQf07hJEwkvKOArpRX5goaILi3I1cS3KeZbsKTXExuFYXiI1cRlGAeQj5yykYtSq3dYgyo53Z0fpz6TjXtDpqEaOF7v5zcK7ctswboz1s94YsVB4DmRyXMSuPeqVfmChoguLcjbAHOaSeLfMkhL69/Gw7xBmcSQMiw+QswcAIB5MO7JVHI2EAvzTli02k9w3tN6pQXqlECtlns9OaykyZJE27OHL6FpksMZIPx0FUZC/8TzQL/zWnqpzmao2Evr38bDvEGT7ZK5MVGzDhfytOvlT1ZmWE0vTdCmpCPKT3De03qlBewlxpK/LRYwbKTJkkTbs4cqPO/2GpJ89iwToaMKIc/WvAgoh9ZSoJu8Pwcl6lNGbO/5qYncpECDdQ3a6oK/cDWNScDAREbebHiOjkDmr8kxi8xkUBKiHmnMTmb84fMHzSxW4/1BZaZh8donkUj0BAQ10lm2cguxl5b+kFvCjhnC7Od+awc5C3wAsoKwxweBU5rQYwwUpMkgJB3YoGjgUKuKadbQBJThy8vfXdvaRpRUmehXJ/JwcIPhbIlrJSH1syXSmJy6Il0ao8CHKWoAd+j48H2Z55aVrKfk9XvDE/hVZ19peumvwI+gMWz+LsqsH54GsUtxq7J6jx2wvPpk5Ge99w5/l/8NChNugXz3hziMuEvr38bDvEGXftdWxRedGwA6yUNAUeUm3hOfqEgk/mHbfAC4CfNo4P3rwpFlT2rMvKTJkkTbs4ctnu/piBXpMvR0Qor7oMHjrAgoh9ZSoJu8Pwcl6lNGbO8xaehxR0synLOww+/Nh4Pa36APJD5HbMsapGIkKWEHNU03F/9MAVQ8Tmb84fMHzSy0TRlEEtsJo6Cf9nOwKxYH8jKJ0uQlin/Y2lm7SiZVm1de/E/1Z4nUWfjjC4wX8p3jRM4NWgep2IuU7nmndHt8Tmb84fMHzSBciDe31TPt5jogfPU+28ghULbnFHnswOXri8ncEuOSUEWG+CK6wg+d1zCb0fyyFfnU571+Q90JM8eDIq8UTBQy0v1ocaR/wbWy8zyj222UCtu2IETQeSZ3zIKZEYVOG8biHg7oJKabWIjPr8bBjPR1qoEkd8K8t6aJPHtLqnbcgalB93d/7SHUgP23MrLpEKTEe1xrWVRuNlDMbG/inrnRlshC4rTcqS3JxuRL7LUCLG41DGOFTR/IS+vfxsO8QZso5KtUW6vWk3c7m/v8RR9ic/+PSQmcIvMoX8OWhgA26Ft5WoaecUk8Tmb84fMHzSGGYhrswXTZ9g/BQVL16vR0ZRgHkI+cspGLUqt3WIMqPiyATGckUD3DIVBXZBi831RQbUbRPjPVXrPmZ1OnaAjf0/GxeR7qJlH2WXDKTirB00bn71iiLMnVFtcrKmly9OX+C/BDbnBFRdJZtnILsZeW/pBbwo4ZwuX+KWUwox74ZtE0QCpMPhNHOONuMTUlQ07JtKSYU4HnkyJExyuWRi3b313b2kaUVJPPNlaowGB9+R377BDXeqa4iM+vxsGM9HbfGOoRCewp1fmaqGZoqdbRqUH3d3/tIdnosMMCqyNbSrVH7YRXJH3fLe6Cy+6NcRGWyELitNypJdKYnLoiXRqt0UzKns8Z6uEbBLfp9yf5ktbYbQutxyRRHgm26KSTDXRvUEVga9kme+U439VtS0q4uXpDnTPKvxyKTeh2zGBWJdJZtnILsZeToJ/2c7ArFgGpQfd3f+0h14yqKP7y7z+HB1/aG36xRsxjlRyzt1o0oZbIQuK03KkgWcywqZ1zgPlylfPnovDtSIjPr8bBjPRzfNziajADIdbWm+gGo1VDAEIJ6gfGS5ZCttARvmVvGZhzmhzGx9iuKqTxqfa7SZYxi1Krd1iDKjeyYxly+OnLuAy68yV8ktdqDNd91Y7wGX2p/N5W7ntWW8S0/hpwPHn0b1BFYGvZJnQF+IcKB1ilFqRrJa3jaDjBbIlrJSH1syXSmJy6Il0ar0+ObKABxZFBwTstaUsyOqaVS+TBgzRXiE7GRtkJNlClmiHftafrOW2iFLM7EgBIf/UUvaWO3Gcl64vJ3BLjklIrObXfqmqoMFgegOy4Z0Zm1pvoBqNVQwzUIA4aBIYq/mYmflOW+Zkoc5ocxsfYriqk8an2u0mWMYtSq3dYgyo3BHq4u8djQlfABTrdKYzPEtWjT27jE3RC1thtC63HJFLvmruGFHouhG9QRWBr2SZ4gcHyFH4oeU3Gx9vsKaCuZOiNG5x5jujRi1Krd1iDKjQHmU0Q2tJ0mzP90eBmtGkr8I+12nyfdS231cN3X8iGRMwa7NSNY2q0b1BFYGvZJnXEtynmW7Ck0SGKB2EZXAGh8p3MGhcsueGLUqt3WIMqPA9jxX2f7xBRs7JGlI7s7KSs55TkzXjgi65gHokQqEswCY+ovL6JjURvUEVga9kmd5Kf6T93KbIk7x5EVTfPoYb2sOh+2Cna3EQNSzVV4V9YS+vfxsO8QZQzC5kN/HOASfHMz6XCj+Cfd+xmqOKik59Q2j1LfsMjUKYTxZcbROaspMmSRNuzhy0e9cHinXu/u3/8chUckcxUZRgHkI+cspGLUqt3WIMqOlHo21vWlNYrx9DAKB2E4SfIjrDHYp292kzBMo7qCJ9Q3oIvCQMTOHH2WXDKTirB25WWrDtMUuldnPmbJfxi0Fcv1vg7/mbouIjPr8bBjPR88HAiud6tNiBL6EHt3XM5y4aV0O6lP9HA==');
+</script>
+        <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-logo"><img src="http://image1.818cv.com/images/logo-small.png" alt=""></a>
+            <a href="/" class="navbar-brand">简历分享系统</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li ><a href="/resume/main/">首页</a></li>
+                <li class="active"><a href="/resume/search/">简历库</a></li>
+
+					  <li class="dropdown ">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="/user/">简历管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="/resume/mydownloadresume/">下载简历</a></li>
+                        <li><a href="/resume/mystoreresume/">收藏简历</a></li>
+                        <li><a href="/resume/mytransferresume/">转发简历</a></li>
+
+
+                    </ul>
+               </li>
+
+
+	        <li class="dropdown ">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="/user/share/">赚巴豆<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+					    <li><a href="/user/share/">分享简历</a></li>
+                         <li><a href="/user/buyinfo/">购买巴豆</a></li>
+					      <li><a href="/user/link/">邀请朋友</a></li>
+                    </ul>
+               </li>
+
+
+				    <!--li class="active"><a href="/user/share/">赚巴豆</a></li-->
+
+
+                <!-- <li ><a href="/resume/share/">简历市场</a></li> -->
+             <li class="dropdown ">
+                    <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="/user/info/">我的账户 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/user/info/">账户信息</a></li>
+    					<li><a href="/user/billlist/">消费记录</a></li>
+    					<li><a href="/user/modifypassword/">修改密码</a></li>
+                        <li><a href="/user/companyvalidation/">企业验证</a></li>
+                    </ul>
+               </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            	            	 <li class="useremail"><a title='账户信息' href="/user/info/"><span class="glyphicon glyphicon-user"></span></a></li>
+ 				 <li><a title='退出登录' href="/logout/"><span class="glyphicon glyphicon-log-out"></span></a></li>
+            	            				</ul>
+        </div>
+    </div>
+</nav>
+<script>
+	$(document).on("click","a.arrow",function(){
+	    $.popmsg.close();
+	});
+</script>
+		<div id="js_searchForm" class="clearfix">
+        <div class="container">
+            <div class="row">
+                <form id="searchform" action="/resume/search/" role="form" class="form-horizontal" autocomplete="off">
+                                        <div class="col-sm-6" >
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">关键词</label>
+                                  <div class="col-sm-6"><input name="keywords" maxlength="50" class="input-md form-control js-keywords" onkeydown="Keydown(this)" onblur="KeyInpt(this,'')" placeholder='关键词：职位名称，技能，公司等' onfocus="KeyInpt(this,'')" type="text" value="广东工业大学"></div>
+                            	  <div class="col-sm-3 control-label checkbox text-grey"><input type="checkbox" name="keywordType" checked="checked" value="1">完全匹配</div>
+                            </div>
+                    </div>
+                                                            <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">工作单位名称</label>
+                                <div class="col-sm-6"><input type="text" class="input-md form-control" value=""  id="companynameType" name="companyname" class="txt-box" maxlength="50" unselectable="on"></div>
+                                <div class="col-sm-3 control-label checkbox text-grey"><input id="oldcomnameIsContains" onClick="SetCheckBoxStatus(this);setInputName('companyname','oldcomname')" type="checkbox"  value="0"  >含过去单位</div>
+                            </div>
+                    </div>
+
+                                                            <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">现居住地点</label>
+
+                                 <div class="col-sm-9 js-residencecity-click">
+                                    <div class="input-group">
+                                        <input type="hidden" id="residencecity" name="residencecity" value=""><input type="text" id="residencecityName" class="input-md form-control" value="" readonly="" unselectable="on"><span class="input-group-addon"><i class="fa fa-chevron-down"></i></span>
+                                    </div></div>
+                            </div>
+                    </div>
+
+                                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">现从事行业</label>
+                                <div class="col-sm-6 js-current-industry-click">
+                                    <div class="input-group">
+                                    <input type="hidden" id="currentindustry" name="currentindustry" value="">
+                                    <input type="text" id="currentindustryName" class="input-md form-control" value="" readonly="" unselectable="on">
+                                    <span class="input-group-addon"><i class="fa fa-chevron-down"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 control-label checkbox text-right text-grey"><input id="compayindustryIsContains" type="checkbox"  value="0"  onclick="SetCheckBoxStatus(this);setPopUpContainsData('currentindustry','compayindustry')">含过去行业</div>
+                            </div>
+                    </div>
+                                                                                <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">现从事职业</label>
+                                 <div class="col-sm-6 js-current-profession-click">
+                                    <div class="input-group">
+                                         <input type="hidden" id="currentprofession" name="currentprofession" value="">
+                                         <input type="text" id="currentprofessionName" class="input-md form-control" value="" readonly="" unselectable="on">
+                                         <span class="input-group-addon"><i class="fa fa-chevron-down"></i></span>
+                                    </div></div>
+                                 <div class=" col-sm-3 control-label checkbox text-grey"><input id="jobprofessionIsContains"  value="0" type="checkbox" onclick="SetCheckBoxStatus(this);setPopUpContainsData('currentprofession','jobprofession')">含过去职业</div>
+                            </div>
+                    </div>
+                                                            <div class="col-sm-6">
+                       		<input type="hidden" name="workyears" value="1"/>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">工作经验</label>
+                                <div class="col-sm-2">
+                                    <input id="workyearsStart" type="text" maxlength="2" value="1" class="input-md form-control col-md-3 col-sm-2 col-sm-3" onkeyup="setBetweenData('workyears')" onblur="CheckDataType('workyears');">
+                                </div>
+                                <span class="control-label pull-left">至</span>
+                                <div class="col-sm-2">
+                                    <input id="workyearsEnd" type="text" maxlength="2" value="" class="input-md form-control  col-md-3 col-sm-2 col-sm-3" onkeyup="setBetweenData('workyears')" onblur="CheckDataType('workyears');">
+                                </div>
+                                <span id="workyearsTip" class="control-label pull-left text-grey">请输入0-49 数字。</span>
+                            </div>
+                    </div>
+                                                            <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">学历</label>
+                                 <div class="col-sm-9 js-degree-click"><div class="input-group"><input type="hidden" value="4" name="degree" id="degree"><input type="text" readonly="" unselectable="on" value="大专" id="degreeName" class="input-md form-control"><span class="input-group-addon"><i class="fa fa-chevron-down"></i></span></div></div>
+                            </div>
+                    </div>
+                                                                                                                                                                                    					                                        					                                                                                                                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">毕业时间</label>
+                                <div class="col-sm-3"><input type="text" class="input-md form-control" maxlength="4" id="graduatetime" value="" onblur="CheckGraduateTime()" value="" name="graduatetime"></div>
+                                <div id="graduatetimeTip" class="control-label text-grey">请输入年份，如2010。</div>
+                            </div>
+                    </div>
+                                                                                                                                            <div class="col-sm-6">
+
+                            <div class="form-group">
+                            	<input type="hidden" value="" name="age"/>
+                                <label class="control-label col-sm-3">年龄</label>
+                                <div class="col-sm-2">
+                                    <input id="ageStart" type="text" maxlength="2" class="input-md form-control" onkeyup="setBetweenData('age');" onblur="CheckDataType('age');" value="">
+                                </div>
+                                <span class="control-label pull-left">至</span>
+                                <div class="col-sm-2">
+                                    <input id="ageEnd" type="text" maxlength="2"class="input-md form-control" onkeyup="setBetweenData('age');" onblur="CheckDataType('age');" value="">
+                                </div>
+                                <span class="control-label pull-left">岁</span>
+                                <span id="ageTip" class="control-label pull-left text-grey">请输入阿拉伯数字。</span>
+                            </div>
+                    </div>
+                                                                                <!--                     <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">简历编号</label>
+                                  <div class="col-sm-6"><input maxlength="11" type="text" value="" name="cvid" class="input-md form-control js-keywords"></div>
+                            </div>
+                    </div>
+                     -->
+                    <div class="clearfix"></div>
+                    <div class="col-sm-6">
+                          <button type="submit"  onclick="return checkSearchForm()" class="btn btn-primary submit-offset"><span class="glyphicon glyphicon-search"></span> 搜索</button>
+                    	  <a class="btn btn-link" onclick="UpCustemItemDiv()" href="javascript:;">更多查询条件</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+		<div class="hide">
+      <div id="js-show-customitem-div">
+       <div class="tagLayer w676">
+          <h4>选择你需要的查询条件<a href="javascript:;" onclick="$.popmsg.close()"><i class="icon-del2"></i></a></h4>
+          <div class="popup-con">
+            <div class="c-dzxmcon">
+              <div class="c-dzxm js-custom-item">
+              </div>
+            </div>
+            <div class="pt20px cl mt20px" style="border-top:1px solid #ebebeb;">
+            <div class="left">
+            	<a class="layer-ok-btn" href="javascript:;" onclick="RestoreDefault()">恢复默认</a>
+			</div>
+            <div class="right">
+            	<a class="layer-ok-btn" href="javascript:;" onclick="SetCustemItem()">确定</a>
+				<a class="layer-cancel-btn" href="javascript:;" onclick="$.popmsg.close()">取消</a>
+			</div>
+			</div>
+            <div class="clears"></div>
+          </div>
+      </div>
+    </div>
+    </div>
+<script src="http://js.818cv.com/js/??searchlist.js,searchdivform.js?var=20161030"></script>
+        </div>
+		    	  <link rel="stylesheet" href="http://css.818cv.com/css/resume.so.css" title="no title" charset="utf-8">
+<script src='http://js.818cv.com/js/??ECMAScript5.Array.js,jquery.sticky.js?var=20161030'></script>
+<script src='http://js.818cv.com/js/??jquery.cookie.js?var=20161030'></script>
+<!--link rel="stylesheet" href="public.css" title="no title" charset="utf-8"-->
+<div class="wrap clearfix container">
+    <div class="data-list fixed-parent">
+  	<div class="fixed-data-header">
+	    <div class="table-title">
+	      <span class="ver-mid">共有 <strong class="text-warning js_count">205</strong> 份简历</span>
+
+
+
+
+
+	      <div class="side">
+	        <span class="show-type">
+	          显示方式：
+	          <a data-relation="expendflag|0" id="list"><i class="icon-16 icon-list"></i>列表</a>
+	          <a class="cur" data-relation="expendflag|1" id="detail"><i class="icon-16 icon-detail"></i>详细</a>
+	        </span>
+          <span class="page-per-item">每页显示<span onclick="setPageSize(30)" class="items-per-page on">30</span><span  onclick="setPageSize(60)" class="items-per-page ">60</span><span  onclick="setPageSize(100)" class="items-per-page ">100</span>条</span>
+
+          	      </div>
+	    </div>
+	     <input type="hidden" value="%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" name="key" id="keyword">
+	     <table class="table table-text-center table-hover table-resume-list table-detail">
+	      <thead>
+	        <tr class="ico-arrow-order-tr">
+	          <th width="3%"></th>
+	          <th width="14%">现职位</th>
+	          <th width="6%">性别</th>
+	          <th width="6%">年龄</th>
+	          <th width="18%">现所在地</th>
+	          <th width="7%">工作经验</th>
+	          <th width="8%">学历</th>
+	          <th width="18%" class="text-left">现行业</th>
+	          <th class="text-left">现薪水</th>
+	          <th width="8%">更新时间<a class="sort-by-time " href='http://www.818cv.com/resume/search/?keywordType=1&degree=4&page=5&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&ordertype=2&orderval=1'></a></th>
+	        </tr>
+	      </thead>
+      </table>
+    </div>
+        <table class="table table-text-center table-hover table-resume-list table-detail">
+      <tbody>
+                    <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4f8344e46e5063d7a83633b0-500-0-501569110" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4f8344e46e5063d7a83633b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="客户经理/主管">客户经理/主管</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">40</td>
+            <td width="18%" class="nowrap" title="广州"><span>广州</span></td>
+            <td width="7%">16年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="计算机软件"><span>计算机软件</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-06-22">2014-06-22</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4f8344e46e5063d7a83633b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1997年9月 - 2000年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广州白云专修学院</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">计算机应用</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2002年5月 - 2003年3月（10个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广东篮通科技发展有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">客户经理/主管</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2001年5月 - 2002年5月（1年）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">香港通讯集团广州宝讯通科技有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">客户经理/主管</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2000年2月 - 2001年5月（1年3个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">科利华集团广东科利华信息技术有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">销售经理</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4f8344e46e5063d7a83633b0">
+                                                                                                                                <li class="download_4f8344e46e5063d7a83633b0"><a href="javascript:;" onclick="downloadResume('4f8344e46e5063d7a83633b0-500-0-501569110',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4f8344e46e5063d7a83633b0"><a href="javascript:;" onclick="popTransferResume('4f8344e46e5063d7a83633b0-500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4f8344e46e5063d7a83633b0"><a href="javascript:;" onclick="storeResume('4f8344e46e5063d7a83633b0-500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501c8fc13e5d77b0090201e3-1500-0-605851302" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501c8fc13e5d77b0090201e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="人力资源">人力资源</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">31</td>
+            <td width="18%" class="nowrap" title="广东"><span>广东</span></td>
+            <td width="7%">14年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-05-25">2014-05-25</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501c8fc13e5d77b0090201e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                              </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501c8fc13e5d77b0090201e3">
+                                                                                                                                <li class="download_501c8fc13e5d77b0090201e3"><a href="javascript:;" onclick="downloadResume('501c8fc13e5d77b0090201e3-1500-0-605851302',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501c8fc13e5d77b0090201e3"><a href="javascript:;" onclick="popTransferResume('501c8fc13e5d77b0090201e3-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501c8fc13e5d77b0090201e3"><a href="javascript:;" onclick="storeResume('501c8fc13e5d77b0090201e3-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4f8307706e5063d7a50507b0-500-0-500959992" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4f8307706e5063d7a50507b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="清算人员">清算人员</a>
+            </td>
+            <td width="6%">女</td>
+            <td width="6%">39</td>
+            <td width="18%" class="nowrap" ><span> - </span></td>
+            <td width="7%">18年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="教育/培训"><span>教育/培训</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-04-07">2014-04-07</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4f8307706e5063d7a50507b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/female.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2001年7月 - 2004年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">会计学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">1998年6月 - 2000年6月（2年）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州工业大学培训中心</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">清算人员</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4f8307706e5063d7a50507b0">
+                                                                                                                                <li class="download_4f8307706e5063d7a50507b0"><a href="javascript:;" onclick="downloadResume('4f8307706e5063d7a50507b0-500-0-500959992',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4f8307706e5063d7a50507b0"><a href="javascript:;" onclick="popTransferResume('4f8307706e5063d7a50507b0-500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4f8307706e5063d7a50507b0"><a href="javascript:;" onclick="storeResume('4f8307706e5063d7a50507b0-500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4f8302486e5063d7ca8001b0-500-0-500893894" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4f8302486e5063d7ca8001b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="项目经理">项目经理</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">41</td>
+            <td width="18%" class="nowrap" title="广州"><span>广州</span></td>
+            <td width="7%">22年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="计算机/IT服务/系统集成"><span>计算机/IT服务/系统集成</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-03-23">2014-03-23</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4f8302486e5063d7ca8001b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1991年9月 - 1994年6月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">湘潭大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">电子信息科学与技术</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2005年9月 - 2007年4月（1年7个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州市新中天科贸实业有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">项目经理</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2003年7月 - 2005年9月（2年2个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州市广凌科技有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">技术总监/经理</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2001年10月 - 2003年7月（1年9个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州市润港数码科技有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">信息技术经理/主管</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4f8302486e5063d7ca8001b0">
+                                                                                                                                <li class="download_4f8302486e5063d7ca8001b0"><a href="javascript:;" onclick="downloadResume('4f8302486e5063d7ca8001b0-500-0-500893894',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4f8302486e5063d7ca8001b0"><a href="javascript:;" onclick="popTransferResume('4f8302486e5063d7ca8001b0-500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4f8302486e5063d7ca8001b0"><a href="javascript:;" onclick="storeResume('4f8302486e5063d7ca8001b0-500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4f83053c6e5063d7619104b0-500-0-500931252" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4f83053c6e5063d7619104b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="行政专员/助理">行政专员/助理</a>
+            </td>
+            <td width="6%">女</td>
+            <td width="6%">36</td>
+            <td width="18%" class="nowrap" title="广州"><span>广州</span></td>
+            <td width="7%">16年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="皮革，纺织，服装"><span>皮革，纺织，服装</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-03-18">2014-03-18</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4f83053c6e5063d7619104b0-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/female.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2002年9月 - 2005年9月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学香港服装学院</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">服装设计</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                         <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1995年9月 - 1999年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">湖南省对外经贸学院</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">中专</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">中专/技校/职高</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2000年11月 - 至今（16年）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">莎莉国际贸易有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">行政专员/助理</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4f83053c6e5063d7619104b0">
+                                                                                                                                <li class="download_4f83053c6e5063d7619104b0"><a href="javascript:;" onclick="downloadResume('4f83053c6e5063d7619104b0-500-0-500931252',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4f83053c6e5063d7619104b0"><a href="javascript:;" onclick="popTransferResume('4f83053c6e5063d7619104b0-500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4f83053c6e5063d7619104b0"><a href="javascript:;" onclick="storeResume('4f83053c6e5063d7619104b0-500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4f82f7376e5063d783b5f5af-500-0-500757197" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4f82f7376e5063d783b5f5af-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="科研人员">科研人员</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">39</td>
+            <td width="18%" class="nowrap" title="广州"><span>广州</span></td>
+            <td width="7%">19年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="工程施工"><span>工程施工</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-02-24">2014-02-24</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4f82f7376e5063d783b5f5af-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1998年9月 - 2002年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">土木工程</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                         <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1993年9月 - 1997年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广州航务工程学校</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">土木工程</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">中专/技校/职高</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">1997年9月 - 至今（19年2个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广东省某市交通局设计室</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">科研人员</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4f82f7376e5063d783b5f5af">
+                                                                                                                                <li class="download_4f82f7376e5063d783b5f5af"><a href="javascript:;" onclick="downloadResume('4f82f7376e5063d783b5f5af-500-0-500757197',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4f82f7376e5063d783b5f5af"><a href="javascript:;" onclick="popTransferResume('4f82f7376e5063d783b5f5af-500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4f82f7376e5063d783b5f5af"><a href="javascript:;" onclick="storeResume('4f82f7376e5063d783b5f5af-500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4f82eae56e5063d786cae8af-500-0-500593586" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4f82eae56e5063d786cae8af-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="电气工程师/技术员">电气工程师/技术员</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">44</td>
+            <td width="18%" class="nowrap" title="广州"><span>广州</span></td>
+            <td width="7%">20年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="石油，地质/矿产，化工"><span>石油，地质/矿产，化工</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2014-02-23">2014-02-23</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4f82eae56e5063d786cae8af-500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1993年9月 - 1996年6月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">电力系统及自动化</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2002年10月 - 2005年10月（3年）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州黄埔东粤有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">电气工程师/技术员</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">1996年7月 - 2002年9月（6年2个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州双桥股份有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">生产主管/督导/领班</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4f82eae56e5063d786cae8af">
+                                                                                                                                <li class="download_4f82eae56e5063d786cae8af"><a href="javascript:;" onclick="downloadResume('4f82eae56e5063d786cae8af-500-0-500593586',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4f82eae56e5063d786cae8af"><a href="javascript:;" onclick="popTransferResume('4f82eae56e5063d786cae8af-500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4f82eae56e5063d786cae8af"><a href="javascript:;" onclick="storeResume('4f82eae56e5063d786cae8af-500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50206bbccf1a77b00f4b1106-1500-0-607891670" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50206bbccf1a77b00f4b1106-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="宿舍管理员">宿舍管理员</a>
+            </td>
+            <td width="6%">女</td>
+            <td width="6%">27</td>
+            <td width="18%" class="nowrap" title="珠海"><span>珠海</span></td>
+            <td width="7%">9年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="教育/培训，学术/科研"><span>教育/培训，学术/科研</span></td>
+            <td class="text-left"><span title="2000元/月">2000元/月</span></td>
+            <td width="8%"><span title="2014-01-18">2014-01-18</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50206bbccf1a77b00f4b1106-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/female.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2009年2月 - 2012年2月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">会计</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                         <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2005年9月 - 2008年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">梅州市商业学校</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">会计</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">中专/技校/职高</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2009年2月 - 2009年9月（7个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广东工业大学</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">宿舍管理员</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2007年7月 - 2008年12月（1年5个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广东顺德八达货运</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">文员主管</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50206bbccf1a77b00f4b1106">
+                                                                                                                                <li class="download_50206bbccf1a77b00f4b1106"><a href="javascript:;" onclick="downloadResume('50206bbccf1a77b00f4b1106-1500-0-607891670',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50206bbccf1a77b00f4b1106"><a href="javascript:;" onclick="popTransferResume('50206bbccf1a77b00f4b1106-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50206bbccf1a77b00f4b1106"><a href="javascript:;" onclick="storeResume('50206bbccf1a77b00f4b1106-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="5020232bcf1a77b072c5f505-1500-0-607568594" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=5020232bcf1a77b072c5f505-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">35</td>
+            <td width="18%" class="nowrap" title="珠海"><span>珠海</span></td>
+            <td width="7%">6年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="通信设备"><span>通信设备</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-11-22">2013-11-22</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=5020232bcf1a77b072c5f505-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2002年9月 - 2005年9月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工贸职业技术学院</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">计算机科学与技术</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2010年4月 - 2010年4月</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">未填写</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_5020232bcf1a77b072c5f505">
+                                                                                                                                <li class="download_5020232bcf1a77b072c5f505"><a href="javascript:;" onclick="downloadResume('5020232bcf1a77b072c5f505-1500-0-607568594',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_5020232bcf1a77b072c5f505"><a href="javascript:;" onclick="popTransferResume('5020232bcf1a77b072c5f505-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_5020232bcf1a77b072c5f505"><a href="javascript:;" onclick="storeResume('5020232bcf1a77b072c5f505-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501bc5f63e5d77b03604e4e2-1500-0-605544244" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501bc5f63e5d77b03604e4e2-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">44</td>
+            <td width="18%" class="nowrap" title="中山"><span>中山</span></td>
+            <td width="7%">24年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-11-19">2013-11-19</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501bc5f63e5d77b03604e4e2-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                              </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">1993年1月 - 至今</span>
+ 	                         			 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501bc5f63e5d77b03604e4e2">
+                                                                                                                                <li class="download_501bc5f63e5d77b03604e4e2"><a href="javascript:;" onclick="downloadResume('501bc5f63e5d77b03604e4e2-1500-0-605544244',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501bc5f63e5d77b03604e4e2"><a href="javascript:;" onclick="popTransferResume('501bc5f63e5d77b03604e4e2-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501bc5f63e5d77b03604e4e2"><a href="javascript:;" onclick="storeResume('501bc5f63e5d77b03604e4e2-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501df5583e5d77b05c8534e3-1500-0-606371759" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501df5583e5d77b05c8534e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">41</td>
+            <td width="18%" class="nowrap" title="广东"><span>广东</span></td>
+            <td width="7%">10年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-10-22">2013-10-22</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501df5583e5d77b05c8534e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1996年9月 - 1999年6月</span>
+                                  </span>
+                                                                                                                                                                          <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2006年8月 - 2009年4月</span>
+ 	                         			 	                         			 	                         			 	                         			<span  class="job-item-label">销售经理 </span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501df5583e5d77b05c8534e3">
+                                                                                                                                <li class="download_501df5583e5d77b05c8534e3"><a href="javascript:;" onclick="downloadResume('501df5583e5d77b05c8534e3-1500-0-606371759',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501df5583e5d77b05c8534e3"><a href="javascript:;" onclick="popTransferResume('501df5583e5d77b05c8534e3-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501df5583e5d77b05c8534e3"><a href="javascript:;" onclick="storeResume('501df5583e5d77b05c8534e3-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50204dc3cf1a77b0dc990506-1500-0-607757745" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50204dc3cf1a77b0dc990506-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="物流专员/助理">物流专员/助理</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">32</td>
+            <td width="18%" class="nowrap" title="东莞"><span>东莞</span></td>
+            <td width="7%">10年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="仓储/物流/交通运输"><span>仓储/物流/交通运输</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-10-03">2013-10-03</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50204dc3cf1a77b0dc990506-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2003年9月 - 2006年6月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">物流</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2006年7月 - 至今（10年4个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州物流公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">物流专员/助理</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50204dc3cf1a77b0dc990506">
+                                                                                                                                <li class="download_50204dc3cf1a77b0dc990506"><a href="javascript:;" onclick="downloadResume('50204dc3cf1a77b0dc990506-1500-0-607757745',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50204dc3cf1a77b0dc990506"><a href="javascript:;" onclick="popTransferResume('50204dc3cf1a77b0dc990506-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50204dc3cf1a77b0dc990506"><a href="javascript:;" onclick="storeResume('50204dc3cf1a77b0dc990506-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501f7bcccf1a77b0cea1a405-1500-0-606887887" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501f7bcccf1a77b0cea1a405-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">31</td>
+            <td width="18%" class="nowrap" title="广东"><span>广东</span></td>
+            <td width="7%">10年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="教育/培训"><span>教育/培训</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-09-10">2013-09-10</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501f7bcccf1a77b0cea1a405-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2006年1月 - 2009年1月</span>
+                                  </span>
+                                                                                                                                                                          <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2008年10月 - 2008年11月</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广东工业大学(图书馆）</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2008年7月 - 2008年9月</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广百股份有限公司</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2008年2月 - 2008年5月</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广州市兴云居网吧</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501f7bcccf1a77b0cea1a405">
+                                                                                                                                <li class="download_501f7bcccf1a77b0cea1a405"><a href="javascript:;" onclick="downloadResume('501f7bcccf1a77b0cea1a405-1500-0-606887887',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501f7bcccf1a77b0cea1a405"><a href="javascript:;" onclick="popTransferResume('501f7bcccf1a77b0cea1a405-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501f7bcccf1a77b0cea1a405"><a href="javascript:;" onclick="storeResume('501f7bcccf1a77b0cea1a405-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501f0db23e5d77b06c4159e3-1500-0-606753851" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501f0db23e5d77b06c4159e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">31</td>
+            <td width="18%" class="nowrap" title="中山"><span>中山</span></td>
+            <td width="7%">9年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-09-09">2013-09-09</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501f0db23e5d77b06c4159e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2002年9月 - 2005年7月</span>
+                                  </span>
+                                                                                                                                                                          <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+
+ 	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2007年7月 - 2007年8月</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">绩东二居民委员会基建站</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501f0db23e5d77b06c4159e3">
+                                                                                                                                <li class="download_501f0db23e5d77b06c4159e3"><a href="javascript:;" onclick="downloadResume('501f0db23e5d77b06c4159e3-1500-0-606753851',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501f0db23e5d77b06c4159e3"><a href="javascript:;" onclick="popTransferResume('501f0db23e5d77b06c4159e3-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501f0db23e5d77b06c4159e3"><a href="javascript:;" onclick="storeResume('501f0db23e5d77b06c4159e3-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50203a90cf1a77b0dfd6fd05-1500-0-607675560" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50203a90cf1a77b0dfd6fd05-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">31</td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">11年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-08-21">2013-08-21</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50203a90cf1a77b0dfd6fd05-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                              </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2005年7月 - 至今</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">未填写</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50203a90cf1a77b0dfd6fd05">
+                                                                                                                                <li class="download_50203a90cf1a77b0dfd6fd05"><a href="javascript:;" onclick="downloadResume('50203a90cf1a77b0dfd6fd05-1500-0-607675560',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50203a90cf1a77b0dfd6fd05"><a href="javascript:;" onclick="popTransferResume('50203a90cf1a77b0dfd6fd05-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50203a90cf1a77b0dfd6fd05"><a href="javascript:;" onclick="storeResume('50203a90cf1a77b0dfd6fd05-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50203a5fcf1a77b086c6fd05-1500-0-607674601" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50203a5fcf1a77b086c6fd05-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">女</td>
+            <td width="6%">30</td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">11年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-08-18">2013-08-18</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50203a5fcf1a77b086c6fd05-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/female.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                              </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2005年10月 - 至今</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">未填写</span>
+ 	                         			 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50203a5fcf1a77b086c6fd05">
+                                                                                                                                <li class="download_50203a5fcf1a77b086c6fd05"><a href="javascript:;" onclick="downloadResume('50203a5fcf1a77b086c6fd05-1500-0-607674601',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50203a5fcf1a77b086c6fd05"><a href="javascript:;" onclick="popTransferResume('50203a5fcf1a77b086c6fd05-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50203a5fcf1a77b086c6fd05"><a href="javascript:;" onclick="storeResume('50203a5fcf1a77b086c6fd05-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501ecc9a3e5d77b0975050e3-1500-0-606671461" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501ecc9a3e5d77b0975050e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="会计 ">会计 </a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">31</td>
+            <td width="18%" class="nowrap" title="中山"><span>中山</span></td>
+            <td width="7%">11年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-07-04">2013-07-04</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501ecc9a3e5d77b0975050e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2005年9月 - 2008年6月</span>
+                                  </span>
+                                                                                                                                                                          <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2007年10月 - 至今（9年1个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">中山市东升镇文田五金厂</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">会计</span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501ecc9a3e5d77b0975050e3">
+                                                                                                                                <li class="download_501ecc9a3e5d77b0975050e3"><a href="javascript:;" onclick="downloadResume('501ecc9a3e5d77b0975050e3-1500-0-606671461',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501ecc9a3e5d77b0975050e3"><a href="javascript:;" onclick="popTransferResume('501ecc9a3e5d77b0975050e3-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501ecc9a3e5d77b0975050e3"><a href="javascript:;" onclick="storeResume('501ecc9a3e5d77b0975050e3-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501cca133e5d77b0ec2109e3-1500-0-605933455" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501cca133e5d77b0ec2109e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="球场总监助理">球场总监助理</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">39</td>
+            <td width="18%" class="nowrap" title="广东"><span>广东</span></td>
+            <td width="7%">16年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="工程监理"><span>工程监理</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-05-24">2013-05-24</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501cca133e5d77b0ec2109e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                              </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501cca133e5d77b0ec2109e3">
+                                                                                                                                <li class="download_501cca133e5d77b0ec2109e3"><a href="javascript:;" onclick="downloadResume('501cca133e5d77b0ec2109e3-1500-0-605933455',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501cca133e5d77b0ec2109e3"><a href="javascript:;" onclick="popTransferResume('501cca133e5d77b0ec2109e3-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501cca133e5d77b0ec2109e3"><a href="javascript:;" onclick="storeResume('501cca133e5d77b0ec2109e3-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50207d8fcf1a77b0c84e1706-1500-0-607967353" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50207d8fcf1a77b0c84e1706-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="销售">销售</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">14年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="多行业集团公司"><span>多行业集团公司</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-04-02">2013-04-02</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50207d8fcf1a77b0c84e1706-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2002年9月 - 2006年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">国际经济与贸易</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50207d8fcf1a77b0c84e1706">
+                                                                                                                                <li class="download_50207d8fcf1a77b0c84e1706"><a href="javascript:;" onclick="downloadResume('50207d8fcf1a77b0c84e1706-1500-0-607967353',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50207d8fcf1a77b0c84e1706"><a href="javascript:;" onclick="popTransferResume('50207d8fcf1a77b0c84e1706-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50207d8fcf1a77b0c84e1706"><a href="javascript:;" onclick="storeResume('50207d8fcf1a77b0c84e1706-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50207caacf1a77b0df001706-1500-0-607963169" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50207caacf1a77b0df001706-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="家具设计">家具设计</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">16年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="家电，居家用品/饰品，家具"><span>家电，居家用品/饰品，家具</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-04-01">2013-04-01</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50207caacf1a77b0df001706-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2000年7月 - 2004年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">工业设计\家具设计\平面设计</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50207caacf1a77b0df001706">
+                                                                                                                                <li class="download_50207caacf1a77b0df001706"><a href="javascript:;" onclick="downloadResume('50207caacf1a77b0df001706-1500-0-607963169',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50207caacf1a77b0df001706"><a href="javascript:;" onclick="popTransferResume('50207caacf1a77b0df001706-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50207caacf1a77b0df001706"><a href="javascript:;" onclick="storeResume('50207caacf1a77b0df001706-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50207bfdcf1a77b045c71606-1500-0-607959912" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50207bfdcf1a77b045c71606-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="家具设计">家具设计</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">16年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="家电，居家用品/饰品，家具"><span>家电，居家用品/饰品，家具</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-04-01">2013-04-01</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50207bfdcf1a77b045c71606-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2000年7月 - 2004年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">工业设计\家具设计\平面设计</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50207bfdcf1a77b045c71606">
+                                                                                                                                <li class="download_50207bfdcf1a77b045c71606"><a href="javascript:;" onclick="downloadResume('50207bfdcf1a77b045c71606-1500-0-607959912',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50207bfdcf1a77b045c71606"><a href="javascript:;" onclick="popTransferResume('50207bfdcf1a77b045c71606-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50207bfdcf1a77b045c71606"><a href="javascript:;" onclick="storeResume('50207bfdcf1a77b045c71606-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="502085d2cf1a77b071011a06-1500-0-608002360" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=502085d2cf1a77b071011a06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="经营管理/高级管理">经营管理/高级管理</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">13年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-10">2013-03-10</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=502085d2cf1a77b071011a06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2003年9月 - 2005年6月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">工商管理 　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_502085d2cf1a77b071011a06">
+                                                                                                                                <li class="download_502085d2cf1a77b071011a06"><a href="javascript:;" onclick="downloadResume('502085d2cf1a77b071011a06-1500-0-608002360',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_502085d2cf1a77b071011a06"><a href="javascript:;" onclick="popTransferResume('502085d2cf1a77b071011a06-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_502085d2cf1a77b071011a06"><a href="javascript:;" onclick="storeResume('502085d2cf1a77b071011a06-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50208429cf1a77b097601906-1500-0-607993787" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50208429cf1a77b097601906-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="计算机/IT/(移动)互联网">计算机/IT/(移动)互联网</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">13年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" ><span> - </span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-09">2013-03-09</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50208429cf1a77b097601906-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2000年9月 - 2003年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东轻工职业技术学院　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">计算机 　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50208429cf1a77b097601906">
+                                                                                                                                <li class="download_50208429cf1a77b097601906"><a href="javascript:;" onclick="downloadResume('50208429cf1a77b097601906-1500-0-607993787',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50208429cf1a77b097601906"><a href="javascript:;" onclick="popTransferResume('50208429cf1a77b097601906-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50208429cf1a77b097601906"><a href="javascript:;" onclick="storeResume('50208429cf1a77b097601906-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50208606cf1a77b0b9131a06-1500-0-608003368" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50208606cf1a77b0b9131a06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="经营管理/高级管理">经营管理/高级管理</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">13年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="车辆/配件/销售与维修"><span>车辆/配件/销售与维修</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-08">2013-03-08</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50208606cf1a77b0b9131a06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2003年9月 - 2006年6月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">计算机应用与维护（如件开发） 　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50208606cf1a77b0b9131a06">
+                                                                                                                                <li class="download_50208606cf1a77b0b9131a06"><a href="javascript:;" onclick="downloadResume('50208606cf1a77b0b9131a06-1500-0-608003368',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50208606cf1a77b0b9131a06"><a href="javascript:;" onclick="popTransferResume('50208606cf1a77b0b9131a06-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50208606cf1a77b0b9131a06"><a href="javascript:;" onclick="storeResume('50208606cf1a77b0b9131a06-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="502085ffcf1a77b055111a06-1500-0-608003239" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=502085ffcf1a77b055111a06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="财务/审计/税务/统计">财务/审计/税务/统计</a>
+            </td>
+            <td width="6%">女</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">13年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="会计/审计"><span>会计/审计</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-08">2013-03-08</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=502085ffcf1a77b055111a06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/female.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2003年1月 - 2004年1月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">国际金融 　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_502085ffcf1a77b055111a06">
+                                                                                                                                <li class="download_502085ffcf1a77b055111a06"><a href="javascript:;" onclick="downloadResume('502085ffcf1a77b055111a06-1500-0-608003239',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_502085ffcf1a77b055111a06"><a href="javascript:;" onclick="popTransferResume('502085ffcf1a77b055111a06-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_502085ffcf1a77b055111a06"><a href="javascript:;" onclick="storeResume('502085ffcf1a77b055111a06-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="5020848acf1a77b04e8a1906-1500-0-607995957" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=5020848acf1a77b04e8a1906-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="工厂/生产制造">工厂/生产制造</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">14年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="通信/手机"><span>通信/手机</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-07">2013-03-07</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=5020848acf1a77b04e8a1906-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">1996年9月 - 1999年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">计算机应用与维护 　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_5020848acf1a77b04e8a1906">
+                                                                                                                                <li class="download_5020848acf1a77b04e8a1906"><a href="javascript:;" onclick="downloadResume('5020848acf1a77b04e8a1906-1500-0-607995957',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_5020848acf1a77b04e8a1906"><a href="javascript:;" onclick="popTransferResume('5020848acf1a77b04e8a1906-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_5020848acf1a77b04e8a1906"><a href="javascript:;" onclick="storeResume('5020848acf1a77b04e8a1906-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50208453cf1a77b007731906-1500-0-607994723" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50208453cf1a77b007731906-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="机械/机电/仪表">机械/机电/仪表</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">16年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="机械/机电/仪器/仪表"><span>机械/机电/仪器/仪表</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-07">2013-03-07</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50208453cf1a77b007731906-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2002年1月 - 2005年1月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东轻工职业技术学院　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">制冷 　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50208453cf1a77b007731906">
+                                                                                                                                <li class="download_50208453cf1a77b007731906"><a href="javascript:;" onclick="downloadResume('50208453cf1a77b007731906-1500-0-607994723',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50208453cf1a77b007731906"><a href="javascript:;" onclick="popTransferResume('50208453cf1a77b007731906-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50208453cf1a77b007731906"><a href="javascript:;" onclick="storeResume('50208453cf1a77b007731906-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="50208914cf1a77b086491b06-1500-0-608019805" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=50208914cf1a77b086491b06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="装修设计/施工">装修设计/施工</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%"> - </td>
+            <td width="18%" class="nowrap" title="佛山"><span>佛山</span></td>
+            <td width="7%">14年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="工程施工，房地产"><span>工程施工，房地产</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-03-07">2013-03-07</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=50208914cf1a77b086491b06-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2035年1月 - 2038年1月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">工民建　</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                                              </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_50208914cf1a77b086491b06">
+                                                                                                                                <li class="download_50208914cf1a77b086491b06"><a href="javascript:;" onclick="downloadResume('50208914cf1a77b086491b06-1500-0-608019805',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_50208914cf1a77b086491b06"><a href="javascript:;" onclick="popTransferResume('50208914cf1a77b086491b06-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_50208914cf1a77b086491b06"><a href="javascript:;" onclick="storeResume('50208914cf1a77b086491b06-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="4fda3d235530babbea386e49-1500-0-603427403" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=4fda3d235530babbea386e49-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">男</td>
+            <td width="6%">31</td>
+            <td width="18%" class="nowrap" title="北京"><span>北京</span></td>
+            <td width="7%">10年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="教育/培训"><span>教育/培训</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-01-15">2013-01-15</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=4fda3d235530babbea386e49-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/male.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2004年9月 - 2007年6月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学华立学院</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">电子商务</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2006年6月 - 2007年2月（8个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">广东工业大学华立学院招生办</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">文员  </span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_4fda3d235530babbea386e49">
+                                                                                                                                <li class="download_4fda3d235530babbea386e49"><a href="javascript:;" onclick="downloadResume('4fda3d235530babbea386e49-1500-0-603427403',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_4fda3d235530babbea386e49"><a href="javascript:;" onclick="popTransferResume('4fda3d235530babbea386e49-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_4fda3d235530babbea386e49"><a href="javascript:;" onclick="storeResume('4fda3d235530babbea386e49-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                     <tr class="tr-list ">
+            <td width="3%" class="resume-user-name">
+
+              <input type="checkbox" class="checkOne checkbox" data-selector="checkbox-list" name="ckbox" autocomplete="off" value="501cfc843e5d77b0ed7810e3-1500-0-606010519" ">
+            </td>
+            <td width="14%" class="resume-user-name">
+              <a target="_blank" class="link-resume-view" href="/resume/viewresume?rsl=501cfc843e5d77b0ed7810e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" title="未知">未知</a>
+            </td>
+            <td width="6%">女</td>
+            <td width="6%">33</td>
+            <td width="18%" class="nowrap" title="广东"><span>广东</span></td>
+            <td width="7%">11年</td>
+            <td width="8%"><span title="大专">大专</span></td>
+            <td width="18%" class="text-left nowrap" title="管理及其他咨询服务"><span>管理及其他咨询服务</span></td>
+            <td class="text-left"><span title=""> - </span></td>
+            <td width="8%"><span title="2013-01-14">2013-01-14</span></td>
+          </tr>
+          <tr class="tr-detail ">
+            <td colspan="10">
+              <table class="children-tab">
+                <tbody>
+                  <tr>
+                      <td width="90" rowspan="2">
+                        <a href="/resume/viewresume?rsl=501cfc843e5d77b0ed7810e3-1500-0&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6" target="_blank">
+                                                                                  <img src="http://image1.818cv.com/images/female.png" />
+                                                                              </a>
+                      </td>
+                      <td class="w-half text-left">
+                                                                                  <p>
+                                                                  <span class="item">
+                                    <span  class="job-item-label">2003年9月 - 2005年7月</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">广东工业大学</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">物流管理</span>
+                                  </span>
+                                                                                                      <span class="item">
+                                    <span  class="job-item-label">大专</span>
+                                  </span>
+                                                                </p>
+                                                                        </td>
+                      <td class="text-left">
+                         	                         	                         	                              <p>
+ 	                         		<span class="item">
+ 	                         			 	                         			<span  class="job-item-label">2005年3月 - 2005年8月（5个月）</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">深圳九大方略管理顾问有限公司</span>
+ 	                         			 	                         			 	                         			<span  class="job-item-label">-  </span>
+ 	                         			 	                         		</span>
+                              </p>
+
+ 	                                                                       </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" height="20" class='btn-os'>
+                      <ul class="list-inline jsDown_501cfc843e5d77b0ed7810e3">
+                                                                                                                                <li class="download_501cfc843e5d77b0ed7810e3"><a href="javascript:;" onclick="downloadResume('501cfc843e5d77b0ed7810e3-1500-0-606010519',0)"><span class="fa  fa-cloud-download"></span>下载简历</a></li>
+                                                                           <li class="transfer_501cfc843e5d77b0ed7810e3"><a href="javascript:;" onclick="popTransferResume('501cfc843e5d77b0ed7810e3-1500-0',0)"><span class="fa fa-share"></span>转发简历</a></li>
+                                                                                       <li class="store_501cfc843e5d77b0ed7810e3"><a href="javascript:;" onclick="storeResume('501cfc843e5d77b0ed7810e3-1500-0',0)"><span class="fa fa-star-o"></span>收藏简历</a></li>
+                                                                                                    </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+                </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6"><label>
+            <input type="checkbox" class="checkAll" data-selector="checkbox-all" name="ckbox" value="" autocomplete="off"> 全选 </label>
+          	<a data-selector="link-batchview" data-source="1" class="btn btn-light btn-small link-batchview" href="javascript:;" onclick="listResumeAll(this,5)">批量浏览简历</a>
+           	            <a data-selector="link-batchview" data-source="1" class="btn btn-light btn-small link-batchview" href="javascript:;" onclick="listResumeAll(this,1)">批量下载简历</a>
+                                    <a data-selector="link-batchview" data-source="1" class="btn btn-light btn-small link-batchview" href="javascript:;" onclick="listResumeAll(this,2)">批量转发简历</a>
+                                    <a data-selector="link-batchview" data-source="1" class="btn btn-light btn-small link-batchview" href="javascript:;" onclick="listResumeAll(this,3)">批量收藏简历</a>
+ 			 			          </td>
+          <td colspan="4">
+            <ul class="pull-right pagerbar">
+  	    <li >
+		    <a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=4"  >上一页</a>
+		</li>
+				 <li  ><a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=1" >1</a></li>
+        		 <li  ><a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=2" >2</a></li>
+        		 <li  ><a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=3" >3</a></li>
+        		 <li  ><a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=4" >4</a></li>
+        		 <li class="active current" ><a href="javascript:;" class="active current">5</a></li>
+        		 <li  ><a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=6" >6</a></li>
+        		 <li  ><a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=7" >7</a></li>
+        	    <li >
+			<a href="/resume/search/?keywordType=1&degree=4&keywords=%E5%B9%BF%E4%B8%9C%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6&createtime=0&workyears=1&page=6">下一页</a>
+		</li>
+	</ul>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+
+  </div>
+</div>
+<script src='http://js.818cv.com/js/??resumelist.js'></script>
+    			<style>
+    #page-wrapper{
+        overflow:hidden;
+    }
+    #page-wrapper table{margin-top:30px;}
+     form{
+        position:relative;
+        top:20px;
+    }
+    .panel-head-primary{
+        background:#337ab7;
+        border-radius:0;
+        font-size:18px;
+        font-weight:700;
+        color:#fff;
+    }
+</style> 
+<!--div id="alert-panel" style="display:none;">
+    <div style="width:600px;">
+    	<p class="panel-heading panel-head-primary">
+    		<a class="arrow js-close-prompt" href="javascript:;"></a>意见反馈
+    	</p>
+    	<form  method="post" name="share" class="panel-body">
+    		<div class="form-group">
+    			<label for="" class="control-label">联系方式：</label>
+    			 <input type="text" name="feedbackContact" class="form-control" value="">
+    		</div>           
+            <div class="form-group">
+                <label for="" class="control-label">反馈内容：</label>
+            
+                <textarea name="feedbackContent" class="form-control" rows="8"></textarea>
+     
+            </div>
+            <div class="form-group">
+                <input type="button" value="提交" onclick="savefeedback()" class="js-share-submit btn-primary btn">
+            </div>
+    		<input type="hidden" name="id" value="">
+    	</form>
+    </div>
+</div-->
+
+
+
+<div class="backTop backTop-index backTop-com">
+   <!--a class="thinkUser" href="javascript:;" onclick="getfeedback()" ><i class="icon"></i></a-->
+   <a class="backBtn" style="display:none;" href="javascript:;"><i class="icon"></i></a>
+</div>
+
+
+<script>
+  
+$(function (){
+  var sT = document.body.scrollTop || document.documentElement.scrollTop;
+  if(sT==0){
+    $(".backBtn").hide();
+  }
+  else{
+    $(".backBtn").show();
+  }
+  $(window).scroll(function (){
+    sT = document.body.scrollTop || document.documentElement.scrollTop;
+    if(sT==0){
+      $(".backBtn").hide();
+    }
+    else{
+      $(".backBtn").show();
+    }
+  });
+  if($(window).width()<1040){
+    $("div.backTop").addClass("min-backTop");
+  }
+  toTop();
+});
+
+function toTop(){
+  var toTop = $(".backBtn");
+  if($(window).scrollTop() == 0)
+    toTop.hide();
+  //注册事件：返回页面顶部
+  toTop.on("click",function(){
+    $("html,body").animate({
+      scrollTop : 0
+    },500);
+  });
+}
+
+	
+	//弹出意见反馈
+	function getfeedback()
+	{
+		$.popmsg.custom($("#alert-panel").html());	
+	}
+	//保存意见反馈内容
+		//保存意见反馈内容
+	function savefeedback()
+	{
+		var feedbackContent = $('textarea[name="feedbackContent"]:visible').val();
+		var feedbackContact = $('input[name="feedbackContact"]:visible').val();		
+		if(feedbackContact.length==0)
+		{
+			$.popmsg.alert('请填写你的联系方式，以便我们及时给你反馈!');
+			return;
+		}
+		if(feedbackContent.length ==0)
+		{
+			$.popmsg.alert('请填写反馈内容!');
+			return;
+		}
+		$.ajax({
+			url:'/ajax/feedback/addFeedback',
+			type:'post',
+			data:{'feedbackContent':feedbackContent,'feedbackContact':feedbackContact},
+			dataType:'json',
+			success:function(data)
+			{
+				if(data.result)
+				{
+					$.popmsg.close();
+					$.popmsg.alert('感谢你的反馈，我们会第一时间处理，谢谢!');
+				}
+			}
+		})
+	}
+</script>
+		<script type="text/javascript"> var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F388047845f38c9a77580e8bce92c40fd' type='text/javascript'%3E%3C/script%3E")) </script>
+
+<div id="footer" class="footer page-footer">     
+    
+            &copy;2016&emsp;818cv版权所有  <a href="http://www.818cv.com/">简历分享平台</a> <span class="seperate">|</span> <a href="http://www.818cv.com/">简历交换平台</a> <span class="seperate">|</span><a href="/about/aboutus">关于猎8</a><span class="seperate">|</span><a href="/about/sharerule">分享规则</a><span class="seperate">|</span><a href="javascript:;" onclick="$('.nb-icon-bridge-base[data-type=iconInvite]').eq(0).trigger('click');">在线咨询</a>
+            <span class="seperate">|</span><a target='_blank' href="http://www.miibeian.gov.cn/">京ICP备16047871号</a>
+            <!--span class="seperate">|</span><a href="#">建议&意见</a-->
+          
+</div>
+<script>
+$(function(){
+	$("img[width=20][height=20][src*='baidu']").remove();
+});
+
+	$(document).height() < $(window).height() ? $("#footer").css({"position":"absolute","bottom":0,"width": "100%"}) : undefined;
+</script>
+
+</body>
+</html>

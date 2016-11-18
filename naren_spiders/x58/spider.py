@@ -303,7 +303,7 @@ def get_resume_urls(session, urls, user_agent, dedup, proxies=None):
 
     resume_300_flag = 0
     for url_page in urls:
-        for page in xrange(1, 14):
+        for page in xrange(1, 30):
             if resume_300_flag == 1:
                 break
             time.sleep(random.uniform(30, 100))
@@ -386,7 +386,7 @@ def download_resume(session, url, user_agent, proxies=None):
         "Accept-Encoding": "gzip, deflate, sdch",
         "Accept-Language": "zh-CN,zh;q=0.8",
         "Host": host,
-        "Upgrade-Insecure-Requests": 1
+        "Upgrade-Insecure-Requests": "1"
     }
     logger.info('headers %s of url %s' % (headers, url))
     try_times = 0
@@ -440,7 +440,7 @@ def x58_search(params, dedup, proxies=None):
     assert username
     urls = get_resume_list_urls(params)
     user_agent = nautil.user_agent()
-    s = contact.login(username, user_agent, proxies=proxies)
+    s = contact.login(username, password, user_agent, proxies=proxies)
     return get_resume_urls(s, urls, user_agent, dedup, proxies=proxies)
 
 
